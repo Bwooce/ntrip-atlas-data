@@ -12,10 +12,9 @@ This repository contains the service database for [NTRIP Atlas](https://github.c
 data/
 ├── VERSION              # Database version info
 ├── global/             # Worldwide services (RTK2GO, Point One Polaris)
-├── europe/             # European services
-├── asia-pacific/       # Asia Pacific region
-├── americas/           # North & South America (USA, Canada, Brazil)
-└── africa/             # African regional services
+├── emea/               # Europe, Middle East, Africa
+├── apac/               # Asia Pacific region
+└── americas/           # North & South America (USA, Canada, Brazil)
 ```
 
 ## Current Services

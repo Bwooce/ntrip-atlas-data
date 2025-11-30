@@ -13,11 +13,10 @@ TOTAL_SERVICES=6
 GEOGRAPHIC_REGIONS=4
 
 # Service counts by region
-GLOBAL_SERVICES=2         # RTK2GO, Point One Polaris
-EUROPE_SERVICES=2         # EUREF-IP, Finland FinnRef
-ASIA_PACIFIC_SERVICES=1   # Geoscience Australia
-AMERICAS_SERVICES=1       # Massachusetts MaCORS
-AFRICA_SERVICES=0
+GLOBAL_SERVICES=2     # RTK2GO, Point One Polaris
+EMEA_SERVICES=2       # EUREF-IP, Finland FinnRef
+APAC_SERVICES=1       # Geoscience Australia
+AMERICAS_SERVICES=1   # Massachusetts MaCORS
 
 # Validation status
 VALIDATED=true

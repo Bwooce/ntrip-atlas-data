@@ -55,7 +55,7 @@ jobs:
     - name: Check geographic distribution
       run: |
         echo "Geographic service distribution:"
-        for region in global europe asia-pacific americas africa; do
+        for region in global emea apac americas; do
           if [ -d "$region" ]; then
             count=$(find "$region" -name "*.yaml" 2>/dev/null | wc -l || echo 0)
             echo "  $region: $count services"
@@ -83,7 +83,7 @@ jobs:
         fi
 
         # Test Geoscience Australia (if exists)
-        if [ -f "asia-pacific/australia-ga.yaml" ]; then
+        if [ -f "apac/australia-ga.yaml" ]; then
           echo "Testing Geoscience Australia reachability..."
           timeout 10s curl -I "http://auscors.ga.gov.au:2101" > /dev/null 2>&1 || echo "GA AUSCORS not reachable (expected for basic test)"
         fi

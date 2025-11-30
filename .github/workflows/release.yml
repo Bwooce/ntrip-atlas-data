@@ -60,7 +60,7 @@ jobs:
         sed -i "s/TOTAL_SERVICES=.*/TOTAL_SERVICES=$TOTAL_SERVICES/" VERSION
 
         # Update regional counts
-        for region in global europe asia-pacific americas africa; do
+        for region in global emea apac americas; do
           if [ -d "$region" ]; then
             count=$(find "$region" -name "*.yaml" 2>/dev/null | wc -l || echo 0)
             region_upper=$(echo "$region" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
@@ -84,10 +84,10 @@ jobs:
           --exclude='.git*' \
           --exclude='release' \
           --exclude='.github' \
-          *.yaml global/ europe/ asia-pacific/ americas/ africa/ VERSION LICENSE-DATA README.md
+          *.yaml global/ emea/ apac/ americas/ VERSION LICENSE-DATA README.md
 
         # Create region-specific packages for large deployments
-        for region in global europe asia-pacific americas africa; do
+        for region in global emea apac americas; do
           if [ -d "$region" ] && [ "$(find "$region" -name "*.yaml" | wc -l)" -gt 0 ]; then
             tar -czf release/ntrip-atlas-${region}-${{ steps.version.outputs.version }}.tar.gz \
               "$region/" VERSION LICENSE-DATA
@@ -105,7 +105,7 @@ jobs:
         echo "- **Total Services**: $TOTAL_SERVICES" >> release_notes.md
 
         echo "- **Geographic Distribution**:" >> release_notes.md
-        for region in global europe asia-pacific americas africa; do
+        for region in global emea apac americas; do
           if [ -d "$region" ]; then
             count=$(find "$region" -name "*.yaml" 2>/dev/null | wc -l || echo 0)
             if [ "$count" -gt 0 ]; then

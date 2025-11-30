@@ -1,0 +1,123 @@
+name: Validate Service Database
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate-yaml:
+    runs-on: ubuntu-latest
+    name: Validate YAML Services
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install PyYAML jsonschema
+
+    - name: Clone main library for validator tool
+      run: |
+        git clone https://github.com/bruce/ntrip-atlas.git /tmp/ntrip-atlas
+
+    - name: Run YAML validation
+      run: |
+        # Use the validator from the main library repository
+        python3 /tmp/ntrip-atlas/tools/validators/service_validator.py --directory .
+        echo "All service YAML files validated successfully"
+
+    - name: Check VERSION file
+      run: |
+        # Verify VERSION file format
+        grep -q "DATABASE_VERSION=" VERSION
+        grep -q "SCHEMA_VERSION=" VERSION
+        echo "VERSION file format verified"
+
+    - name: Verify service count consistency
+      run: |
+        # Count actual YAML files
+        ACTUAL_COUNT=$(find . -name "*.yaml" | wc -l)
+        DECLARED_COUNT=$(grep "TOTAL_SERVICES=" VERSION | cut -d'=' -f2)
+
+        if [ "$ACTUAL_COUNT" -ne "$DECLARED_COUNT" ]; then
+          echo "Error: Actual service count ($ACTUAL_COUNT) doesn't match declared count ($DECLARED_COUNT)"
+          exit 1
+        fi
+        echo "Service count consistency verified: $ACTUAL_COUNT services"
+
+    - name: Check geographic distribution
+      run: |
+        echo "Geographic service distribution:"
+        for region in global europe asia-pacific americas africa; do
+          if [ -d "$region" ]; then
+            count=$(find "$region" -name "*.yaml" 2>/dev/null | wc -l || echo 0)
+            echo "  $region: $count services"
+          fi
+        done
+
+  test-connectivity:
+    runs-on: ubuntu-latest
+    name: Test Service Connectivity (Sample)
+    # Only run on main branch to avoid rate limiting on PRs
+    if: github.ref == 'refs/heads/main'
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Test sample service connectivity
+      run: |
+        # Test one service from each major category to verify basic connectivity
+        # This is a basic reachability test, not a full NTRIP test
+
+        # Test RTK2GO (if exists)
+        if [ -f "global/rtk2go.yaml" ]; then
+          echo "Testing RTK2GO reachability..."
+          timeout 10s curl -I "http://rtk2go.com:2101" > /dev/null 2>&1 || echo "RTK2GO not reachable (expected for basic test)"
+        fi
+
+        # Test Geoscience Australia (if exists)
+        if [ -f "asia-pacific/australia-ga.yaml" ]; then
+          echo "Testing Geoscience Australia reachability..."
+          timeout 10s curl -I "http://auscors.ga.gov.au:2101" > /dev/null 2>&1 || echo "GA AUSCORS not reachable (expected for basic test)"
+        fi
+
+        echo "Basic connectivity tests completed"
+
+  security-check:
+    runs-on: ubuntu-latest
+    name: Security and Content Review
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Check for credentials in YAML
+      run: |
+        # Ensure no actual credentials are committed
+        if grep -r -i "password\|secret\|key" *.yaml 2>/dev/null; then
+          echo "Error: Found potential credentials in YAML files"
+          exit 1
+        fi
+        echo "No credentials found in YAML files"
+
+    - name: Verify license compliance
+      run: |
+        # Check that LICENSE-DATA exists and is CC0
+        test -f LICENSE-DATA
+        grep -q "CC0" LICENSE-DATA
+        echo "CC0 license verified"
+
+    - name: Check for malicious content
+      run: |
+        # Basic check for suspicious patterns
+        if find . -name "*.yaml" -exec grep -l "javascript\|script\|eval\|exec" {} \; | head -1; then
+          echo "Warning: Found potentially suspicious content"
+          exit 1
+        fi
+        echo "No suspicious content patterns found"

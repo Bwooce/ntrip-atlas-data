@@ -1,0 +1,168 @@
+name: Create Database Release
+
+on:
+  push:
+    tags:
+      - 'db-*'
+  # Also allow manual trigger for database updates
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Database version (YYYYMMDD.NN format)'
+        required: true
+        type: string
+
+jobs:
+  validate-and-release:
+    runs-on: ubuntu-latest
+    name: Create Service Database Release
+
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+
+    - name: Install dependencies
+      run: |
+        pip install PyYAML jsonschema
+
+    - name: Clone main library for validator
+      run: |
+        git clone https://github.com/bruce/ntrip-atlas.git /tmp/ntrip-atlas
+
+    - name: Extract version
+      id: version
+      run: |
+        if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+          VERSION="${{ inputs.version }}"
+          TAG="db-$VERSION"
+        else
+          TAG=${GITHUB_REF#refs/tags/}
+          VERSION=${TAG#db-}
+        fi
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+        echo "tag=$TAG" >> $GITHUB_OUTPUT
+        echo "Database version: $VERSION"
+
+    - name: Update VERSION file
+      run: |
+        # Update VERSION file with new version
+        sed -i "s/DATABASE_VERSION=.*/DATABASE_VERSION=${{ steps.version.outputs.version }}/" VERSION
+        sed -i "s/LAST_UPDATED=.*/LAST_UPDATED=$(date -u +%Y-%m-%dT%H:%M:%SZ)/" VERSION
+
+        # Update service counts
+        TOTAL_SERVICES=$(find . -name "*.yaml" | wc -l)
+        sed -i "s/TOTAL_SERVICES=.*/TOTAL_SERVICES=$TOTAL_SERVICES/" VERSION
+
+        # Update regional counts
+        for region in global europe asia-pacific americas africa; do
+          if [ -d "$region" ]; then
+            count=$(find "$region" -name "*.yaml" 2>/dev/null | wc -l || echo 0)
+            region_upper=$(echo "$region" | tr '[:lower:]' '[:upper:]' | tr '-' '_')
+            sed -i "s/${region_upper}_SERVICES=.*/${region_upper}_SERVICES=$count/" VERSION
+          fi
+        done
+
+        echo "Updated VERSION file:"
+        cat VERSION
+
+    - name: Run full validation
+      run: |
+        python3 /tmp/ntrip-atlas/tools/validators/service_validator.py --directory .
+
+    - name: Create release package
+      run: |
+        mkdir -p release
+
+        # Create complete database archive
+        tar -czf release/ntrip-atlas-database-${{ steps.version.outputs.version }}.tar.gz \
+          --exclude='.git*' \
+          --exclude='release' \
+          --exclude='.github' \
+          *.yaml global/ europe/ asia-pacific/ americas/ africa/ VERSION LICENSE-DATA README.md
+
+        # Create region-specific packages for large deployments
+        for region in global europe asia-pacific americas africa; do
+          if [ -d "$region" ] && [ "$(find "$region" -name "*.yaml" | wc -l)" -gt 0 ]; then
+            tar -czf release/ntrip-atlas-${region}-${{ steps.version.outputs.version }}.tar.gz \
+              "$region/" VERSION LICENSE-DATA
+          fi
+        done
+
+    - name: Generate release notes
+      id: release_notes
+      run: |
+        echo "NTRIP Atlas Service Database ${{ steps.version.outputs.version }}" > release_notes.md
+        echo "" >> release_notes.md
+
+        echo "## Database Statistics" >> release_notes.md
+        TOTAL_SERVICES=$(find . -name "*.yaml" | wc -l)
+        echo "- **Total Services**: $TOTAL_SERVICES" >> release_notes.md
+
+        echo "- **Geographic Distribution**:" >> release_notes.md
+        for region in global europe asia-pacific americas africa; do
+          if [ -d "$region" ]; then
+            count=$(find "$region" -name "*.yaml" 2>/dev/null | wc -l || echo 0)
+            if [ "$count" -gt 0 ]; then
+              region_name=$(echo "$region" | sed 's/-/ /g' | sed 's/\b\w/\U&/g')
+              echo "  - $region_name: $count services" >> release_notes.md
+            fi
+          fi
+        done
+
+        echo "" >> release_notes.md
+        echo "## Changes Since Last Release" >> release_notes.md
+
+        # Get changes since last database release
+        LAST_TAG=$(git describe --tags --match="db-*" --abbrev=0 HEAD^ 2>/dev/null || echo "")
+        if [ -n "$LAST_TAG" ]; then
+          echo "Changes since $LAST_TAG:" >> release_notes.md
+          git log ${LAST_TAG}..HEAD --oneline --pretty=format:"- %s" >> release_notes.md
+        else
+          echo "- Initial database release" >> release_notes.md
+          echo "- $TOTAL_SERVICES validated NTRIP services" >> release_notes.md
+        fi
+
+        echo "" >> release_notes.md
+        echo "## Integration" >> release_notes.md
+        echo "This database is designed for use with [NTRIP Atlas library](https://github.com/bruce/ntrip-atlas)." >> release_notes.md
+        echo "" >> release_notes.md
+        echo "## License" >> release_notes.md
+        echo "All service data released under CC0 (public domain) - no attribution required." >> release_notes.md
+
+    - name: Commit VERSION file update
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add VERSION
+        git commit -m "Update VERSION file for release ${{ steps.version.outputs.version }}" || echo "No changes to commit"
+
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ steps.version.outputs.tag }}
+        name: NTRIP Atlas Database ${{ steps.version.outputs.version }}
+        body_path: release_notes.md
+        files: |
+          release/*.tar.gz
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  notify-library-repo:
+    runs-on: ubuntu-latest
+    name: Notify Library Repository
+    needs: validate-and-release
+
+    steps:
+    - name: Notify library repository
+      run: |
+        echo "New service database released: ${{ needs.validate-and-release.outputs.version }}"
+        echo "Library repository may want to update examples or documentation"
+        # Future: Could trigger integration tests in the main library repo

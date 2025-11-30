@@ -115,9 +115,29 @@ jobs:
 
     - name: Check for malicious content
       run: |
-        # Basic check for suspicious patterns
-        if find . -name "*.yaml" -exec grep -l "javascript\|script\|eval\|exec" {} \; | head -1; then
-          echo "Warning: Found potentially suspicious content"
+        # Check for actual security threats (whole words only, avoid false positives)
+        SUSPICIOUS_FOUND=0
+
+        # Check for actual JavaScript/scripting content (whole words, case insensitive)
+        if find . -name "*.yaml" -exec grep -l -i '\bjavascript\b\|\beval\b\|\bexec\b' {} \; 2>/dev/null; then
+          echo "Error: Found potentially malicious scripting content"
+          SUSPICIOUS_FOUND=1
+        fi
+
+        # Check for embedded code blocks that might contain scripts
+        if find . -name "*.yaml" -exec grep -l '```.*script\|<script\|</script' {} \; 2>/dev/null; then
+          echo "Error: Found script blocks in YAML"
+          SUSPICIOUS_FOUND=1
+        fi
+
+        # Check for suspicious URLs or injection attempts
+        if find . -name "*.yaml" -exec grep -l 'data:.*script\|vbscript:\|javascript:' {} \; 2>/dev/null; then
+          echo "Error: Found suspicious URLs or data URIs"
+          SUSPICIOUS_FOUND=1
+        fi
+
+        if [ "$SUSPICIOUS_FOUND" -eq 1 ]; then
           exit 1
         fi
-        echo "No suspicious content patterns found"
+
+        echo "No malicious content patterns found"

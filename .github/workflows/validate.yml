@@ -25,7 +25,7 @@ jobs:
 
     - name: Clone main library for validator tool
       run: |
-        git clone https://github.com/bruce/ntrip-atlas.git /tmp/ntrip-atlas
+        git clone https://github.com/Bwooce/ntrip-atlas.git /tmp/ntrip-atlas
 
     - name: Run YAML validation
       run: |
@@ -115,17 +115,17 @@ jobs:
 
     - name: Check for malicious content
       run: |
-        # Check for actual security threats (whole words only, avoid false positives)
+        # Check for actual security threats (more specific patterns to avoid false positives)
         SUSPICIOUS_FOUND=0
 
-        # Check for actual JavaScript/scripting content (whole words, case insensitive)
-        if find . -name "*.yaml" -exec grep -l -i '\bjavascript\b\|\beval\b\|\bexec\b' {} \; 2>/dev/null; then
+        # Check for actual JavaScript/scripting content (more specific patterns)
+        if find . -name "*.yaml" -exec grep -l -i '\bjavascript\b\|\beval\b\|\bexec\(' {} \; 2>/dev/null; then
           echo "Error: Found potentially malicious scripting content"
           SUSPICIOUS_FOUND=1
         fi
 
-        # Check for embedded code blocks that might contain scripts
-        if find . -name "*.yaml" -exec grep -l '```.*script\|<script\|</script' {} \; 2>/dev/null; then
+        # Check for embedded code blocks that contain actual script tags (not just "script" in words)
+        if find . -name "*.yaml" -exec grep -l '<script\|</script\|```\s*javascript' {} \; 2>/dev/null; then
           echo "Error: Found script blocks in YAML"
           SUSPICIOUS_FOUND=1
         fi

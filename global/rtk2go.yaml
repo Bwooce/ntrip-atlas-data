@@ -46,7 +46,7 @@ service:
     registration_url: "http://rtk2go.com/new-reservation/"
     registration_required: false
     approval_time: "immediate"
-    notes: "Username: email address, Password: 'none'"
+    notes: "Username: email address, Pass: the literal text 'none'"
 
   # Service characteristics
   service_info:

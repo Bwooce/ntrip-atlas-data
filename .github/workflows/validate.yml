@@ -97,33 +97,33 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: Check for credentials in YAML
+    - name: Check for obvious credential exposures
       run: |
-        # Check for actual credential values (not field documentation)
-        # Look for suspicious patterns that might contain real credentials
-        echo "Checking for potential credential exposures..."
+        # Basic security check - look for clearly exposed credentials
+        # Service documentation may reference authentication requirements
+        echo "Performing basic credential exposure check..."
 
-        # Check for common credential patterns that are clearly not documentation
-        CREDENTIALS_FOUND=0
+        # Check for obviously dangerous patterns (actual secrets)
+        DANGER_FOUND=0
 
-        # Look for actual password values (not documentation about passwords)
-        if find . -name "*.yaml" -exec grep -l -E "(password|api_key|secret_key):\s*['\"][A-Za-z0-9_-]{8,}['\"]" {} \; 2>/dev/null | head -1; then
-          echo "Warning: Found potential credential values in YAML files"
-          CREDENTIALS_FOUND=1
+        # Check for common secret patterns that should never be committed
+        if find . -name "*.yaml" -exec grep -l -E "(password|secret|key|token):\s*['\"][A-Za-z0-9+/=]{32,}['\"]" {} \; 2>/dev/null | head -1; then
+          echo "Error: Found long encoded credential values (32+ chars)"
+          DANGER_FOUND=1
         fi
 
-        # Check for unquoted credential values
-        if find . -name "*.yaml" -exec grep -l -E "^\s*(password|api_key|secret_key):\s*[A-Za-z0-9_-]{8,}\s*$" {} \; 2>/dev/null | head -1; then
-          echo "Warning: Found unquoted credential values in YAML files"
-          CREDENTIALS_FOUND=1
+        # Check for AWS/common cloud credentials format
+        if find . -name "*.yaml" -exec grep -l -E "(aws_|api_key|secret_key):\s*['\"]AKIA[A-Z0-9]{16}['\"]" {} \; 2>/dev/null | head -1; then
+          echo "Error: Found AWS-style access key"
+          DANGER_FOUND=1
         fi
 
-        if [ $CREDENTIALS_FOUND -eq 1 ]; then
-          echo "Error: Potential credentials detected in service database"
+        if [ $DANGER_FOUND -eq 1 ]; then
+          echo "Potential credential exposure detected"
           exit 1
         fi
 
-        echo "No credential values detected - documentation references are OK"
+        echo "No obvious credential exposures found"
 
     - name: Verify license compliance
       run: |

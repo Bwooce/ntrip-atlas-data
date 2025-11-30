@@ -1,0 +1,119 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "usa_california_crtn"
+  name: "California Real Time Network (CRTN)"
+  provider: "California Spatial Reference Center (CSRC) / UC San Diego"
+  organization_type: "academic"
+  country: "USA"
+  state: "California"
+  website: "http://sopac-csrc.ucsd.edu/index.php/crtn/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "sopac-csrc.ucsd.edu"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "CRTN NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 32.5
+      lat_max: 42.0
+      lon_min: -124.5
+      lon_max: -114.0
+    description: "Statewide California coverage"
+    regions: ["California", "Western USA"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "http://sopac-csrc.ucsd.edu/"
+    approval_time: "immediate"
+    terms: "Free public RTK service"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+    legal_compliance: "Fulfills California Public Resources Codes 8856(c)(e), 8857(c), 8858(b)"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.0", "RTCM 3.2"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Single Baseline RTK"
+    coordinate_system: "CSRS Epoch 2017.50 (NAD83)"
+    update_rate_hz: 1
+    latency: "< 1 second"
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 5
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    rtk_mode: "Single baseline"
+    data_latency: "< 1 second"
+    update_rate: "1 Hz"
+    coverage_type: "statewide"
+
+  network_details:
+    operator: "California Spatial Reference Center at UC San Diego"
+    data_sources:
+      - "EarthScope (NOTA)"
+      - "UC Berkeley/USGS Menlo Park (BARD)"
+      - "USGS Pasadena (SCIGN)"
+      - "Caltrans (CVSRN)"
+      - "Orange County Public Works (OCRTN)"
+      - "SOPAC (SCIGN)"
+    caltrans_stations: 12
+    total_ctsrn_stations: 69
+    ocrtn_stations: 11
+
+  requirements:
+    receiver: "Survey grade dual-frequency GNSS receiver"
+    connectivity: "Real-time internet connection (cellular modem, WiFi, etc.)"
+    protocol: "NTRIP capable receiver"
+
+  related_networks:
+    - name: "OCRTN"
+      description: "Orange County Real Time Network"
+      stations: 11
+      cost: "Free"
+      messages: "RTCM 18, 19, 3, 22"
+
+    - name: "CTSRN"
+      description: "Caltrans Spatial Reference Network"
+      stations: 69
+      access: "Limited to Caltrans and vetted partners"
+      note: "12 stations integrated into CRTN"
+
+    - name: "Plate Boundary Observatory"
+      description: "Additional free single baseline service"
+      coverage: "California"
+
+  coordinate_reference:
+    frame: "NAD83(CSRS v6) Epoch 2017.50"
+    vertical_datum: "CGVD2013"
+    metadata: "Includes antenna/receiver models, antenna height and reference point"
+
+  notes:
+    - "Free public RTK service for California"
+    - "Clearinghouse of high-rate real-time GNSS data from multiple sources"
+    - "Single baseline RTK (not network RTK/VRS)"
+    - "User selects nearest active base station from list"
+    - "Requires survey-grade dual-frequency GNSS receiver"
+    - "Free user account required through CSRC"
+    - "Data latency less than 1 second"
+    - "Fulfills California state legal requirements for GNSS positioning"
+    - "Operated by UC San Diego on behalf of California"
+    - "RTCM streams contain NAD83 coordinates and station metadata"
+
+source: "research_2024"

@@ -1,0 +1,86 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "usa_minnesota_mncors"
+  name: "MnCORS - Minnesota CORS Network"
+  provider: "Minnesota Department of Transportation (MnDOT)"
+  organization_type: "government"
+  country: "USA"
+  state: "Minnesota"
+  website: "https://www.dot.state.mn.us/surveying/cors/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "mncors.dot.state.mn.us"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "MnCORS NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 43.5
+      lat_max: 49.4
+      lon_min: -97.2
+      lon_max: -89.5
+    description: "Statewide Minnesota coverage"
+    regions: ["Minnesota", "Upper Midwest USA"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.dot.state.mn.us/surveying/cors/mncors_faq.html"
+    approval_time: "immediate"
+    credential_management: "Send preferred usernames/passwords to MnCORS Administrator"
+    terms: "Free state government service"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 2.3", "RTCM 3.1", "RTCM 3.4", "CMR+", "CMRx"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    network_vendor: "Pivot"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 5
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    coverage_type: "statewide"
+    data_formats: 5
+
+  network_details:
+    operator: "Minnesota Department of Transportation"
+    network_technology: "Pivot network"
+    administrator_contact: "MnCORS Administrator"
+
+  format_support:
+    rtcm_2_3: true
+    rtcm_3_1: true
+    rtcm_3_4: true
+    cmr_plus: true
+    cmrx: true
+
+  notes:
+    - "Free state government RTK network"
+    - "Statewide coverage across Minnesota"
+    - "Pivot network technology"
+    - "Supports 5 different GNSS data formats"
+    - "Users submit preferred usernames/passwords to administrator"
+    - "Registration required for NTRIP credentials"
+    - "Part of Minnesota DOT surveying infrastructure"
+    - "Extensive format support including RTCM 2.3, 3.1, 3.4, CMR+, CMRx"
+
+source: "research_2024"

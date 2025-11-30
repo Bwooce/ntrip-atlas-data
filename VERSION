@@ -6,18 +6,18 @@
 #
 # This file is automatically updated by CI/CD when service data changes
 
-DATABASE_VERSION=20241130.01
+DATABASE_VERSION=20241130.02
 SCHEMA_VERSION=1.0.0
-LAST_UPDATED=2024-11-30T00:00:00Z
-TOTAL_SERVICES=6
+LAST_UPDATED=2024-11-30T14:00:00Z
+TOTAL_SERVICES=32
 GEOGRAPHIC_REGIONS=4
 
 # Service counts by region
 GLOBAL_SERVICES=2    # RTK2GO, Point One Polaris
-EMEA_SERVICES=2      # EUREF-IP, Finland FinnRef
-APAC_SERVICES=1      # Geoscience Australia
-AMERICAS_SERVICES=1  # Massachusetts MaCORS
-AFRICA_SERVICES=0
+EMEA_SERVICES=10     # Norway, Netherlands, Belgium (2), Czech, Italy, Finland, EUREF-IP, Poland, Spain, BKG
+APAC_SERVICES=3      # Australia GA, Hong Kong SatRef, New Zealand PositioNZ
+AMERICAS_SERVICES=16 # 12 US states + EarthScope + Argentina + Brazil + Massachusetts
+AFRICA_SERVICES=1    # South Africa TrigNet
 
 # Validation status
 VALIDATED=true

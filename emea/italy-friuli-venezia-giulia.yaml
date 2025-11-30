@@ -1,0 +1,108 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "italy_friuli_venezia_giulia"
+  name: "Friuli-Venezia Giulia GNSS Network"
+  provider: "Regione Autonoma Friuli Venezia Giulia"
+  organization_type: "government"
+  country: "ITA"
+  region: "Friuli-Venezia Giulia"
+  website: "https://www.regione.fvg.it/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "gnsscaster.regione.fvg.it"
+      port: 8080
+      ssl: false
+      priority: 1
+      description: "FVG GNSS NTRIP caster"
+    - protocol: "http"
+      hostname: "193.43.178.173"
+      port: 8080
+      ssl: false
+      priority: 2
+      description: "FVG GNSS NTRIP caster (IP address)"
+
+  coverage:
+    bounding_box:
+      lat_min: 45.5
+      lat_max: 46.7
+      lon_min: 12.3
+      lon_max: 13.9
+    description: "Friuli-Venezia Giulia region (northeastern Italy)"
+    regions: ["Friuli-Venezia Giulia", "Italy"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.regione.fvg.it/rafvg/cms/RAFVG/ambiente-territorio/conoscere-ambiente-territorio/"
+    approval_time: "variable"
+    application_process: "Email completed application form"
+    terms: "Free regional government service"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+    coverage_type: "regional"
+    access_type: "Regulated through credentials"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 5
+    coverage_rating: 3
+    support_rating: 3
+    ease_of_use: 4
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    coverage_type: "regional"
+
+  network_details:
+    operator: "Friuli-Venezia Giulia Regional Government"
+    coverage: "Regional network for northeastern Italy"
+    access_policy: "Free but regulated through application process"
+
+  related_national_services:
+    - name: "PEGASO VRS NOW"
+      type: "National network"
+      operator: "Italian Military Geographic Institute (IGM)"
+      stations: "190+ nationwide"
+      status: "Certified national network"
+      cost: "Commercial"
+
+    - name: "NetGeo"
+      type: "Commercial"
+      operator: "Topcon Italia"
+      stations: "200+ CORS"
+      status: "Private commercial network"
+
+    - name: "ItalPoS"
+      type: "Commercial"
+      operator: "Hexagon Geosystems"
+      stations: "133 CORS"
+      status: "Private commercial network"
+
+    - name: "SpinGNSS"
+      type: "Free network"
+      status: "Alternative free service"
+
+  notes:
+    - "Free regional government GNSS service"
+    - "Real-time positioning via NTRIP protocol"
+    - "Access requires credentials obtained via application form"
+    - "Regional coverage limited to Friuli-Venezia Giulia"
+    - "One of few free public regional GNSS services in Italy"
+    - "National coverage available through commercial PEGASO network"
+    - "Application form must be emailed for credential request"
+
+source: "research_2024"

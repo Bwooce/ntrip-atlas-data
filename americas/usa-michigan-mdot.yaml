@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "usa_michigan_mdot"
+  name: "Michigan DOT CORS Network"
+  provider: "Michigan Department of Transportation (MDOT)"
+  organization_type: "government"
+  country: "USA"
+  state: "Michigan"
+  website: "https://www.michigan.gov/mdot"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "mdot.mi.gov"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "MDOT CORS NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 41.7
+      lat_max: 48.3
+      lon_min: -90.5
+      lon_max: -82.4
+    description: "Statewide Michigan coverage"
+    regions: ["Michigan", "Great Lakes region"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.michigan.gov/mdot"
+    approval_time: "immediate"
+    terms: "Free state government service"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1", "RTCM 2.3"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    network_vendor: "SpiderNet"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 5
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    coverage_type: "statewide"
+
+  network_details:
+    operator: "Michigan Department of Transportation"
+    network_technology: "SpiderNet"
+
+  notes:
+    - "Free state government RTK network"
+    - "Statewide coverage across Michigan"
+    - "SpiderNet network technology"
+    - "Registration required for NTRIP credentials"
+    - "Part of Michigan DOT surveying infrastructure"
+    - "Supports modern GNSS constellations"
+
+source: "research_2024"

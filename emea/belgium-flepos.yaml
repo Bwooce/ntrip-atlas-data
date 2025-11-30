@@ -1,0 +1,96 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "belgium_flepos"
+  name: "FLEPOS - Flanders Positioning Service"
+  provider: "Flemish Government"
+  organization_type: "government"
+  country: "BEL"
+  region: "Flanders"
+  website: "https://flepos.vlaanderen.be/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "flepos.vlaanderen.be"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "FLEPOS NTRIP caster for Flanders region"
+
+  coverage:
+    bounding_box:
+      lat_min: 50.7
+      lat_max: 51.5
+      lon_min: 2.5
+      lon_max: 5.9
+    description: "Flanders region (northern Belgium) coverage"
+    regions: ["Flanders", "Belgium"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://flepos.vlaanderen.be/"
+    approval_time: "immediate"
+    terms: "Free service for surveyors and machine control in Flanders"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    surveying_use: true
+    machine_control_use: true
+    data_retention: "permanent"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 4
+    support_rating: 4
+    ease_of_use: 5
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    coverage_type: "regional"
+    data_usage: "~5 MB per hour"
+
+  related_services:
+    - name: "WALCORS"
+      region: "Wallonia"
+      coverage: "Southern Belgium (accessible from all Belgium for surveyors)"
+      stations: 23
+      availability: "Since September 2017"
+      category: "SURVEY"
+      coverage_restriction: "North of 50°41'14\" parallel"
+
+    - name: "GPS Brussels"
+      region: "Brussels"
+      coverage: "Brussels Capital Region"
+
+  network_details:
+    operator: "Flemish Government"
+    coverage_note: "Part of Belgian GNSS Network RTK coverage"
+    combined_coverage: "FLEPOS + WALCORS provides comprehensive Belgian coverage"
+
+  connectivity:
+    internet_requirement: "Any SIM card with internet access"
+    data_consumption: "Average 5 MB per hour"
+    monthly_estimate: "500 MB sufficient for regular usage"
+
+  notes:
+    - "Free government service for Flanders region"
+    - "Continues free of charge for both surveyors and machine control"
+    - "Part of comprehensive Belgian RTK network coverage"
+    - "WALCORS provides complementary coverage in Wallonia"
+    - "Registration required for NTRIP credentials"
+    - "Low data consumption (~5 MB/hour)"
+    - "Compatible with standard NTRIP clients"
+
+source: "research_2024"

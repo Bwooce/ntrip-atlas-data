@@ -1,0 +1,116 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "usa_earthscope_nota"
+  name: "EarthScope NOTA - Network of the Americas"
+  provider: "EarthScope Consortium (formerly UNAVCO)"
+  organization_type: "research"
+  country: "USA"
+  website: "https://www.earthscope.org/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "ntrip.earthscope.org"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "EarthScope NTRIP caster (new platform, available April 29, 2025)"
+    - protocol: "http"
+      hostname: "rtgpsout.earthscope.org"
+      port: 2101
+      ssl: false
+      priority: 2
+      description: "Legacy NTRIP caster (being phased out)"
+
+  coverage:
+    bounding_box:
+      lat_min: 15.0
+      lat_max: 72.0
+      lon_min: -170.0
+      lon_max: -50.0
+    description: "Network of the Americas - North, Central, and South America coverage"
+    regions: ["North America", "Central America", "South America", "Caribbean"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.earthscope.org/"
+    approval_time: "immediate"
+    terms: "Free scientific and research service"
+    re_registration_required: "All users must re-register for new platform (old credentials invalid)"
+
+  service_info:
+    cost: "free"
+    commercial_use: false
+    research_use: true
+    scientific_use: true
+    data_retention: "permanent"
+    support_contact: "data-help@earthscope.org"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.3", "RTCM 3.1", "RTCM 2.3", "BINEX"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Single baseline RTK"
+    update_rate_hz: 1
+    latency: "< 1 second"
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 4
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    update_rate: "1 Hz"
+    data_latency: "< 1 second"
+    coverage_type: "continental"
+
+  network_details:
+    operator: "EarthScope Consortium"
+    funding: "National Science Foundation (NSF), NASA, USGS"
+    legacy_networks: ["PBO", "COCONet", "TLALOCNet"]
+    instrumentation: ["GNSS/GPS", "Borehole strainmeters", "Seismometers", "Laser strainmeters"]
+
+  platform_modernization:
+    new_caster: "ntrip.earthscope.org"
+    legacy_caster: "rtgpsout.earthscope.org (deprecated)"
+    cutover_date: "April 29, 2025"
+    new_format_support: "RTCM 3.3"
+    deprecated_formats: "RTCM 3.1 streams discontinued"
+    mountpoint_naming: "{FCID}_RTCM3P3 for RTCM 3.3 streams"
+    authentication_change: "All users must re-register"
+
+  data_formats:
+    rtcm_3_3:
+      status: "New in 2025 platform"
+      mountpoint_format: "{FCID}_RTCM3P3"
+    rtcm_3_1:
+      status: "Being discontinued"
+    rtcm_2_3:
+      status: "Supported"
+    binex:
+      status: "Supported"
+      description: "Open-source binary format with observables and metadata"
+
+  support:
+    primary_contact: "data-help@earthscope.org"
+    deprecated_contact: "rtgps@earthscope.org (no longer monitored)"
+
+  notes:
+    - "Free scientific/research GNSS network for the Americas"
+    - "Operated by EarthScope Consortium on behalf of NSF, NASA, and USGS"
+    - "Network of the Americas (NOTA) includes former PBO, COCONet, TLALOCNet stations"
+    - "Platform modernization launching April 29, 2025"
+    - "ALL users must re-register - old credentials will not work on new platform"
+    - "New platform adds RTCM 3.3 support, discontinues RTCM 3.1"
+    - "Single baseline RTK (not network RTK)"
+    - "For scientific and research applications only"
+    - "Continental coverage across the Americas"
+    - "Sub-second latency for real-time corrections"
+
+source: "research_2024"

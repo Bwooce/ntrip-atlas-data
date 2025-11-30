@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "usa_mississippi_gcgc"
+  name: "GCGC RTN - Mississippi Network"
+  provider: "Gulf Coast GNSS Cooperative / Mississippi DOT"
+  organization_type: "government"
+  country: "USA"
+  state: "Mississippi"
+  website: "https://www.mdot.ms.gov/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "gcgc.ms.gov"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "GCGC RTN NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 30.2
+      lat_max: 35.0
+      lon_min: -91.7
+      lon_max: -88.1
+    description: "Statewide Mississippi coverage"
+    regions: ["Mississippi", "Gulf Coast"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.mdot.ms.gov/"
+    approval_time: "immediate"
+    terms: "Free state government service"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    network_vendor: "Pivot"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 5
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    coverage_type: "statewide"
+
+  network_details:
+    operator: "Gulf Coast GNSS Cooperative / Mississippi DOT"
+    network_technology: "Pivot network"
+
+  notes:
+    - "Free state government RTK network"
+    - "Statewide coverage across Mississippi"
+    - "Pivot network technology"
+    - "Registration required for NTRIP credentials"
+    - "Part of Gulf Coast GNSS Cooperative"
+    - "Supports modern GNSS constellations"
+
+source: "research_2024"

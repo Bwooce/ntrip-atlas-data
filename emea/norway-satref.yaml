@@ -1,0 +1,86 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "norway_satref"
+  name: "SATREF - Norwegian GNSS Network"
+  provider: "Norwegian Mapping Authority (Kartverket)"
+  organization_type: "government"
+  country: "NOR"
+  website: "https://www.kartverket.no/en/on-land/posisjon/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "159.162.103.14"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "SATREF NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 57.0
+      lat_max: 72.0
+      lon_min: 4.0
+      lon_max: 32.0
+    description: "Complete Norway coverage with ~200 CORS stations"
+    regions: ["Norway", "Nordic region"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.kartverket.no/en/on-land/posisjon/user-guide-positioning-services"
+    approval_time: "immediate"
+    terms: "Free for research and educational purposes"
+
+  service_info:
+    cost: "free"
+    commercial_use: false
+    research_use: true
+    educational_use: true
+    data_retention: "permanent"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    station_spacing: "35-100 km (varies by region)"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 4
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    network_stations: 200
+    coverage_type: "national"
+    station_spacing_core: "35 km"
+    station_spacing_normal: "70 km"
+    station_spacing_remote: "70-100 km"
+
+  network_details:
+    operator: "Norwegian Mapping Authority (NMA)"
+    control_center: "Hønefoss"
+    border_stations: "Includes stations from Sweden, Denmark, and Finland"
+    services_offered:
+      - "Network RTK"
+      - "DGNSS"
+      - "RINEX post-processing"
+      - "Web-based services (ionosphere monitoring)"
+
+  notes:
+    - "Government-operated national GNSS network"
+    - "Free Network RTK service for research and educational purposes"
+    - "Approximately 200 CORS stations covering Norway"
+    - "Variable station spacing: core areas 35km, normal 70km, remote 70-100km"
+    - "Includes cross-border stations for improved coverage"
+    - "NTRIP caster requires registration for credentials"
+    - "Commercial use may require separate licensing"
+
+source: "research_2024"

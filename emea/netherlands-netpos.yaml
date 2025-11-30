@@ -1,0 +1,94 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "netherlands_netpos"
+  name: "NETPOS - Netherlands Positioning Service"
+  provider: "Kadaster & Rijkswaterstaat"
+  organization_type: "government"
+  country: "NLD"
+  website: "https://www.nsgi.nl/netpos"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "ntrip.kadaster.nl"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "Kadaster GNSS NTRIP Caster (GNCASTER)"
+
+  coverage:
+    bounding_box:
+      lat_min: 50.5
+      lat_max: 53.7
+      lon_min: 3.0
+      lon_max: 7.5
+    description: "Complete Netherlands coverage with reference stations"
+    regions: ["Netherlands"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.nsgi.nl/netpos"
+    approval_time: "immediate"
+    terms: "Government service - Kadaster and Rijkswaterstaat organizations and contractors"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    subscription_required: true
+    data_retention: "permanent"
+    coverage_type: "national"
+    primary_users: "Surveyors, Kadaster, Rijkswaterstaat, authorized contractors"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1", "RTCM 2.3"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    station_spacing: "~40 km"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 4
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    positioning_speed: "within seconds"
+    coverage_type: "national"
+    average_station_distance: "40 km"
+
+  network_details:
+    station_type: "GNSS reference stations"
+    network_coverage: "Entire Netherlands"
+    operators: ["Kadaster", "Rijkswaterstaat"]
+
+  alternative_networks:
+    academic:
+      - name: "Dutch Permanent GNSS Array (DPGA)"
+        operator: "Delft University of Technology (DEOS)"
+        description: "First-order GNSS infrastructure, some stations stream via NTRIP"
+        formats: ["RAW", "RTCM"]
+        networks: ["IGS", "EPN"]
+    commercial:
+      - name: "06-GPS"
+        description: "Independent nationwide GNSS network (since 2003)"
+      - name: "LNR Globalcom"
+        description: "Commercial RTK provider"
+      - name: "Quality Positioning Services (QPoS)"
+        description: "Commercial RTK provider"
+
+  notes:
+    - "Government-operated national positioning service"
+    - "Centimeter accuracy within seconds using single GNSS receiver"
+    - "Average 40km spacing between reference stations"
+    - "Primarily for Kadaster and Rijkswaterstaat use and authorized contractors"
+    - "Registration required for NTRIP credentials"
+    - "Academic network DPGA also provides NTRIP streams for research"
+
+source: "research_2024"

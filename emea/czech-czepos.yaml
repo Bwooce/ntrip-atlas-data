@@ -1,0 +1,115 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "czech_czepos"
+  name: "CZEPOS - Czech GNSS Permanent Stations Network"
+  provider: "Czech Office for Surveying, Mapping and Cadastre (ČÚZK)"
+  organization_type: "government"
+  country: "CZE"
+  website: "http://czepos.cuzk.cz/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "czepos.cuzk.cz"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "CZEPOS NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 48.5
+      lat_max: 51.1
+      lon_min: 12.0
+      lon_max: 18.9
+    description: "Complete Czech Republic territory coverage"
+    regions: ["Czech Republic"]
+    area_covered: "78,866 km²"
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "http://czepos.cuzk.cz/"
+    approval_time: "immediate"
+    terms: "Government positioning service for Czech Republic"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+    coverage_type: "national"
+    coverage_percentage: "100%"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1", "RTCM 2.3"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 4
+
+  performance:
+    dgps_accuracy: "decimetre precision"
+    rtk_accuracy: "centimeter precision"
+    network_stations: 27
+    coverage_type: "national"
+
+  network_details:
+    total_stations: 27
+    cuzk_owned_stations: 23
+    research_stations: 4
+    establishment_year: 2007
+    operator: "Land Survey Office (ČÚZK)"
+    coverage: "100% of Czech Republic territory"
+
+  services:
+    dgps:
+      description: "DGPS corrections (code only)"
+      accuracy: "decimetre precision"
+      applications: "GIS applications"
+    rtk:
+      description: "RTK phase based corrections"
+      accuracy: "centimetre precision"
+      applications: "Surveying, construction"
+      type: "Simple RTK (single station) and VRS"
+    vrs:
+      description: "Virtual Reference Station (PRS)"
+      accuracy: "centimetre precision"
+      note: "User receives corrections from virtual reference station"
+
+  service_types:
+    - name: "DGPS"
+      type: "Code-based corrections"
+      precision: "Decimetre"
+      use_case: "GIS applications"
+
+    - name: "RTK Simple"
+      type: "Single reference station"
+      precision: "Centimetre"
+      use_case: "Local surveying"
+
+    - name: "RTK PRS/VRS"
+      type: "Virtual Reference Station"
+      precision: "Centimetre"
+      use_case: "Network RTK positioning"
+
+  notes:
+    - "Government-operated national GNSS network"
+    - "Part of geodetic foundations of Czech Republic"
+    - "Operated by Czech Land Survey Office (ČÚZK)"
+    - "100% coverage of Czech Republic territory (78,866 km²)"
+    - "27 permanent reference stations (23 government-owned, 4 research)"
+    - "Provides three service categories: DGPS, RTK, and VRS"
+    - "Established in 2007"
+    - "Registration required for NTRIP credentials"
+    - "Supports both single-station RTK and Virtual Reference Station modes"
+
+source: "research_2024"

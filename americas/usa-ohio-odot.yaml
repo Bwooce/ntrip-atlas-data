@@ -1,0 +1,74 @@
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+
+service:
+  id: "usa_ohio_odot"
+  name: "Ohio DOT Statewide RTN"
+  provider: "Ohio Department of Transportation (ODOT)"
+  organization_type: "government"
+  country: "USA"
+  state: "Ohio"
+  website: "https://www.transportation.ohio.gov/"
+
+  endpoints:
+    - protocol: "http"
+      hostname: "odot.ohio.gov"
+      port: 2101
+      ssl: false
+      priority: 1
+      description: "Ohio DOT NTRIP caster"
+
+  coverage:
+    bounding_box:
+      lat_min: 38.4
+      lat_max: 42.0
+      lon_min: -84.8
+      lon_max: -80.5
+    description: "Statewide Ohio coverage"
+    regions: ["Ohio", "Midwest USA"]
+
+  authentication:
+    required: true
+    method: "basic"
+    registration_required: true
+    registration_url: "https://www.transportation.ohio.gov/"
+    approval_time: "immediate"
+    terms: "Free state government service"
+
+  service_info:
+    cost: "free"
+    commercial_use: true
+    data_retention: "permanent"
+
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    network_type: "Network RTK"
+    network_vendor: "Trimble"
+    update_rate_hz: 1
+
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 5
+
+  performance:
+    rtk_accuracy: "centimeter level"
+    coverage_type: "statewide"
+
+  network_details:
+    operator: "Ohio Department of Transportation"
+    network_technology: "Trimble network"
+
+  notes:
+    - "Free state government RTK network"
+    - "Statewide real-time network through Trimble"
+    - "Offered free of charge to users"
+    - "Registration required for NTRIP credentials"
+    - "Part of Ohio DOT surveying infrastructure"
+    - "Supports modern GNSS constellations"
+
+source: "research_2024"

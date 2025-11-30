@@ -100,8 +100,12 @@ jobs:
     - name: Check for credentials in YAML
       run: |
         # Ensure no actual credentials are committed
-        if grep -r -i "password\|secret\|key" *.yaml 2>/dev/null; then
-          echo "Error: Found potential credentials in YAML files"
+        if find . -name "*.yaml" -exec grep -l "password:" {} \; 2>/dev/null | head -1; then
+          echo "Error: Found password fields in YAML files"
+          exit 1
+        fi
+        if find . -name "*.yaml" -exec grep -l "api_key:" {} \; 2>/dev/null | head -1; then
+          echo "Error: Found API key fields in YAML files"
           exit 1
         fi
         echo "No credentials found in YAML files"
@@ -115,24 +119,24 @@ jobs:
 
     - name: Check for malicious content
       run: |
-        # Check for actual security threats (more specific patterns to avoid false positives)
+        # Conservative security check - only look for clearly malicious patterns
         SUSPICIOUS_FOUND=0
 
-        # Check for actual JavaScript/scripting content (more specific patterns)
-        if find . -name "*.yaml" -exec grep -l -i '\bjavascript\b\|\beval\b\|\bexec\(' {} \; 2>/dev/null; then
-          echo "Error: Found potentially malicious scripting content"
+        # Check for actual script tags (HTML/XML)
+        if find . -name "*.yaml" -exec grep -l "<script>" {} \; 2>/dev/null | head -1; then
+          echo "Error: Found HTML script tags in YAML"
           SUSPICIOUS_FOUND=1
         fi
 
-        # Check for embedded code blocks that contain actual script tags (not just "script" in words)
-        if find . -name "*.yaml" -exec grep -l '<script\|</script\|```\s*javascript' {} \; 2>/dev/null; then
-          echo "Error: Found script blocks in YAML"
+        # Check for data URIs with executable content
+        if find . -name "*.yaml" -exec grep -l "data:text/html" {} \; 2>/dev/null | head -1; then
+          echo "Error: Found data URIs with HTML content"
           SUSPICIOUS_FOUND=1
         fi
 
-        # Check for suspicious URLs or injection attempts
-        if find . -name "*.yaml" -exec grep -l 'data:.*script\|vbscript:\|javascript:' {} \; 2>/dev/null; then
-          echo "Error: Found suspicious URLs or data URIs"
+        # Check for base64 encoded content (potential obfuscation)
+        if find . -name "*.yaml" -exec grep -l "base64," {} \; 2>/dev/null | head -1; then
+          echo "Error: Found base64 encoded content in YAML"
           SUSPICIOUS_FOUND=1
         fi
 

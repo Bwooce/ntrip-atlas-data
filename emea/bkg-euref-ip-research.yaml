@@ -1,0 +1,97 @@
+# BKG EUREF-IP NTRIP Service (Research/Professional Use)
+# European government precision GNSS network for research and professional applications
+# Documentation: https://www.bkg.bund.de/
+
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+verified_by: "community"
+
+service:
+  id: "bkg_euref_ip_professional"
+  name: "BKG EUREF-IP (European GNSS Research Network)"
+  country: "EMEA"
+  provider: "Bundesamt für Kartographie und Geodäsie (BKG)"
+  organization_type: "government"
+  website: "https://www.bkg.bund.de/"
+
+  # Service endpoints
+  endpoints:
+    - protocol: "http"
+      hostname: "euref-ip.net"
+      port: 2101
+      ssl: false
+      priority: 1
+    - protocol: "https"
+      hostname: "euref-ip.net"
+      port: 443
+      ssl: true
+      priority: 2
+    - protocol: "http"
+      hostname: "www.euref-ip.be"
+      port: 2101
+      ssl: false
+      priority: 3
+    - protocol: "https"
+      hostname: "www.euref-ip.be"
+      port: 2102
+      ssl: true
+      priority: 4
+
+  # Geographic coverage
+  coverage:
+    description: "European coverage from EPN (EUREF Permanent Network) stations"
+    regions: ["europe", "emea"]
+    bounding_box:
+      lat_min: 35.0
+      lat_max: 71.0
+      lon_min: -25.0
+      lon_max: 45.0
+
+  # Authentication requirements
+  authentication:
+    required: true
+    method: "basic"
+    registration_url: "https://register.rtcm-ntrip.org/cgi-bin/registration.cgi"
+    registration_required: true
+    approval_time: "1-2 business days"
+    contact_email: "euref-ip@bkg.bund.de"
+    terms: "Free for demonstration and evaluation purposes; research and professional use"
+    cost: "free"
+
+  # Service characteristics
+  service_info:
+    cost: "free"
+    commercial_use: true
+    availability: "best_effort"
+    uptime_sla: "best_effort"
+    support_email: "euref-ip@bkg.bund.de"
+
+  # Technical specifications
+  technical:
+    ntrip_version: "2.0"
+    supported_formats: ["RTCM 3.2", "RTCM 3.1", "Raw GNSS"]
+    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    update_rate: "1Hz"
+    latency: "<2 seconds"
+    typical_bitrate: "variable"
+
+  # Quality metadata
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 4
+    ease_of_use: 3
+
+  # Known limitations and notes
+  notes: |
+    - Raw GNSS data streams only (not pre-computed RTK corrections)
+    - Operated by BKG in support of Real-Time IGS Working Group
+    - Registration required with application description
+    - Free for demonstration, evaluation, and research purposes
+    - Best-effort operation, not guaranteed 24/7 SLA
+    - European government-operated with high scientific quality
+    - Excellent for researchers and professional surveyors
+    - Dense network of permanent stations across Europe
+
+source: "research_report"

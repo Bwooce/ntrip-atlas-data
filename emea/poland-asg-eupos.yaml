@@ -1,0 +1,80 @@
+# Poland ASG-EUPOS NTRIP Service
+# National government precision positioning service for Poland
+# Documentation: https://www.asg.geoawesomeness.com/
+
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+verified_by: "community"
+
+service:
+  id: "poland_asg_eupos"
+  name: "ASG-EUPOS (Polish GNSS Network)"
+  country: "POL"
+  provider: "Central Office of Geodesy and Cartography (GUGiK)"
+  organization_type: "government"
+  website: "https://www.asg.geoawesomeness.com/"
+
+  # Service endpoints
+  endpoints:
+    - protocol: "http"
+      hostname: "91.199.118.218"
+      port: 2101
+      ssl: false
+      priority: 1
+    - protocol: "http"
+      hostname: "asg.geoawesomeness.com"
+      port: 2101
+      ssl: false
+      priority: 2
+
+  # Geographic coverage
+  coverage:
+    description: "Complete coverage of Poland and neighboring regions"
+    regions: ["poland", "central_europe"]
+    bounding_box:
+      lat_min: 49.0
+      lat_max: 54.9
+      lon_min: 14.1
+      lon_max: 24.1
+
+  # Authentication requirements
+  authentication:
+    required: false
+    method: "none"
+    notes: "Free public access since 2022, no registration required"
+    cost: "free"
+
+  # Service characteristics
+  service_info:
+    cost: "free"
+    commercial_use: true
+    availability: "24/7"
+    uptime_sla: "best_effort"
+    support_email: "helpdesk@geoawesomeness.com"
+
+  # Technical specifications
+  technical:
+    supported_formats: ["RTCM 3.1", "RTCM 3.2"]
+    supported_systems: ["GPS", "GLONASS", "Galileo"]
+    update_rate: "1Hz"
+    latency: "<2 seconds"
+    typical_bitrate: "2000-4000 bps"
+
+  # Quality metadata
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 3
+    ease_of_use: 5
+
+  # Known limitations and notes
+  notes: |
+    - Excellent coverage across Poland with high station density
+    - Free public access since 2022 (previously restricted)
+    - Government-operated with good reliability
+    - Ideal for Polish and Central European operations
+    - Multi-constellation support (GPS, GLONASS, Galileo)
+    - Dense network with ~100+ stations across the country
+
+source: "research_report"

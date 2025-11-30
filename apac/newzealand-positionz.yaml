@@ -1,0 +1,83 @@
+# New Zealand PositioNZ NTRIP Service
+# National government precision positioning service for New Zealand
+# Documentation: https://www.linz.govt.nz/
+
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+verified_by: "community"
+
+service:
+  id: "nz_positionz"
+  name: "PositioNZ"
+  country: "NZL"
+  provider: "Land Information New Zealand (LINZ)"
+  organization_type: "government"
+  website: "https://www.linz.govt.nz/"
+
+  # Service endpoints
+  endpoints:
+    - protocol: "http"
+      hostname: "ntrip.linz.govt.nz"
+      port: 2101
+      ssl: false
+      priority: 1
+    - protocol: "https"
+      hostname: "ntrip.linz.govt.nz"
+      port: 443
+      ssl: true
+      priority: 2
+
+  # Geographic coverage
+  coverage:
+    description: "Complete coverage of New Zealand and Pacific territories"
+    regions: ["new_zealand", "pacific_region"]
+    bounding_box:
+      lat_min: -47.0
+      lat_max: -34.0
+      lon_min: 166.0
+      lon_max: 178.0
+
+  # Authentication requirements
+  authentication:
+    required: true
+    method: "basic"
+    registration_url: "https://www.linz.govt.nz/data/positioning/ntrip"
+    registration_required: true
+    approval_time: "immediate"
+    notes: "Free registration, immediate access"
+    cost: "free"
+
+  # Service characteristics
+  service_info:
+    cost: "free"
+    commercial_use: true
+    availability: "24/7"
+    uptime_sla: "99.5%"
+    support_email: "positioning@linz.govt.nz"
+
+  # Technical specifications
+  technical:
+    supported_formats: ["RTCM 3.1", "RTCM 3.2"]
+    supported_systems: ["GPS", "GLONASS", "Galileo"]
+    update_rate: "1Hz"
+    latency: "<2 seconds"
+    typical_bitrate: "2000-4000 bps"
+
+  # Quality metadata
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 5
+    ease_of_use: 4
+
+  # Known limitations and notes
+  notes: |
+    - Comprehensive coverage across New Zealand's islands
+    - Government-operated by LINZ (national mapping authority)
+    - Free service with straightforward registration
+    - Excellent documentation and technical support
+    - Professional-grade accuracy for surveying and RTK
+    - Well-maintained network with consistent uptime
+
+source: "research_report"

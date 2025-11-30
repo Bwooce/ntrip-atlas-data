@@ -1,0 +1,84 @@
+# Brazil RBMC-IP NTRIP Service
+# National government GNSS network for Brazil
+# Documentation: https://www.ibge.gov.br/
+
+schema_version: "1.0.0"
+last_updated: "2024-11-30T00:00:00Z"
+verified_by: "community"
+
+service:
+  id: "brazil_rbmc_ip"
+  name: "RBMC-IP (Brazilian GNSS Network)"
+  country: "BRA"
+  provider: "IBGE (Brazilian Institute of Geography and Statistics)"
+  organization_type: "government"
+  website: "https://www.ibge.gov.br/"
+
+  # Service endpoints
+  endpoints:
+    - protocol: "http"
+      hostname: "rbmc.ibge.gov.br"
+      port: 2101
+      ssl: false
+      priority: 1
+    - protocol: "https"
+      hostname: "rbmc.ibge.gov.br"
+      port: 443
+      ssl: true
+      priority: 2
+
+  # Geographic coverage
+  coverage:
+    description: "Complete coverage of Brazil with 147 stations"
+    regions: ["brazil", "south_america"]
+    bounding_box:
+      lat_min: -33.7
+      lat_max: 5.3
+      lon_min: -73.9
+      lon_max: -35.0
+
+  # Authentication requirements
+  authentication:
+    required: true
+    method: "basic"
+    registration_url: "https://www.ibge.gov.br/geociencias/informacoes-sobre-posicionamento-geodesico/rbmc/rbmc-ip"
+    registration_required: true
+    approval_time: "1-2 business days"
+    notes: "Free registration available"
+    cost: "free"
+
+  # Service characteristics
+  service_info:
+    cost: "free"
+    commercial_use: true
+    availability: "24/7"
+    uptime_sla: "best_effort"
+    support_email: "rbmc@ibge.gov.br"
+
+  # Technical specifications
+  technical:
+    supported_formats: ["RTCM 3.1", "RTCM 3.2"]
+    supported_systems: ["GPS", "GLONASS", "Galileo"]
+    update_rate: "1Hz"
+    latency: "<2 seconds"
+    typical_bitrate: "2000-4000 bps"
+
+  # Quality metadata
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 5
+    coverage_rating: 5
+    support_rating: 3
+    ease_of_use: 4
+
+  # Known limitations and notes
+  notes: |
+    - Extensive network with 147 stations across Brazil
+    - Government-operated by IBGE (national statistics agency)
+    - Free service with clear documentation
+    - Multi-constellation support (GPS, GLONASS, Galileo)
+    - Excellent coverage across all regions of Brazil
+    - Professional-grade accuracy for surveying and RTK
+    - Ideal for South American operations
+
+source: "research_report"

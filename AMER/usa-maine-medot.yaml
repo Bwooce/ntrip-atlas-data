@@ -1,0 +1,33 @@
+service:
+  id: usa_maine_medot
+  provider: Maine Department of Transportation (MaineDOT)
+  country: USA
+  endpoints:
+  - hostname: medot.maine.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 43.0
+      lat_max: 47.5
+      lon_min: -71.1
+      lon_max: -66.9
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.maine.gov/mdot/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Maine coverage
+    stations: 50
+    coverage_area: Statewide Maine coverage
+    last_verified: '2024-12-01'

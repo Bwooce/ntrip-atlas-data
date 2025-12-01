@@ -1,81 +1,36 @@
-# Hong Kong SatRef NTRIP Service
-# Government precision positioning service for Hong Kong
-# Documentation: https://www.csrw.gov.hk/
-
-schema_version: "1.0.0"
-last_updated: "2024-11-30T00:00:00Z"
-verified_by: "community"
-
 service:
-  id: "hongkong_satref"
-  name: "SatRef (Hong Kong Satellite Positioning Reference)"
-  country: "HKG"
-  provider: "Lands Department, Hong Kong"
-  organization_type: "government"
-  website: "https://www.csrw.gov.hk/"
-
-  # Service endpoints
+  id: hongkong_satref
+  provider: Lands Department, Hong Kong
+  country: HKG
   endpoints:
-    - protocol: "http"
-      hostname: "ntrip.csrw.gov.hk"
-      port: 2101
-      ssl: false
-      priority: 1
-    - protocol: "https"
-      hostname: "ntrip.csrw.gov.hk"
-      port: 443
-      ssl: true
-      priority: 2
-
-  # Geographic coverage
+  - hostname: ntrip.csrw.gov.hk
+    port: 2101
+    ssl: false
+  - hostname: ntrip.csrw.gov.hk
+    port: 443
+    ssl: true
   coverage:
-    description: "Hong Kong SAR and surrounding region"
-    regions: ["hong_kong", "pearl_river_delta"]
     bounding_box:
       lat_min: 22.2
       lat_max: 22.5
       lon_min: 114.0
       lon_max: 114.4
-
-  # Authentication requirements
+    hierarchical:
+      regional: 4
+      national: 5
+      state: 4
+      local: 3
   authentication:
+    method: none
     required: false
-    method: "none"
-    notes: "Free open data, no registration required"
-    cost: "free"
-
-  # Service characteristics
-  service_info:
-    cost: "free"
-    commercial_use: true
-    availability: "24/7"
-    uptime_sla: "24/7"
-    support_email: "info@csrw.gov.hk"
-
-  # Technical specifications
-  technical:
-    supported_formats: ["RTCM 3.1", "RTCM 3.2"]
-    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
-    update_rate: "1Hz"
-    latency: "<2 seconds"
-    typical_bitrate: "2000-4000 bps"
-
-  # Quality metadata
+    registration_required: false
+    registration_url: ''
   quality:
-    reliability_rating: 5
-    accuracy_rating: 5
-    coverage_rating: 5
-    support_rating: 5
-    ease_of_use: 5
-
-  # Known limitations and notes
-  notes: |
-    - Open data service with excellent documentation
-    - Government-operated with high reliability
-    - No authentication required (free and open)
-    - Dense station network covering Hong Kong SAR
-    - Multi-constellation support including BeiDou
-    - Ideal for Asia-Pacific operations near Hong Kong
-    - Professional-grade accuracy for surveying and RTK
-
-source: "research_report"
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Hong Kong SAR and surrounding region
+    stations: 50
+    coverage_area: Hong Kong SAR and surrounding region
+    last_verified: '2024-12-01'

@@ -1,0 +1,33 @@
+service:
+  id: usa_minnesota_mncors
+  provider: Minnesota Department of Transportation (MnDOT)
+  country: USA
+  endpoints:
+  - hostname: mncors.dot.state.mn.us
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 43.5
+      lat_max: 49.4
+      lon_min: -97.2
+      lon_max: -89.5
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.dot.state.mn.us/surveying/cors/mncors_faq.html
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Minnesota coverage
+    stations: 50
+    coverage_area: Statewide Minnesota coverage
+    last_verified: '2024-12-01'

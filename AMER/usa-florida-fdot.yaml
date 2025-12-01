@@ -1,0 +1,33 @@
+service:
+  id: usa_florida_fdot
+  provider: Florida Department of Transportation (FDOT)
+  country: USA
+  endpoints:
+  - hostname: fdot.fl.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 24.5
+      lat_max: 31.0
+      lon_min: -87.6
+      lon_max: -80.0
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.fdot.gov/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Florida coverage
+    stations: 50
+    coverage_area: Statewide Florida coverage
+    last_verified: '2024-12-01'

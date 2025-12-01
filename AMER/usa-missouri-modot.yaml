@@ -1,0 +1,33 @@
+service:
+  id: usa_missouri_modot
+  provider: Missouri Department of Transportation (MoDOT)
+  country: USA
+  endpoints:
+  - hostname: modot.mo.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 36.0
+      lat_max: 40.6
+      lon_min: -95.8
+      lon_max: -89.1
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.modot.org/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Missouri coverage
+    stations: 50
+    coverage_area: Statewide Missouri coverage
+    last_verified: '2024-12-01'

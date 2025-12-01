@@ -1,0 +1,33 @@
+service:
+  id: usa_mississippi_gcgc
+  provider: Gulf Coast GNSS Cooperative / Mississippi DOT
+  country: USA
+  endpoints:
+  - hostname: gcgc.ms.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 30.2
+      lat_max: 35.0
+      lon_min: -91.7
+      lon_max: -88.1
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.mdot.ms.gov/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Mississippi coverage
+    stations: 50
+    coverage_area: Statewide Mississippi coverage
+    last_verified: '2024-12-01'

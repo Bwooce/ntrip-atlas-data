@@ -1,20 +1,17 @@
 service:
-  id: poland_asg_eupos
-  provider: Central Office of Geodesy and Cartography (GUGiK)
-  country: POL
+  id: southafrica_trignet
+  provider: Council for Geoscience
+  country: ZAF
   endpoints:
-  - hostname: 91.199.118.218
-    port: 2101
-    ssl: false
-  - hostname: asg.geoawesomeness.com
+  - hostname: trignet.sapos.gov.za
     port: 2101
     ssl: false
   coverage:
     bounding_box:
-      lat_min: 49.0
-      lat_max: 54.9
-      lon_min: 14.1
-      lon_max: 24.1
+      lat_min: -47.0
+      lat_max: -22.0
+      lon_min: 16.0
+      lon_max: 33.0
     hierarchical:
       regional: 4
       national: 5
@@ -30,7 +27,7 @@ service:
     accuracy_rating: 4
     network_type: government
   metadata:
-    description: Complete coverage of Poland and neighboring regions
+    description: Complete coverage of South Africa
     stations: 50
-    coverage_area: Complete coverage of Poland and neighboring regions
+    coverage_area: Complete coverage of South Africa
     last_verified: '2024-12-01'

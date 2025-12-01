@@ -1,0 +1,37 @@
+service:
+  id: usa_earthscope_nota
+  provider: EarthScope Consortium (formerly UNAVCO)
+  country: USA
+  endpoints:
+  - hostname: ntrip.earthscope.org
+    port: 2101
+    ssl: false
+  - hostname: rtgpsout.earthscope.org
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 15.0
+      lat_max: 72.0
+      lon_min: -170.0
+      lon_max: -50.0
+    hierarchical:
+      continental: 4
+      regional: 4
+      national: 3
+      state: 3
+      local: 2
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.earthscope.org/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: community
+  metadata:
+    description: Network of the Americas - North, Central, and South America coverage
+    stations: 50
+    coverage_area: Network of the Americas - North, Central, and South America coverage
+    last_verified: '2024-12-01'

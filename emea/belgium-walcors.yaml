@@ -1,97 +1,35 @@
-schema_version: "1.0.0"
-last_updated: "2024-11-30T00:00:00Z"
-
 service:
-  id: "belgium_walcors"
-  name: "WALCORS - Wallonia CORS Network"
-  provider: "Service Public de Wallonie"
-  organization_type: "government"
-  country: "BEL"
-  region: "Wallonia"
-  website: "https://gnss.wallonie.be/walcors/"
-
+  id: belgium_walcors
+  provider: Service Public de Wallonie
+  country: BEL
   endpoints:
-    - protocol: "http"
-      hostname: "gnss.wallonie.be"
-      port: 2101
-      ssl: false
-      priority: 1
-      description: "WALCORS NTRIP caster for Wallonia region"
-
+  - hostname: gnss.wallonie.be
+    port: 2101
+    ssl: false
   coverage:
     bounding_box:
       lat_min: 49.5
       lat_max: 50.7
       lon_min: 2.7
       lon_max: 6.4
-    description: "Wallonia region (southern Belgium) coverage, accessible from all Belgium for surveyors"
-    regions: ["Wallonia", "Belgium"]
-    coverage_restriction: "North of 50°41'14\" parallel (by agreement with private providers)"
-
+    hierarchical:
+      regional: 4
+      national: 5
+      state: 4
+      local: 3
   authentication:
+    method: basic
     required: true
-    method: "basic"
     registration_required: true
-    registration_url: "https://gnss.wallonie.be/walcors/"
-    approval_time: "immediate"
-    terms: "Free service for surveyors in Belgium"
-
-  service_info:
-    cost: "free"
-    commercial_use: true
-    surveying_use: true
-    data_retention: "permanent"
-    availability_date: "September 2017"
-
-  technical:
-    ntrip_version: "2.0"
-    supported_formats: ["RTCM 3.2", "RTCM 3.1"]
-    supported_systems: ["GPS", "GLONASS", "Galileo", "BeiDou"]
-    network_type: "Network RTK"
-    update_rate_hz: 1
-
+    registration_url: https://gnss.wallonie.be/walcors/
   quality:
-    reliability_rating: 5
-    accuracy_rating: 5
-    coverage_rating: 4
-    support_rating: 4
-    ease_of_use: 5
-
-  performance:
-    rtk_accuracy: "centimeter level"
-    network_stations: 23
-    coverage_type: "regional"
-    data_usage: "~5 MB per hour"
-
-  network_details:
-    stations: 23
-    operator: "Service Public de Wallonie"
-    access_policy: "Accessible from all Belgium for surveyors (SURVEY category)"
-    coverage_area: "Similar to FLEPOS coverage area"
-
-  related_services:
-    - name: "FLEPOS"
-      region: "Flanders"
-      coverage: "Northern Belgium"
-      operator: "Flemish Government"
-
-    - name: "GPS Brussels"
-      region: "Brussels"
-      coverage: "Brussels Capital Region"
-
-  connectivity:
-    internet_requirement: "Any SIM card with internet access"
-    data_consumption: "Average 5 MB per hour"
-    monthly_estimate: "500 MB sufficient for regular usage"
-
-  notes:
-    - "Free government service for Wallonia region"
-    - "23 antenna network established September 2017"
-    - "Accessible from all Belgium for surveyors (SURVEY category)"
-    - "Coverage restricted to north of 50°41'14\" parallel by agreement"
-    - "Part of comprehensive Belgian RTK network coverage with FLEPOS"
-    - "Registration required for NTRIP credentials"
-    - "Low data consumption (~5 MB/hour)"
-    - "Compatible with standard NTRIP clients"
-
-source: "research_2024"
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Wallonia region (southern Belgium) coverage, accessible from all
+      Belgium for surveyors
+    stations: 50
+    coverage_area: Wallonia region (southern Belgium) coverage, accessible from all
+      Belgium for surveyors
+    last_verified: '2024-12-01'

@@ -1,0 +1,33 @@
+service:
+  id: usa_arizona_azcors
+  provider: Arizona Department of Transportation (ADOT)
+  country: USA
+  endpoints:
+  - hostname: azcors.azdot.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 31.3
+      lat_max: 37.0
+      lon_min: -114.8
+      lon_max: -109.0
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.azdot.gov/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Arizona coverage
+    stations: 50
+    coverage_area: Statewide Arizona coverage
+    last_verified: '2024-12-01'

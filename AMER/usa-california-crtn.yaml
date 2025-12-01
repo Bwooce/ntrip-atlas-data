@@ -1,17 +1,17 @@
 service:
-  id: positionz_rt_nz
-  provider: Land Information New Zealand
-  country: NZ
+  id: usa_california_crtn
+  provider: California Spatial Reference Center (CSRC) / UC San Diego
+  country: USA
   endpoints:
-  - hostname: positionz-rt.linz.govt.nz
+  - hostname: sopac-csrc.ucsd.edu
     port: 2101
     ssl: false
   coverage:
     bounding_box:
-      lat_min: -46.64
-      lat_max: -34.45
-      lon_min: 166.51
-      lon_max: 178.52
+      lat_min: 32.5
+      lat_max: 42.0
+      lon_min: -124.5
+      lon_max: -114.0
     hierarchical:
       continental: 4
       regional: 4
@@ -22,13 +22,13 @@ service:
     method: basic
     required: true
     registration_required: true
-    registration_url: https://www.linz.govt.nz/positionz-rt
+    registration_url: http://sopac-csrc.ucsd.edu/
   quality:
     reliability_rating: 4
     accuracy_rating: 4
     network_type: community
   metadata:
-    description: NTRIP Service
+    description: Statewide California coverage
     stations: 50
-    coverage_area: Regional coverage
+    coverage_area: Statewide California coverage
     last_verified: '2024-12-01'

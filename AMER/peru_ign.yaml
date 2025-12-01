@@ -1,17 +1,17 @@
 service:
-  id: positionz_rt_nz
-  provider: Land Information New Zealand
-  country: NZ
+  id: peru_regpmoc
+  provider: "Instituto Geogr\xE1fico Nacional del Per\xFA"
+  country: PE
   endpoints:
-  - hostname: positionz-rt.linz.govt.nz
+  - hostname: REQUIRES_REGISTRATION
     port: 2101
     ssl: false
   coverage:
     bounding_box:
-      lat_min: -46.64
-      lat_max: -34.45
-      lon_min: 166.51
-      lon_max: 178.52
+      lat_min: -18.4
+      lat_max: 0.0
+      lon_min: -81.3
+      lon_max: -68.7
     hierarchical:
       continental: 4
       regional: 4
@@ -22,7 +22,7 @@ service:
     method: basic
     required: true
     registration_required: true
-    registration_url: https://www.linz.govt.nz/positionz-rt
+    registration_url: http://www.idep.gob.pe/
   quality:
     reliability_rating: 4
     accuracy_rating: 4

@@ -1,0 +1,33 @@
+service:
+  id: usa_new_york_nysnet
+  provider: New York State Department of Transportation (NYSDOT)
+  country: USA
+  endpoints:
+  - hostname: cors.dot.ny.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 40.5
+      lat_max: 45.0
+      lon_min: -79.8
+      lon_max: -71.8
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://cors.dot.ny.gov/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide New York coverage
+    stations: 50
+    coverage_area: Statewide New York coverage
+    last_verified: '2024-12-01'

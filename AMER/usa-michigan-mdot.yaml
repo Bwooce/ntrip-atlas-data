@@ -1,0 +1,33 @@
+service:
+  id: usa_michigan_mdot
+  provider: Michigan Department of Transportation (MDOT)
+  country: USA
+  endpoints:
+  - hostname: mdot.mi.gov
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 41.7
+      lat_max: 48.3
+      lon_min: -90.5
+      lon_max: -82.4
+    hierarchical:
+      regional: 3
+      national: 4
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.michigan.gov/mdot
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Statewide Michigan coverage
+    stations: 50
+    coverage_area: Statewide Michigan coverage
+    last_verified: '2024-12-01'

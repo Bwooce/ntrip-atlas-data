@@ -1,0 +1,55 @@
+service:
+  id: greece_smartnet_hxgn
+  provider: METRICA S.A. (HxGN SmartNet Greece)
+  country: GR
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact METRICA S.A. for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Greece mainland and islands coverage
+      lat_min: 34.8
+      lat_max: 41.8
+      lon_min: 19.3
+      lon_max: 29.6
+    hierarchical:
+      # Commercial network coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong regional coverage
+      national: 5         # Excellent national coverage
+      state: 4           # Good coverage (mainland + major islands)
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.metrica.gr/
+  quality:
+    reliability_rating: 4  # Commercial service
+    accuracy_rating: 5     # Professional survey-grade (1-2cm accuracy)
+    network_type: commercial
+  metadata:
+    description: HxGN SmartNet Greece operated by METRICA S.A. with professional RTK corrections
+    stations: "Network of reference stations"
+    coverage_area: Greece mainland, Ionian Islands, and Cyclades
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x, iMAX]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: HTRS07
+    coordinate_systems: [HTRS07, GGRS87]
+    notes: |
+      - HxGN SmartNet: Global GNSS correction service network
+      - Professional RTK/NRTK corrections with 1-2 centimeter accuracy
+      - Coverage: mainland Greece, Ionian Islands, and Cyclades
+      - Multiple correction techniques: MAX, FKP, iMAX, VRS
+      - Single Base data available for individual islands
+      - GPRS/Internet NTRIP delivery for real-time corrections
+      - Operated by METRICA S.A. with 15+ years of experience
+      - Professional support and maintenance contracts available
+      - Compatible with all major GNSS receiver brands
+      - Address: 88a Ginossati St, Athens, 14452, Greece
+      - Contact through www.metrica.gr for subscription details
+      - Part of Hexagon Geospatial global SmartNet infrastructure
+      - Professional alternative to government and community networks

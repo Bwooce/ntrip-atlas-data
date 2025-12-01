@@ -1,0 +1,62 @@
+service:
+  id: india_soi_cors
+  provider: Survey of India (CORS Network)
+  country: IN
+  endpoints:
+  - hostname: REGISTRATION_REQUIRED  # Register at cors.surveyofindia.gov.in
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # India coverage including territories
+      lat_min: 6.4
+      lat_max: 37.1
+      lon_min: 68.0
+      lon_max: 97.4
+    hierarchical:
+      # National government network coverage
+      continental: 4      # Strong Asian coverage
+      regional: 5         # Excellent South Asian coverage
+      national: 5         # Excellent national coverage (1105+ stations)
+      state: 5           # Excellent coverage
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://cors.surveyofindia.gov.in/registration.php
+  quality:
+    reliability_rating: 5  # Government service, 24/7 availability
+    accuracy_rating: 5     # ±3cm RTK accuracy
+    network_type: government
+  metadata:
+    description: Survey of India's national CORS network with 1105+ reference stations
+    stations: "1105+"
+    coverage_area: India nationwide including territories
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.4, RTCM 3.1, RTCM 3.2]
+    constellations: [GPS, GLONASS, Galileo, NavIC]
+    primary_crs: WGS84_UTM
+    coordinate_systems: [WGS84_UTM, Indian_Datum, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_paid: true
+    notes: |
+      - Survey of India CORS: Largest CORS network in Asia with 1105+ stations
+      - Real Time-Kinematic (RTK) accuracy: ±3cm positioning
+      - Multiple NTRIP mount point formats available:
+        * VRS (Virtual Reference Station) - RTCM 3.2 format
+        * MAC (Master Auxiliary Concept) - RTCM 3.1 format
+        * FKP (Flachen Korrektur Parameter) - RTCM 3.1 format
+        * DGNSS (sub-meter differential) - RTCM 2.4 format
+      - FREE for Central/State Government and Academic institutions
+      - PAID subscriptions for PSU and Private users
+      - Available 24/7, 365 days a year with real-time corrections
+      - Open, non-proprietary streaming standards
+      - Geodetic-grade GNSS receivers strategically distributed
+      - Supports surveying, mapping, disaster monitoring, agriculture
+      - Registration portal: cors.surveyofindia.gov.in/registration.php
+      - Comprehensive infrastructure eliminating need for physical base stations

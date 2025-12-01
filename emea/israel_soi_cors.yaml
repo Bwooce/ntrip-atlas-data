@@ -1,0 +1,54 @@
+service:
+  id: israel_soi_cors
+  provider: Survey of Israel (SOI) - Active Permanent Network
+  country: IL
+  endpoints:
+  - hostname: registration-required.example.com  # Contact apn@mapi.gov.il for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Israel coverage
+      lat_min: 29.4
+      lat_max: 33.3
+      lon_min: 34.2
+      lon_max: 35.9
+    hierarchical:
+      # National government network coverage
+      continental: 1      # Limited regional coverage
+      regional: 2         # Limited regional coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent coverage (18 APN stations)
+      local: 5           # Excellent local coverage with VRS
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: mailto:apn@mapi.gov.il
+  quality:
+    reliability_rating: 5  # Government service with high technical standards
+    accuracy_rating: 5     # Professional geodetic network accuracy
+    network_type: government
+  metadata:
+    description: Survey of Israel CORS network with Active Permanent Network and VRS technology
+    stations: "18"
+    coverage_area: Israel nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: Israeli_TM_Grid
+    coordinate_systems: [Israeli_TM_Grid, WGS84]
+    notes: |
+      - Survey of Israel (SOI): National mapping and geodetic authority
+      - Active Permanent Network (APN) with 18 G0-level stations
+      - Virtual Reference Station (VRS) technology using Geo++® software
+      - Three-tier geodetic network: G0 (18 APN), G1 (150 points), G2 (778 points)
+      - Originally for geodetic and geophysical research, now civilian access
+      - High technical specifications for geotechnical stability
+      - Direct connection to permanent GPS network via VRS
+      - Professional surveying and mapping applications
+      - Contact: apn@mapi.gov.il or phone 03-6231697 (Omer Bar)
+      - Registration required for NTRIP credentials and access
+      - Part of Israeli national spatial data infrastructure
+      - Supports cadastral surveys and topographic mapping

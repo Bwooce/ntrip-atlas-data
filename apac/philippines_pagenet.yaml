@@ -1,0 +1,62 @@
+service:
+  id: philippines_pagenet
+  provider: National Mapping and Resource Information Authority (NAMRIA)
+  country: PH
+  endpoints:
+  - hostname: REGISTRATION_REQUIRED  # Register at pagenet.namria.gov.ph
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Philippines coverage
+      lat_min: 4.2
+      lat_max: 21.1
+      lon_min: 116.0
+      lon_max: 127.0
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional Southeast Asian coverage
+      regional: 4         # Strong regional coverage
+      national: 4         # Good national coverage (17 stations)
+      state: 4           # Good coverage for archipelago
+      local: 3           # Limited local coverage (island nation challenges)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://pagenet.namria.gov.ph/
+  quality:
+    reliability_rating: 4  # Government service with infrastructure challenges
+    accuracy_rating: 5     # High-precision geodetic grade equipment
+    network_type: government
+  metadata:
+    description: Philippine Active Geodetic Network providing real-time GNSS positioning services
+    stations: "17"
+    coverage_area: Philippines nationwide (archipelago)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: PRS92
+    coordinate_systems: [PRS92, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      private_minimal_fee: true
+    notes: |
+      - PageNET: Philippine Active Geodetic Network since 2007
+      - Operated by NAMRIA (National Mapping and Resource Information Authority)
+      - 17 Active Geodetic Stations (AGS) nationwide
+      - Public access available since 2009
+      - Geodetic-grade GNSS receivers and antennas at each station
+      - Supplementary sensors: meteorological and tilt monitoring
+      - Leica GNSS Spider software suite infrastructure
+      - IP-VPN connectivity to Data Control Center
+      - PTAG station included in IGS Network since 2011
+      - FREE for government sectors, minimal fee for private users
+      - Network RTK GNSS services with real-time positioning
+      - Post-processing services available
+      - Applications: surveying, mapping, aviation, navigation, military, research, agriculture
+      - Registration required at pagenet.namria.gov.ph for NTRIP access
+      - Enhanced deformation modeling and quality improvements ongoing
+      - Developed with Ordnance Survey International assistance

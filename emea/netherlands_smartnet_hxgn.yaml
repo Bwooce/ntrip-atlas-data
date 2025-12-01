@@ -1,0 +1,55 @@
+service:
+  id: netherlands_smartnet_hxgn
+  provider: Hexagon Geospatial (HxGN SmartNet Netherlands)
+  country: NL
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact HxGN SmartNet for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Netherlands coverage
+      lat_min: 50.7
+      lat_max: 53.6
+      lon_min: 3.2
+      lon_max: 7.3
+    hierarchical:
+      # Commercial network coverage
+      continental: 4      # Strong European coverage
+      regional: 5         # Excellent regional coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent coverage (4000+ global stations)
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://hxgnsmartnet.com/
+  quality:
+    reliability_rating: 5  # Commercial service with 24/7 monitoring
+    accuracy_rating: 5     # Professional centimeter-level accuracy
+    network_type: commercial
+  metadata:
+    description: HxGN SmartNet Netherlands providing centimeter-level RTK corrections
+    stations: "Part of 4000+ global reference stations"
+    coverage_area: Netherlands nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: RD/NAP
+    coordinate_systems: [RD/NAP, ETRS89, WGS84]
+    notes: |
+      - HxGN SmartNet: World's largest reference station network (4000+ stations)
+      - Integrated 24/7 GNSS Network RTK and DGNSS correction service
+      - Centimeter-level accuracies with Network RTK corrections
+      - Corrections delivered using industry-standard RTCM format
+      - Compatible with any GNSS device using open standards
+      - Constantly monitored for integrity, availability and accuracy
+      - Flexible subscriptions from individual to enterprise
+      - Local support available in Dutch language
+      - Easy access using internationally recognized standards
+      - Robust, traceable and repeatable positioning corrections
+      - Contact hxgnsmartnet.com for subscription and pricing details
+      - Part of Hexagon Geospatial global infrastructure
+      - Professional service with global and local support teams

@@ -1,0 +1,64 @@
+service:
+  id: malaysia_myrtknet
+  provider: Department of Survey and Mapping Malaysia (JUPEM)
+  country: MY
+  endpoints:
+  - hostname: 202.75.44.154
+    port: 8080
+    ssl: false
+  coverage:
+    bounding_box:
+      # Malaysia coverage including East Malaysia
+      lat_min: 0.9
+      lat_max: 7.4
+      lon_min: 99.6
+      lon_max: 119.3
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional Southeast Asian coverage
+      regional: 4         # Strong regional coverage
+      national: 5         # Excellent national coverage (78 stations)
+      state: 4           # Good coverage (30-150km spacing)
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: http://www.rtknet.gov.my
+  quality:
+    reliability_rating: 4  # Government service with telecom dependency
+    accuracy_rating: 5     # Centimeter-level accuracy
+    network_type: government
+  metadata:
+    description: Malaysian national RTK network providing real-time GNSS positioning services
+    stations: "78"
+    coverage_area: Malaysia nationwide (Peninsular Malaysia, Sabah, Sarawak)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: RSO_MALAYA
+    coordinate_systems: [RSO_Malaya, GDM2000, WGS84]
+  metadata:
+    pricing:
+      registration_fee_government: "RM 500"
+      registration_fee_private: "RM 1,000"
+      annual_subscription: "RM 3,000"
+    notes: |
+      - MyRTKnet: Malaysian Real-Time Kinematic GNSS Network since 2003
+      - Operated by JUPEM (Department of Survey and Mapping Malaysia)
+      - 78 GNSS reference stations: 50 in Peninsular Malaysia, 28 in Sabah/Sarawak
+      - Station spacing: 30-150 km for optimal coverage
+      - Multiple correction services available:
+        * VRS (Virtual Reference Station)
+        * MAX (Master-Auxiliary Corrections)
+        * IMAX (Individualised Master-Auxiliary Corrections)
+        * Nearest Base corrections
+        * Network D-GNSS corrections
+      - Post-processed services: RINEX and Virtual RINEX data
+      - Centimeter accuracy achieved in Peninsular Malaysia, Kuching, Kota Kinabalu
+      - DGPS corrections available nationwide with telecom coverage
+      - NTRIP support software downloadable from JUPEM website
+      - Registration required with username/password access
+      - Annual subscription covers all real-time services
+      - Contact: admin.myrtknet@jupem.gov.my for assistance

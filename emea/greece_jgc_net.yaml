@@ -1,0 +1,54 @@
+service:
+  id: greece_jgc_net
+  provider: JGC Geotechnical Consultants S.A.
+  country: GR
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact cdounias@jgc.gr for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Greece and Cyprus coverage
+      lat_min: 34.5
+      lat_max: 42.0
+      lon_min: 19.3
+      lon_max: 35.0
+    hierarchical:
+      # Commercial network coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong regional coverage
+      national: 5         # Excellent national coverage (Greece + Cyprus)
+      state: 5           # Excellent regional coverage
+      local: 4           # Good local coverage (50+ stations)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: mailto:cdounias@jgc.gr
+  quality:
+    reliability_rating: 4  # Commercial service
+    accuracy_rating: 5     # Professional survey-grade (few cm accuracy)
+    network_type: commercial
+  metadata:
+    description: Professional RTK network using Trimble receivers across Greece and Cyprus
+    stations: "50+"
+    coverage_area: Greece and Cyprus
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.1, RTCM 3.2 MSM]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: HTRS07
+    coordinate_systems: [HTRS07, HEPOS, GGRS87/TM87]
+    notes: |
+      - JGC-Net professional reference station network with 50+ stations
+      - Latest generation Trimble Geospatial receivers
+      - NTRIP protocol with RTCM 3.1 (GPS+GLONASS) and RTCM 3.2 MSM (Full GNSS)
+      - Coverage extends 50km+ from each station depending on conditions
+      - Few centimeters accuracy for RTK positioning
+      - Stations fixed to HEPOS Reference System (HTRS07)
+      - User positioning in EGSA87 via HEPOS_GGRS87/TM87 transformation
+      - Major locations: Athens, Thessaloniki, Crete, Greek islands
+      - Contact: cdounias@jgc.gr, Tel: +30 210 8023917
+      - Trial access available for evaluation
+      - Professional support and station installation services
+      - Complements HEPOS with commercial alternative

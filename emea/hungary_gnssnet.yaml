@@ -1,0 +1,54 @@
+service:
+  id: hungary_gnssnet
+  provider: Lechner Tudásközpont Nonprofit Kft. (GNSS Service Center)
+  country: HU
+  endpoints:
+  - hostname: registration-required.example.com  # Register at gnssnet.hu for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Hungary coverage
+      lat_min: 45.7
+      lat_max: 48.6
+      lon_min: 16.1
+      lon_max: 22.9
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited European coverage
+      regional: 3         # Regional Central European coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent coverage (homogeneous accuracy)
+      local: 5           # Excellent local coverage (~100% availability)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.gnssnet.hu/
+  quality:
+    reliability_rating: 5  # Government service, practically 100% availability
+    accuracy_rating: 5     # Real-time centimeter-level accuracy
+    network_type: government
+  metadata:
+    description: Hungarian national GNSS network providing real-time RTK corrections
+    stations: "Network of reference stations"
+    coverage_area: Hungary nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: EOV
+    coordinate_systems: [EOV, ETRS89, WGS84]
+    notes: |
+      - GNSSnet.hu: Hungarian national RTK network since 2008
+      - Operated by Lechner Knowledge Center and Cosmic Geodetic Observatory
+      - Four service types: RTK (cm-level), GIS (dm-level), DATA (RINEX), FARM
+      - Homogeneous accuracy with practically 100% availability
+      - Official surveying service under Hungarian Regulation 15/2013
+      - Real-time centimeter-accuracy RTK and Network RTK corrections
+      - Real-time decimeter-accuracy DGNSS corrections available
+      - Reference station and virtual station data downloads
+      - Equipment-agnostic service for efficient field work
+      - High-level professional backing with extended support
+      - Registration required at gnssnet.hu for NTRIP credentials
+      - Professional service for surveying, construction, and agriculture

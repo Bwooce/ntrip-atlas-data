@@ -1,0 +1,54 @@
+service:
+  id: uk_rtkfnet
+  provider: RTKFnet Ltd
+  country: GB
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact RTKFnet for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # United Kingdom coverage (mainland)
+      lat_min: 49.9
+      lat_max: 60.9
+      lon_min: -8.2
+      lon_max: 2.0
+    hierarchical:
+      # Commercial network coverage
+      continental: 2      # Limited European coverage
+      regional: 3         # Regional coverage
+      national: 5         # Excellent UK coverage
+      state: 4           # Good regional coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.rtkf.net/
+  quality:
+    reliability_rating: 4  # Commercial service with remote support
+    accuracy_rating: 5     # Professional survey-grade accuracy
+    network_type: commercial
+  metadata:
+    description: UK-based RTK correction service with extensive base station network
+    stations: "Network of base stations"
+    coverage_area: United Kingdom mainland
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: OSGB36
+    coordinate_systems: [OSGB36, WGS84, ETRS89]
+    notes: |
+      - RTKFnet: Established in 2010 by four farmers in South Cambridgeshire
+      - Extensive network of latest RTK base stations across UK
+      - Originally radio-based network, now includes internet/SIM delivery
+      - Cost-effective alternative to major commercial providers
+      - In-house server management and remote support capabilities
+      - Compatible with any make of GPS equipment
+      - Network constantly evolves to maintain technology leadership
+      - Combination of radio base stations and internet-based corrections
+      - Founded to provide robust and affordable GPS RTK for farming
+      - Network approved dealers throughout UK
+      - Professional service with remote handling and monitoring
+      - Contact team directly for pricing and subscription details

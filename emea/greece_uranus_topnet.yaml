@@ -1,0 +1,55 @@
+service:
+  id: greece_uranus_topnet
+  provider: Tree Company Corporation AEBE (URANUS Network)
+  country: GR
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact uranus@treecomp.gr for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Greece and Cyprus coverage
+      lat_min: 34.5
+      lat_max: 42.0
+      lon_min: 19.3
+      lon_max: 35.0
+    hierarchical:
+      # Commercial network coverage
+      continental: 3      # Regional European coverage
+      regional: 5         # Excellent regional coverage
+      national: 5         # Excellent national coverage (Greece + Cyprus)
+      state: 5           # Excellent coverage (117 stations)
+      local: 5           # Excellent local coverage (50km range)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.uranus.gr/
+  quality:
+    reliability_rating: 5  # Commercial service with 24/7 support
+    accuracy_rating: 5     # Professional survey-grade accuracy
+    network_type: commercial
+  metadata:
+    description: URANUS Network operated by Tree Company with 117 permanent reference stations
+    stations: "117"
+    coverage_area: Greece and Cyprus (99% operational territory coverage)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: HTRS07
+    coordinate_systems: [HTRS07, GGRS87]
+    notes: |
+      - URANUS: Largest private network of permanent reference stations in Greece
+      - 117 permanent reference stations across Greece and Cyprus
+      - 99% coverage of operational territory with 50km measurement range
+      - Certified by National Technical University of Athens (NTUA)
+      - Compatible with all GNSS receivers on the market
+      - 24/7 operation with 24-hour technical support
+      - Integrated with Topcon Topnet Live global infrastructure
+      - 3-day free trial available for new users
+      - Over 35 years of technological expertise from Tree Company Corporation
+      - Web-based platform with usage statistics and real-time monitoring
+      - Contact: uranus@treecomp.gr, Tel: +30 210 9473600
+      - Address: Ag. Kyriakis 27, 17564 Piraeus, Athens
+      - Professional alternative to government HEPOS network

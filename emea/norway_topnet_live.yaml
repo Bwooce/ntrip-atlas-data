@@ -1,0 +1,54 @@
+service:
+  id: norway_topnet_live
+  provider: Blinken AS (TopNet Live Norway)
+  country: "NO"
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact Blinken AS for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Norway coverage
+      lat_min: 57.9
+      lat_max: 71.2
+      lon_min: 4.6
+      lon_max: 31.3
+    hierarchical:
+      # Commercial network coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong Scandinavian coverage
+      national: 5         # Excellent national coverage
+      state: 4           # Good regional coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://rtk.topnetlive.com/norway/
+  quality:
+    reliability_rating: 5  # Commercial service with constant monitoring
+    accuracy_rating: 5     # Professional RTK/NRTK accuracy
+    network_type: commercial
+  metadata:
+    description: TopNet Live Norway operated by Blinken AS using Kartverket reference stations
+    stations: "All Kartverket reference stations"
+    coverage_area: Norway nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: EUREF89
+    coordinate_systems: [EUREF89, UTM, WGS84]
+    notes: |
+      - TopNet Live Norway: Commercial service operated by Blinken AS
+      - Partnership with Topcon Europe and Norwegian Kartverket
+      - Uses data from all Kartverket reference stations
+      - Constantly monitored to ensure optimal precision
+      - Available to all users with GNSS receiver and mobile data
+      - Part of TopNet Live global borderless service
+      - RTK and NRTK corrections via NTRIP protocol
+      - Single subscription works across multiple regions
+      - Automatic switching between regional networks
+      - Mobile SIM card data link for corrections delivery
+      - Professional service for surveying and construction
+      - Contact Blinken AS for Norwegian subscription details

@@ -1,0 +1,53 @@
+service:
+  id: qatar_qcors
+  provider: Qatar Network for Continuously Operating Reference Stations (QCORS)
+  country: QA
+  endpoints:
+  - hostname: registration-required.example.com  # Contact QCORS for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Qatar coverage
+      lat_min: 24.4
+      lat_max: 26.2
+      lon_min: 50.7
+      lon_max: 51.7
+    hierarchical:
+      # National government network coverage
+      continental: 1      # Limited regional coverage
+      regional: 2         # Limited Gulf region coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent coverage
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.gisqatar.org.qa/
+  quality:
+    reliability_rating: 5  # Government service with high standards
+    accuracy_rating: 5     # ±2 cm horizontal, ~3-7 cm vertical accuracy
+    network_type: government
+  metadata:
+    description: Qatar National CORS network providing centimeter-level positioning accuracy
+    stations: "Multiple reference stations"
+    coverage_area: Qatar nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: Qatar National Grid
+    coordinate_systems: [Qatar National Grid, WGS84]
+    notes: |
+      - QCORS: Qatar Network for Continuously Operating Reference Stations
+      - Established in 2009, operational since 2010
+      - Achieved ±2 cm horizontal accuracy across Qatar
+      - Vertical accuracy: ~10 cm (working toward 3-7 cm improvement)
+      - Real-time GNSS corrections for government and private sectors
+      - Single Qatar National Spatial Reference System
+      - Centimeter-level positioning accuracy for surveying and mapping
+      - Supports government and private survey & mapping communities
+      - Contact GIS Qatar for registration and access details
+      - Part of Qatar's national spatial data infrastructure
+      - Professional service for construction and GIS applications

@@ -1,0 +1,54 @@
+service:
+  id: greece_hermes_auth
+  provider: Aristotle University of Thessaloniki (AUTH)
+  country: GR
+  endpoints:
+  - hostname: ACADEMIC_ACCESS  # Contact AUTH Department of Geodesy and Surveying
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Northern Greece coverage
+      lat_min: 39.0
+      lat_max: 42.0
+      lon_min: 20.0
+      lon_max: 26.5
+    hierarchical:
+      # Academic network coverage
+      continental: 2      # Limited European coverage
+      regional: 4         # Strong Northern Greece coverage
+      national: 3         # Regional Greek coverage
+      state: 4           # Good regional coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://it.auth.gr/
+  quality:
+    reliability_rating: 4  # University service
+    accuracy_rating: 4     # Academic/research grade
+    network_type: academic
+  metadata:
+    description: Academic GNSS NtripCaster operated by Aristotle University of Thessaloniki
+    stations: "5+"
+    coverage_area: Northern Greece (Macedonia, Thrace, Epirus)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: HTRS07
+    coordinate_systems: [HTRS07, GGRS87]
+    notes: |
+      - Hermes GNSS NtripCaster operated by AUTH Geodesy Department
+      - Research project for Real Time GNSS positioning via Internet
+      - Coverage in Northern Greece: Macedonia, Thrace, Epirus regions
+      - Academic network managed by AUTH faculty and researchers
+      - NTRIP protocol streaming RTCM data from permanent stations
+      - University campus: P.O Box 432, 54124 Thessaloniki, Greece
+      - Managed by: A. Fotiou, C. Pikridas, V. Tsioukas, S. Katsougiannopoulos
+      - Provides Total Electron Content (TEC) data for ionospheric research
+      - Part of broader Greek GNSS infrastructure alongside NOANET and HxGN
+      - Operational since 2009 for geodetic research and real-time positioning
+      - Academic access - contact AUTH for research collaboration
+      - Focus on positioning accuracy improvement and field testing

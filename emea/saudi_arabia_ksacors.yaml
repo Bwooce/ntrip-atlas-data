@@ -1,0 +1,54 @@
+service:
+  id: saudi_arabia_ksacors
+  provider: General Authority for Survey and Geospatial Information (GEOSA)
+  country: SA
+  endpoints:
+  - hostname: authorization-required.example.com  # Contact GEOSA for authorized access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Saudi Arabia coverage
+      lat_min: 15.6
+      lat_max: 32.2
+      lon_min: 34.5
+      lon_max: 55.7
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited regional coverage
+      regional: 3         # Regional Gulf coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent coverage (200 stations)
+      local: 4           # Good local coverage (50-70km spacing)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://ksacors.geosa.gov.sa/
+  quality:
+    reliability_rating: 5  # Government service with professional standards
+    accuracy_rating: 5     # Centimeter-level Network RTK accuracy
+    network_type: government
+  metadata:
+    description: Saudi Arabia national CORS network providing Network RTK corrections
+    stations: "~200"
+    coverage_area: Kingdom of Saudi Arabia nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: SAUDI_ARABIA_DATUM
+    coordinate_systems: [SAUDI_ARABIA_DATUM, WGS84]
+    notes: |
+      - KSA-CORS: Kingdom of Saudi Arabia Continuously Operating Reference Station network
+      - Operated by General Authority for Survey and Geospatial Information (GEOSA)
+      - ~200 continuously operating GNSS stations nationwide
+      - Data streamed in real-time to GEOSA data center in Riyadh
+      - Provides Network RTK (NRTK) and Network Post-Processed Kinematic (NPPK)
+      - Station spacing typically 50-70 km for optimal coverage
+      - RTCM corrections delivered via NTRIP protocol with internet access
+      - First CORS network in KSA started by Jeddah Municipality in 2007
+      - Accurate GNSS positioning for governmental and private sectors
+      - Centimeter-level accuracy for surveying and construction applications
+      - Contact GEOSA for authorized user registration and access
+      - Part of Saudi Arabia's national spatial data infrastructure

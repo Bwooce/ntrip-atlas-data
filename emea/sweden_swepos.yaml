@@ -1,0 +1,59 @@
+service:
+  id: sweden_swepos
+  provider: Lantmäteriet (SWEPOS Network RTK)
+  country: SE
+  endpoints:
+  - hostname: nrtk-swepos.lm.se
+    port: 80
+    ssl: false
+  - hostname: nrtk-swepos.lm.se
+    port: 8500
+    ssl: false
+  coverage:
+    bounding_box:
+      # Sweden coverage
+      lat_min: 55.3
+      lat_max: 69.1
+      lon_min: 10.9
+      lon_max: 24.2
+    hierarchical:
+      # Government commercial service coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong Scandinavian coverage
+      national: 5         # Excellent national coverage (480 stations)
+      state: 5           # Excellent coverage
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://swepos.lantmateriet.se/
+  quality:
+    reliability_rating: 5  # Government service with professional support
+    accuracy_rating: 5     # Professional centimeter-level accuracy
+    network_type: government_commercial
+  metadata:
+    description: SWEPOS Network RTK service with 480 reference stations across Sweden
+    stations: "480"
+    coverage_area: Sweden nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: SWEREF99
+    coordinate_systems: [SWEREF99, RT90, WGS84]
+    notes: |
+      - SWEPOS: Sweden's National Land Survey Network RTK service
+      - 480 reference stations providing centimeter-level accuracy
+      - Commercial subscription service operated by Lantmäteriet
+      - Multiple connection ports: 80 and 8500
+      - Support for GPS, GLONASS, Galileo, and BeiDou systems
+      - 10-day free trial for new customers
+      - 1000-minute packages for irregular usage (16h 40min)
+      - Continuous subscriptions with automatic renewal
+      - Price tiers for organizations with 3+ subscriptions
+      - Inter-Nordic subscriptions available (Finland/Norway)
+      - Free IoT SIM card included with subscriptions
+      - Professional support Monday-Friday 07:00-17:00
+      - Contact: swepos@lm.se, phone: 026-63 37 53
+      - Part of Sweden's geodetic reference system infrastructure

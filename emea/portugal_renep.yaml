@@ -1,0 +1,57 @@
+service:
+  id: portugal_renep
+  provider: Direção-Geral do Território (DGT) - ReNEP
+  country: PT
+  endpoints:
+  - hostname: REGISTRATION_REQUIRED  # Contact renep@dgterritorio.pt for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Portugal coverage including islands
+      lat_min: 32.4
+      lat_max: 42.2
+      lon_min: -31.3
+      lon_max: -6.2
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited European coverage
+      regional: 3         # Regional Iberian coverage
+      national: 5         # Excellent national coverage (48 stations)
+      state: 5           # Excellent coverage (mainland + islands)
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: mailto:renep@dgterritorio.pt
+  quality:
+    reliability_rating: 5  # Government service with established user base
+    accuracy_rating: 5     # Centimeter-level positioning accuracy
+    network_type: government
+  metadata:
+    description: Portuguese National CORS Network providing Network RTK corrections
+    stations: "48"
+    coverage_area: Portugal nationwide including Azores and Madeira
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.3, RTCM 3.1]
+    constellations: [GPS, GLONASS]
+    primary_crs: ETRS89
+    coordinate_systems: [ETRS89, ITRF93, WGS84]
+    notes: |
+      - ReNEP: Rede Nacional de Estações Permanentes (National Permanent Stations Network)
+      - Operated by DGT (Direção-Geral do Território)
+      - 48 CORS stations: 42 mainland Portugal + 4 Azores + 2 Madeira
+      - Serves 1600+ registered users nationwide
+      - RTK Network Mode with continuous RTCM corrections via NTRIP
+      - Centimeter-scale accuracy achieved with Network RTK positioning
+      - Multiple coordinate reference systems:
+        * Mainland Portugal: ETRS89
+        * Azores and Madeira: ITRF93
+      - Post-processing services: RINEX 2.11 files (5-second intervals)
+      - EPN & IGS station data available (hourly/daily, 30-second rates)
+      - Professional service for surveying, construction, and research
+      - Cross-border compatibility with Spanish RAP network validated
+      - Registration required: contact renep@dgterritorio.pt for NTRIP credentials
+      - High-precision GNSS infrastructure for Portuguese territories

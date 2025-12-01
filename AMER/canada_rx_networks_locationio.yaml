@@ -3,7 +3,7 @@ service:
   provider: Rx Networks Inc.
   country: CA
   endpoints:
-  - hostname: REQUIRES_SUBSCRIPTION  # Contact sales@rxnetworks.com for hostname details
+  - hostname: contact-sales.rxnetworks.com  # Subscription required - contact sales@rxnetworks.com for access
     port: 2101
     ssl: false
   coverage:

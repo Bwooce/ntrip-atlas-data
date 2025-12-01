@@ -1,0 +1,54 @@
+service:
+  id: iraq_igrs_cors
+  provider: Iraqi Geospatial Reference System (IGRS)
+  country: IQ
+  endpoints:
+  - hostname: registration-required.example.com  # Contact IGRS for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Iraq coverage
+      lat_min: 29.1
+      lat_max: 37.4
+      lon_min: 38.8
+      lon_max: 48.6
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited regional coverage
+      regional: 3         # Regional Middle East coverage
+      national: 4         # Good national coverage
+      state: 4           # Good coverage with CORS/HARNS stations
+      local: 4           # Good local coverage with VRS capability
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: CONTACT_IGRS_DIRECTLY
+  quality:
+    reliability_rating: 4  # Government service for engineering/mapping
+    accuracy_rating: 5     # High accuracy reference network
+    network_type: government
+  metadata:
+    description: Iraqi Geospatial Reference System with CORS and High Accuracy Reference Network Stations
+    stations: "Multiple CORS and HARNS stations"
+    coverage_area: Iraq nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: Iraq_TM
+    coordinate_systems: [Iraq_TM, WGS84]
+    notes: |
+      - IGRS: Iraqi Geospatial Reference System with CORS infrastructure
+      - Includes Continuously Operating Reference Stations (CORS)
+      - High Accuracy Reference Network Stations (HARNS)
+      - Virtual Reference System (VRS) capability available
+      - Integrated with International GNSS Service (IGS) network
+      - Trimble NetRS receivers with Zephyr geodetic antennas
+      - Trimble GPSNet and GPSBase software for data processing
+      - Designed for engineering and mapping project accuracy
+      - Part of worldwide CORS network integration
+      - Government service for surveying and construction applications
+      - Contact Iraqi mapping authorities for registration and access
+      - Supports high-precision positioning throughout Iraq

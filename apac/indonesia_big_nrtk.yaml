@@ -1,0 +1,57 @@
+service:
+  id: indonesia_big_nrtk
+  provider: Badan Informasi Geospasial (BIG) - Indonesian Geospatial Information Agency
+  country: ID
+  endpoints:
+  - hostname: nrtk.big.go.id
+    port: 2001
+    ssl: false
+  coverage:
+    bounding_box:
+      # Indonesia coverage
+      lat_min: -11.0
+      lat_max: 6.1
+      lon_min: 95.0
+      lon_max: 141.0
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional Asian coverage
+      regional: 4         # Strong Southeast Asian coverage
+      national: 5         # Excellent national coverage
+      state: 4           # Good coverage (max 5 nearby stations)
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://nrtk.big.go.id/
+  quality:
+    reliability_rating: 4  # Government service with telecoms dependency
+    accuracy_rating: 5     # 10mm + 1.0ppm in ideal conditions
+    network_type: government
+  metadata:
+    description: Indonesian national CORS network providing Network RTK corrections
+    stations: "Network of CORS stations (max 5 per location)"
+    coverage_area: Indonesia nationwide (archipelago coverage)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: SRGI2013
+    coordinate_systems: [SRGI2013, WGS84]
+    notes: |
+      - InaCORS: Indonesian Continuously Operating Reference Station network
+      - Operated by BIG (Badan Informasi Geospasial) Geospatial Reference System Directorate
+      - Multiple service types available:
+        * MAX: Network RTK selecting highest quality reference station
+        * i-Max: Network RTK using nearest reference station
+        * VRS: Virtual Reference Station corrections
+        * Nearest Base RTK: Single RTK correction from one base station
+      - Network RTK provides corrections from maximum 5 nearby stations
+      - Accuracy: 10mm + 1.0ppm in ideal conditions (single RTK)
+      - Real-time station connectivity status monitoring available
+      - Phase ambiguity resolution reliable within 50km range
+      - Ionosphere, troposphere, and satellite orbit modeling included
+      - Registration required at nrtk.big.go.id for NTRIP access
+      - Service quality depends on local telecommunications infrastructure
+      - Part of Indonesian Spatial Reference System (SRGI) infrastructure

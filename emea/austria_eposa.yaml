@@ -1,0 +1,54 @@
+service:
+  id: austria_eposa
+  provider: EPOSA (Echtzeit Positionierung Austria)
+  country: AT
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact EPOSA for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Austria plus 80km buffer into neighboring countries
+      lat_min: 46.4
+      lat_max: 49.0
+      lon_min: 9.5
+      lon_max: 17.2
+    hierarchical:
+      # Commercial network coverage
+      continental: 3      # Regional European coverage
+      regional: 5         # Excellent regional coverage (Austria + neighbors)
+      national: 5         # Excellent Austrian coverage
+      state: 5           # Excellent coverage (50 stations)
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.eposa.at/
+  quality:
+    reliability_rating: 5  # Commercial leader in Austria
+    accuracy_rating: 5     # Professional centimeter-level accuracy
+    network_type: commercial
+  metadata:
+    description: EPOSA technological leader providing centimeter-accurate positioning across Austria
+    stations: "50"
+    coverage_area: Austria plus ~80km into Germany, Italy, Liechtenstein, Slovenia, Slovakia, Hungary, Switzerland
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89
+    coordinate_systems: [ETRS89, MGI, WGS84]
+    notes: |
+      - EPOSA: Technological leader in satellite-based positioning in Austria
+      - Nationwide GNSS reference station network with 50 reference stations
+      - Centimeter-accurate coordinates for entire Austria
+      - Cross-border coverage ~80km into neighboring countries
+      - Coverage extends into Germany, Italy, Liechtenstein, Slovenia, Slovakia, Hungary, Switzerland
+      - Data transmission using international standards RTCM and NTRIP
+      - Real-time positioning services and post-processing applications
+      - Professional commercial service for surveying and construction
+      - Compatible with all major GNSS equipment manufacturers
+      - Established market leader in Austrian positioning services
+      - Contact EPOSA for subscription and pricing details
+      - Alternative to government APOS service with enhanced coverage

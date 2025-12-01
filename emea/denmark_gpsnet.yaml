@@ -1,0 +1,54 @@
+service:
+  id: denmark_gpsnet
+  provider: Geoteam A/S (GPSnet Denmark)
+  country: DK
+  endpoints:
+  - hostname: subscription-required.example.com  # Contact Geoteam for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Denmark coverage (excluding Greenland and Faroe Islands)
+      lat_min: 54.5
+      lat_max: 57.8
+      lon_min: 8.0
+      lon_max: 15.2
+    hierarchical:
+      # Commercial network coverage
+      continental: 2      # Limited European coverage
+      regional: 3         # Regional Scandinavian coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent coverage (reference stations nationwide)
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.geoteam.dk/
+  quality:
+    reliability_rating: 5  # Commercial service with 24/7 monitoring
+    accuracy_rating: 5     # Professional survey-grade accuracy
+    network_type: commercial
+  metadata:
+    description: National RTK network operated by Geoteam with reference stations across Denmark
+    stations: "Network of reference stations"
+    coverage_area: Denmark (excluding Greenland and Faroe Islands)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x, CMRx]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89
+    coordinate_systems: [ETRS89, WGS84]
+    notes: |
+      - GPSnet: National network-based RTK reference stations across Denmark
+      - Operated by Geoteam A/S with 24/7 monitoring and support
+      - Mutual distance of reference stations optimized for nationwide coverage
+      - Real-time corrections delivered in RTCM and CMRx formats
+      - Uses TDC mobile network for connectivity
+      - 7-day demo subscription available with own SIM card
+      - Professional service for surveying and land measurement
+      - Same settings work regardless of location within Denmark
+      - Free access to measurement and station control documentation
+      - Contact Geoteam for subscription and pricing details
+      - High-precision positioning for professional applications
+      - Compatible with major GNSS receiver manufacturers

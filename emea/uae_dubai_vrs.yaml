@@ -3,7 +3,7 @@ service:
   provider: Dubai Municipality Survey Department
   country: AE
   endpoints:
-  - hostname: REQUIRES_REGISTRATION  # Submit request via survey.dm.gov.ae portal
+  - hostname: registration-required.example.com  # Submit request via survey.dm.gov.ae portal
     port: 2101
     ssl: false
   coverage:

@@ -1,0 +1,62 @@
+service:
+  id: slovenia_signal_gis
+  provider: Geodetic Institute of Slovenia (GIS)
+  country: SI
+  endpoints:
+  - hostname: register.example.com  # Contact GIS for SIGNAL network access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Slovenia coverage
+      lat_min: 45.4
+      lat_max: 46.9
+      lon_min: 13.4
+      lon_max: 16.6
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited continental coverage (small country)
+      regional: 4         # Strong regional coverage (includes neighboring countries)
+      national: 5         # Excellent national coverage (16 stations)
+      state: 5           # Excellent coverage
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://gis.si/en/gnss-service/
+  quality:
+    reliability_rating: 5  # Government service operational since 2006
+    accuracy_rating: 5     # Professional RTK centimeter-level accuracy
+    network_type: government
+  metadata:
+    description: Slovenia's national CORS network providing real-time and post-processing GNSS positioning
+    stations: "16"
+    coverage_area: Slovenia nationwide (enhanced with neighboring country stations)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89_Slovenia
+    coordinate_systems: [ETRS89_Slovenia, ETRS89, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_research: true
+      commercial_registration: true
+    notes: |
+      - SIGNAL: Slovenia-Geodesy-NAvigation-Location network
+      - Operated by Geodetic Institute of Slovenia within national land survey service
+      - Network operational since 2006, first station established 2000
+      - 16 permanent GNSS stations distributed throughout Slovenia
+      - Enhanced coverage with stations from neighboring countries in border regions
+      - Most commonly used realization of Slovenian national horizontal reference system
+      - Real-time RTCM format corrections and post-processing RINEX data
+      - VRS (Virtual Reference Station) technology support
+      - Combined with Zero-Order Geodetic Network since 2016
+      - Part of Slovenian national geoinformation infrastructure
+      - Surveying and Mapping Authority oversight (Ministry of Natural Resources)
+      - Technical support: analysis center, operations center, data center
+      - Quality control and near real-time monitoring
+      - Contact: gurs@assist.si for geodetic data access
+      - Supports national coordinate system realization and precision applications

@@ -1,0 +1,61 @@
+service:
+  id: nigeria_nignet_osgof
+  provider: Office of the Surveyor General of the Federation (OSGoF)
+  country: NG
+  endpoints:
+  - hostname: register.example.com  # Contact OSGoF for NTRIP access - testing phase
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Nigeria coverage
+      lat_min: 4.0
+      lat_max: 14.0
+      lon_min: 2.7
+      lon_max: 14.7
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited African coverage (11 stations)
+      regional: 3         # Regional West African coverage
+      national: 3         # Developing national coverage (25% of country)
+      state: 2           # Limited state coverage (>300km station spacing)
+      local: 2           # Limited local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://osgof.gov.ng/
+  quality:
+    reliability_rating: 3  # Government service in development phase
+    accuracy_rating: 5     # ±20mm RTK accuracy capability
+    network_type: government
+  metadata:
+    description: Nigeria GNSS Network providing CORS infrastructure and developing NTRIP services
+    stations: "11"
+    coverage_area: Nigeria (25% current coverage, expanding to 165 stations)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: NGD
+    coordinate_systems: [NGD, WGS84, ITRF2008]
+  metadata:
+    pricing:
+      government_free: true
+      academic_research: true
+      commercial_developing: true
+    notes: |
+      - NIGNET: Nigerian GNSS Network operational since 2008
+      - Operated by Office of the Surveyor General of the Federation (OSGoF)
+      - 11 CORS stations: Abuja (OSGoF), Port Harcourt (RUST), Gembu (HATC), Lagos (UNILAG)
+      - Additional stations: Kebbi (WUFP), Zaria (ABU), Yola (FUTY), Enugu (UNEC), Calabar (UNICAL), Toro (CGG), Maiduguri
+      - NTRIP implementation successfully tested with CLBR mountpoint
+      - Real-time correction streaming demonstrated with Trimble R8 receivers
+      - Station spacing >300km, covers approximately 25% of Nigeria currently
+      - Linked to ITRF2008 via 9 International GNSS Service (IGS) stations
+      - ±20mm RTK positioning accuracy capability
+      - Nigeria Geocentric Datum (NGD) reference system
+      - Expansion planned: 165 additional CORS stations from 2021+
+      - Part of Africa's geodetic infrastructure development
+      - Contact OSGoF for access to developing NTRIP services
+      - Collaboration with Trimble Navigation and SEGAL (Space & Earth Geodetic Analysis Laboratory)

@@ -3,7 +3,7 @@ service:
   provider: Blinken AS (TopNet Live Norway)
   country: "NO"
   endpoints:
-  - hostname: subscription-required.example.com  # Contact Blinken AS for access
+  - hostname: contact-sales.example.com  # Contact Blinken AS for access
     port: 2101
     ssl: false
   coverage:

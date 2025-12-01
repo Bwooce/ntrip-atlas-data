@@ -3,7 +3,7 @@ service:
   provider: EPOSA (Echtzeit Positionierung Austria)
   country: AT
   endpoints:
-  - hostname: subscription-required.example.com  # Contact EPOSA for access
+  - hostname: contact-sales.example.com  # Contact EPOSA for access
     port: 2101
     ssl: false
   coverage:

@@ -3,7 +3,7 @@ service:
   provider: Iraqi Geospatial Reference System (IGRS)
   country: IQ
   endpoints:
-  - hostname: registration-required.example.com  # Contact IGRS for access
+  - hostname: register.example.com  # Contact IGRS for access
     port: 2101
     ssl: false
   coverage:
@@ -24,7 +24,7 @@ service:
     method: basic
     required: true
     registration_required: true
-    registration_url: CONTACT_IGRS_DIRECTLY
+    registration_url: mailto:info@igrs.example.com
   quality:
     reliability_rating: 4  # Government service for engineering/mapping
     accuracy_rating: 5     # High accuracy reference network

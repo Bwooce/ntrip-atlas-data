@@ -3,7 +3,7 @@ service:
   provider: National Mapping and Resource Information Authority (NAMRIA)
   country: PH
   endpoints:
-  - hostname: REGISTRATION_REQUIRED  # Register at pagenet.namria.gov.ph
+  - hostname: register.example.com  # Register at pagenet.namria.gov.ph
     port: 2101
     ssl: false
   coverage:

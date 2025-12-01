@@ -3,7 +3,7 @@ service:
   provider: Survey of Israel (SOI) - Active Permanent Network
   country: IL
   endpoints:
-  - hostname: registration-required.example.com  # Contact apn@mapi.gov.il for access
+  - hostname: register.example.com  # Contact apn@mapi.gov.il for access
     port: 2101
     ssl: false
   coverage:

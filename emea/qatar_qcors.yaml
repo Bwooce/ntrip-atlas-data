@@ -3,7 +3,7 @@ service:
   provider: Qatar Network for Continuously Operating Reference Stations (QCORS)
   country: QA
   endpoints:
-  - hostname: registration-required.example.com  # Contact QCORS for access
+  - hostname: register.example.com  # Contact QCORS for access
     port: 2101
     ssl: false
   coverage:

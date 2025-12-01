@@ -3,7 +3,7 @@ service:
   provider: Aristotle University of Thessaloniki (AUTH)
   country: GR
   endpoints:
-  - hostname: ACADEMIC_ACCESS  # Contact AUTH Department of Geodesy and Surveying
+  - hostname: academic.example.com  # Contact AUTH Department of Geodesy and Surveying
     port: 2101
     ssl: false
   coverage:
@@ -28,7 +28,7 @@ service:
   quality:
     reliability_rating: 4  # University service
     accuracy_rating: 4     # Academic/research grade
-    network_type: academic
+    network_type: government
   metadata:
     description: Academic GNSS NtripCaster operated by Aristotle University of Thessaloniki
     stations: "5+"

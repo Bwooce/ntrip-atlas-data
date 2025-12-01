@@ -3,7 +3,7 @@ service:
   provider: Geoteam A/S (GPSnet Denmark)
   country: DK
   endpoints:
-  - hostname: subscription-required.example.com  # Contact Geoteam for access
+  - hostname: contact-sales.example.com  # Contact Geoteam for access
     port: 2101
     ssl: false
   coverage:

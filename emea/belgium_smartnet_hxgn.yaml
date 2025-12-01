@@ -3,7 +3,7 @@ service:
   provider: Hexagon Geospatial (HxGN SmartNet Belgium)
   country: BE
   endpoints:
-  - hostname: subscription-required.example.com  # Contact HxGN SmartNet for access
+  - hostname: contact-sales.example.com  # Contact HxGN SmartNet for access
     port: 2101
     ssl: false
   coverage:

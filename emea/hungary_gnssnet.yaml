@@ -3,7 +3,7 @@ service:
   provider: Lechner Tudásközpont Nonprofit Kft. (GNSS Service Center)
   country: HU
   endpoints:
-  - hostname: registration-required.example.com  # Register at gnssnet.hu for access
+  - hostname: register.example.com  # Register at gnssnet.hu for access
     port: 2101
     ssl: false
   coverage:

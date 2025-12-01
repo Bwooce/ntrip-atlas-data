@@ -3,7 +3,7 @@ service:
   provider: METRICA S.A. (HxGN SmartNet Greece)
   country: GR
   endpoints:
-  - hostname: subscription-required.example.com  # Contact METRICA S.A. for access
+  - hostname: contact-sales.example.com  # Contact METRICA S.A. for access
     port: 2101
     ssl: false
   coverage:

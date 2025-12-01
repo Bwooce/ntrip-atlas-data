@@ -3,7 +3,7 @@ service:
   provider: Survey of India (CORS Network)
   country: IN
   endpoints:
-  - hostname: REGISTRATION_REQUIRED  # Register at cors.surveyofindia.gov.in
+  - hostname: register.example.com  # Register at cors.surveyofindia.gov.in
     port: 2101
     ssl: false
   coverage:

@@ -3,7 +3,7 @@ service:
   provider: JGC Geotechnical Consultants S.A.
   country: GR
   endpoints:
-  - hostname: subscription-required.example.com  # Contact cdounias@jgc.gr for access
+  - hostname: contact-sales.example.com  # Contact cdounias@jgc.gr for access
     port: 2101
     ssl: false
   coverage:

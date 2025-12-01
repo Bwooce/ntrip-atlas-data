@@ -3,7 +3,7 @@ service:
   provider: Tree Company Corporation AEBE (URANUS Network)
   country: GR
   endpoints:
-  - hostname: subscription-required.example.com  # Contact uranus@treecomp.gr for access
+  - hostname: contact-sales.example.com  # Contact uranus@treecomp.gr for access
     port: 2101
     ssl: false
   coverage:

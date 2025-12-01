@@ -3,7 +3,7 @@ service:
   provider: RTKFnet Ltd
   country: GB
   endpoints:
-  - hostname: subscription-required.example.com  # Contact RTKFnet for access
+  - hostname: contact-sales.example.com  # Contact RTKFnet for access
     port: 2101
     ssl: false
   coverage:

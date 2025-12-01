@@ -100,15 +100,18 @@ jobs:
           echo "VERSION file committed successfully"
         fi
 
-    - name: Push VERSION changes (if main branch)
-      if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    - name: Display VERSION changes status
       run: |
-        # Only push if we're on main branch and this is a push event (not PR)
-        if ! git diff --quiet HEAD^ HEAD VERSION; then
-          echo "Pushing VERSION file changes to main..."
-          git push
+        # Check if VERSION file was modified during this workflow
+        if git diff --quiet HEAD VERSION; then
+          echo "✅ VERSION file is up to date"
         else
-          echo "No VERSION changes to push"
+          echo "📝 VERSION file was updated during validation"
+          echo "Changes made:"
+          git diff HEAD VERSION || echo "  (diff available in commit history)"
+          echo ""
+          echo "ℹ️  VERSION file changes are committed but not auto-pushed"
+          echo "    The next manual commit will include these updates"
         fi
 
     - name: Verify service count consistency

@@ -1,12 +1,18 @@
+schema_version: "1.0"
+last_updated: "2024-12-01"
+
 service:
   id: "mexico_inegi_cors"
+  name: "Red Geodésica Nacional Activa"
   provider: "Instituto Nacional de Estadística y Geografía (INEGI)"
   country: "MX"
+  organization_type: "government"
 
   endpoints:
     - hostname: "rgna.inegi.org.mx"
       port: 2101
       ssl: false
+      protocol: "ntrip"
 
   coverage:
     bounding_box:

@@ -1,12 +1,18 @@
+schema_version: "1.0"
+last_updated: "2024-12-01"
+
 service:
   id: "canada_quebec_rtqc"
+  name: "Quebec Real-Time GNSS Correction Network"
   provider: "Ministère des Transports du Québec"
   country: "CA"
+  organization_type: "government"
 
   endpoints:
     - hostname: "rtqc.mern.gouv.qc.ca"
       port: 2101
       ssl: false
+      protocol: "ntrip"
 
   coverage:
     bounding_box:

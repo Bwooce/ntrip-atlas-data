@@ -1,0 +1,62 @@
+service:
+  id: vietnam_vngeonet_monre
+  provider: Ministry of Natural Resources and Environment (MONRE)
+  country: VN
+  endpoints:
+  - hostname: register.example.com  # Register at vngeonet.vn for NTRIP credentials
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Vietnam coverage
+      lat_min: 8.2
+      lat_max: 23.4
+      lon_min: 102.1
+      lon_max: 109.5
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional Southeast Asian coverage
+      regional: 4         # Strong regional coverage
+      national: 5         # Excellent national coverage (65 stations)
+      state: 4           # Good provincial coverage (200km spacing geodetic)
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://vngeonet.vn/
+  quality:
+    reliability_rating: 5  # Government service operational since 2019
+    accuracy_rating: 5     # Professional RTK centimeter-level accuracy
+    network_type: government
+  metadata:
+    description: Vietnam National CORS Network providing Network RTK and single base corrections
+    stations: "65"
+    coverage_area: Vietnam nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: VN2000
+    coordinate_systems: [VN2000, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_paid: true
+    notes: |
+      - VNGEONET: Vietnam National GNSS Network constructed 2016-2019
+      - Operated by Ministry of Natural Resources and Environment (MONRE)
+      - 65 Continuously Operating Reference Stations nationwide
+      - 24 Geodetic CORS stations with 200km spacing for national reference frame
+      - 41 additional CORS stations for enhanced regional coverage
+      - Leica equipment: AR25 antennas, GR50 GNSS receivers, Met 4A sensors
+      - Network RTK services: VRS (Virtual Reference Station), iMAX
+      - Single base RTK corrections from individual stations
+      - Real-time kinematic data in VN-2000 national coordinate system
+      - 24-hour static GNSS data in RINEX format (1s, 15s, 30s intervals)
+      - Leica SpiderNet and Bernese processing software systems
+      - Registration required at vngeonet.vn for real-time access
+      - Contact: vngeonet.vn@gmail.com, phone: (+84) 2466603032
+      - Address: No.2, Dang Thuy Tram Street, Bac Tu Liem District, Hanoi
+      - Supports surveying, mapping, construction, and precision applications

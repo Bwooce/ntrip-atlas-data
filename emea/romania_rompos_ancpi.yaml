@@ -1,0 +1,65 @@
+service:
+  id: romania_rompos_ancpi
+  provider: National Agency for Cadastre and Land Registration (ANCPI)
+  country: RO
+  endpoints:
+  - hostname: ROMPOS-Proxy  # Register at app.rompos.ro for NTRIP credentials
+    port: 2101
+    ssl: false
+  - hostname: ROMPOS-Proxy
+    port: 2105
+    ssl: false
+  coverage:
+    bounding_box:
+      # Romania coverage
+      lat_min: 43.6
+      lat_max: 48.3
+      lon_min: 20.2
+      lon_max: 29.7
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong Eastern European coverage
+      national: 5         # Excellent national coverage (74 stations)
+      state: 5           # Excellent coverage
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://app.rompos.ro/
+  quality:
+    reliability_rating: 5  # Government service with professional standards
+    accuracy_rating: 5     # Professional centimeter-level RTK accuracy
+    network_type: government
+  metadata:
+    description: Romanian Position Determination System providing Network RTK and DGNSS corrections
+    stations: "74"
+    coverage_area: Romania nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.3, RTCM 3.1, RTCM 3.x, CMR+]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89
+    coordinate_systems: [ETRS89, Stereo70, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_paid: true
+    notes: |
+      - ROMPOS: Romanian Position Determination System
+      - Operated by National Agency for Cadastre and Land Registration (ANCPI)
+      - 74 GNSS reference stations covering entire Romanian territory
+      - Two service types: ROMPOS DGNSS (sub-meter) and ROMPOS RTK (centimeter)
+      - Multiple connection ports: 2101 (network products), 2105 (single stations)
+      - Network products: VRS, FKP, MAX, iMAX with NMEA-GGA transmission required
+      - Single station products: 100+ reference stations with RTCM 3.x format
+      - ETRS89 European reference system positioning
+      - Cross-border agreements with Hungary, Moldova, Ukraine
+      - Integrated with EUPOS European positioning system
+      - Supports geodetic, cadastral, and commercial positioning applications
+      - Registration required at app.rompos.ro for NTRIP credentials
+      - Contact: office@rompos.ro for technical assistance
+      - Live chat support available at rompos.ro
+      - Part of Romania's national spatial data infrastructure

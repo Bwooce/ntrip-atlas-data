@@ -1,0 +1,61 @@
+service:
+  id: portugal_renep_dgt
+  provider: Direção-Geral do Território (DGT)
+  country: PT
+  endpoints:
+  - hostname: register.example.com  # Register at renep.dgterritorio.gov.pt for NTRIP access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Portugal coverage including Azores and Madeira
+      lat_min: 32.4
+      lat_max: 42.2
+      lon_min: -31.3
+      lon_max: -6.2
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong Iberian Peninsula coverage
+      national: 5         # Excellent national coverage (47-48 stations)
+      state: 5           # Excellent coverage including autonomous regions
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://renep.dgterritorio.gov.pt/
+  quality:
+    reliability_rating: 5  # Government service with professional standards
+    accuracy_rating: 5     # Sub-10cm precision positioning
+    network_type: government
+  metadata:
+    description: Portuguese national CORS network providing RTK corrections with sub-10cm precision
+    stations: "47-48"
+    coverage_area: Portugal nationwide (mainland + Azores + Madeira)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.3, RTCM 3.1]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89
+    coordinate_systems: [ETRS89, ITRF93, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_free: true
+    notes: |
+      - ReNEP: Rede Nacional de Estações Permanentes GNSS (National GNSS Permanent Stations Network)
+      - Operated by Direção-Geral do Território (DGT) - Portuguese national mapping agency
+      - 47-48 CORS stations: 42 mainland + 4 Azores + 2 Madeira
+      - FREE service for all users with registration
+      - Real-time RTK corrections with sub-10cm precision positioning
+      - Network RTK mode with continuous streaming
+      - 2,700+ registered users, 50,000+ monthly connections
+      - ETRS89 reference system (mainland), ITRF93 (autonomous regions)
+      - Post-processing RINEX data available via FTP
+      - 5-second observation intervals, hourly RINEX files
+      - Contact: renep@dgterritorio.pt, phone: (+351) 21 381 96 00
+      - Registration required at renep.dgterritorio.gov.pt for NTRIP credentials
+      - Part of Portugal's national geodetic infrastructure since establishment
+      - Supports surveying, mapping, construction, and scientific applications

@@ -1,0 +1,62 @@
+service:
+  id: lithuania_litpos_nls
+  provider: National Land Service Under the Ministry of Environment
+  country: LT
+  endpoints:
+  - hostname: register.example.com  # Register at geoportal.lt for LitPOS NTRIP access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Lithuania coverage
+      lat_min: 53.9
+      lat_max: 56.5
+      lon_min: 20.9
+      lon_max: 26.9
+    hierarchical:
+      # National government network coverage
+      continental: 3      # Regional European coverage
+      regional: 4         # Strong Baltic States coverage
+      national: 5         # Excellent national coverage (31 stations)
+      state: 5           # Excellent coverage (50km average spacing)
+      local: 5           # Excellent local coverage (35km radius)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.geoportal.lt/geoportal/web/litpos-en
+  quality:
+    reliability_rating: 5  # Government service operational since 2007
+    accuracy_rating: 5     # ±2cm RTK accuracy, up to 1mm post-processing
+    network_type: government
+  metadata:
+    description: Lithuanian Positioning System providing RTK and DGPS corrections with centimeter-level accuracy
+    stations: "31"
+    coverage_area: Lithuania nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.1, RTCM 2.3, RTCM 3.1, RTCM 3.2, CMR, CMR+, CMRx]
+    constellations: [GPS, GLONASS]
+    primary_crs: LKS94
+    coordinate_systems: [LKS94, ETRS89, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_paid: true
+    notes: |
+      - LitPOS: Lithuanian Positioning System operational since July 2007
+      - Operated by National Land Service Under the Ministry of Environment
+      - 31 permanent GNSS reference stations nationwide (plus 9 from neighboring countries)
+      - Average station spacing: 50km with 35km coverage radius
+      - Multiple accuracy modes: RTK (±2cm), DGPS (±0.3-0.5m), GPPS (up to 1mm)
+      - VRS (Virtual Reference Station) and NTRIP corrections support
+      - Trimble NetR9 GNSS receivers with Choke ring antennas
+      - Trimble Pivot Platform software for network management
+      - Many stations located in fire towers via Fire and Rescue Department collaboration
+      - GSM and GPRS communication channels for corrections delivery
+      - Supports surveying, mapping, construction, and precision positioning applications
+      - Registration required for username/password access
+      - Contact: nzt@nzt.lt, phone: (8 7) 068 6666
+      - Address: Kalvarijų street 147, LT-08352 Vilnius
+      - Part of Lithuania's national spatial data infrastructure

@@ -1,4 +1,4 @@
-schema_version: "1.0"
+schema_version: "1.0.0"
 last_updated: "2024-12-01"
 
 service:
@@ -12,7 +12,6 @@ service:
     - hostname: "rtqc.mern.gouv.qc.ca"
       port: 2101
       ssl: false
-      protocol: "ntrip"
 
   coverage:
     bounding_box:

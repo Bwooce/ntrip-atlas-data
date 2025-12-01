@@ -1,0 +1,52 @@
+service:
+  id: canada_rx_networks_locationio
+  provider: Rx Networks Inc.
+  country: CA
+  endpoints:
+  - hostname: REQUIRES_SUBSCRIPTION  # Contact sales@rxnetworks.com for hostname details
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Canada nationwide coverage
+      lat_min: 41.7
+      lat_max: 83.1
+      lon_min: -141.0
+      lon_max: -52.6
+    hierarchical:
+      # Commercial nationwide coverage for Canada
+      continental: 4      # Strong North American coverage
+      regional: 5         # Excellent regional Canadian coverage
+      national: 5         # Excellent national coverage (Canada-wide)
+      state: 4           # Strong provincial coverage
+      local: 4           # Good local/municipal coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://rxnetworks.com/location-io/
+  quality:
+    reliability_rating: 5  # Commercial enterprise service
+    accuracy_rating: 5     # Professional survey-grade
+    network_type: commercial
+  metadata:
+    description: Commercial high-precision GNSS positioning platform with NTRIP RTK corrections
+    stations: "Global reference network"
+    coverage_area: Canada nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou, QZSS]
+    primary_crs: NAD83(CSRS)
+    coordinate_systems: [NAD83, WGS84]
+    notes: |
+      - Commercial subscription-based RTK correction service
+      - 99.999% service level availability with geo-redundant infrastructure
+      - Supports GPS L2c/L5, QZSS L2c/L5 CNAV, Galileo E5a F/NAV, BeiDou III B1C/B2a
+      - Multiple data formats: NTRIP, LPP, RRLP, proprietary real-time, IoT-optimized
+      - High availability with geographically redundant secure NTRIP casters
+      - Enterprise-grade location assistance platform serving 1+ billion devices
+      - Contact sales@rxnetworks.com for hostname, credentials, and pricing
+      - Founded in Vancouver, BC - leading mobile location technology company
+      - Features NTRIP Server, Caster and Client providing complete solution
+      - Cloud-based service delivery network with global reach

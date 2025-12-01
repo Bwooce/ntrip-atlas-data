@@ -1,0 +1,57 @@
+service:
+  id: usa_arizona_azgps
+  provider: AZGPS, LLC
+  country: US
+  endpoints:
+  - hostname: azgps.net  # Subscription required - contact for exact hostname
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Arizona and Southern California coverage
+      lat_min: 31.3
+      lat_max: 37.0
+      lon_min: -124.4
+      lon_max: -109.0
+    hierarchical:
+      # Commercial state-level coverage
+      continental: 3      # Regional Southwest US coverage
+      regional: 4         # Strong regional coverage (AZ + Southern CA)
+      national: 2         # Limited to specific states
+      state: 5           # Excellent state coverage (Arizona)
+      local: 5           # Excellent local coverage with 100+ stations
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://azgps.net/
+  quality:
+    reliability_rating: 5  # Commercial enterprise service
+    accuracy_rating: 5     # Professional survey-grade VRS network
+    network_type: commercial
+  metadata:
+    description: Arizona's premier commercial Network RTK and VRS solution provider
+    stations: "100+"
+    coverage_area: Arizona and Southern California
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: NAD83(2011)
+    coordinate_systems: [NAD83, WGS84]
+    notes: |
+      - Arizona's first Network RTK solution, operational since March 2005
+      - Commercial subscription service: monthly and yearly plans available
+      - Trimble VRS (Virtual Reference Station) technology
+      - Network of 100+ GNSS reference stations across Arizona and Southern California
+      - Serves hundreds of surveying, construction, and mapping professionals
+      - Central server generates regional area corrections in real-time
+      - Virtual Reference Station created within meters of user position
+      - Raw data available: compressed RINEX, 24hr RINEX, and raw DAT files
+      - Network integrity reports and ionosphere/geometric modeling available
+      - Established November 2004, first deployment December 21, 2004
+      - Initial network: Gilbert, Peoria, Maricopa, Coolidge stations
+      - Expanded with Kearny, Fountain Hills, Black Canyon City, Wickenberg
+      - Contact azgps.net for subscription details and connection parameters
+      - Professional land surveying solutions with modern geospatial systems
+      - Centimeter-level accuracy for survey-grade applications

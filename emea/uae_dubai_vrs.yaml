@@ -1,0 +1,57 @@
+service:
+  id: uae_dubai_vrs
+  provider: Dubai Municipality Survey Department
+  country: AE
+  endpoints:
+  - hostname: REQUIRES_REGISTRATION  # Submit request via survey.dm.gov.ae portal
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Dubai Emirate boundaries
+      lat_min: 24.8
+      lat_max: 25.4
+      lon_min: 54.9
+      lon_max: 55.6
+    hierarchical:
+      # Municipal/emirate-level coverage
+      continental: 2      # Limited Middle East coverage
+      regional: 3         # Regional Gulf coverage
+      national: 3         # UAE coverage (Dubai emirate)
+      state: 5           # Excellent emirate coverage
+      local: 5           # Excellent local coverage (18 stations)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://survey.dm.gov.ae/Admin/Dashboard/CheckFormExist?ApiServiceid=3706
+  quality:
+    reliability_rating: 5  # Government service
+    accuracy_rating: 5     # Sub-centimeter accuracy
+    network_type: government
+  metadata:
+    description: Dubai Virtual Reference System - government RTK network providing cm-level positioning
+    stations: 18
+    coverage_area: Dubai Emirate, UAE
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: WGS84
+    coordinate_systems: [WGS84, Local Dubai Grid]
+    notes: |
+      - Dubai Virtual Reference System (DVRS) operational since March 2002
+      - Government-operated service by Dubai Municipality Survey Department
+      - 18+ GNSS stations covering the entire Dubai emirate
+      - Sub-centimeter accuracy (1-2 cm planimetric, 3-5 cm altimetric)
+      - 24/7 availability for surveying, construction, GIS applications
+      - Network RTK superior to single baseline approach
+      - Homogeneous absolute positioning with centimeter accuracy
+      - NTRIP access requires registration through DM portal
+      - GPS RINEX data available from select stations
+      - Precise geoid model for Dubai orthometric height conversion
+      - GSM/mobile communication for position transfer in NMEA format
+      - Real-time corrections delivered in RTCM format
+      - Submit access request: survey.dm.gov.ae portal
+      - Contact: dm.gov.ae/contact/service-centers/
+      - Supports multiple GNSS constellations and signal types

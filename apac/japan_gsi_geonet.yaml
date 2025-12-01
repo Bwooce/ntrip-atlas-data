@@ -1,13 +1,13 @@
 service:
-  id: "japan_gsi_geonet"
-  provider: "Geospatial Information Authority of Japan (GSI)"
-  country: "JP"
-
+  id: japan_gsi_geonet
+  # name: GPS Earth Observation Network
+  provider: Geospatial Information Authority of Japan (GSI)
+  country: JP
+  # organization_type: government
   endpoints:
-    - hostname: "mgr.jcn.or.jp"
+  - hostname: mgr.jcn.or.jp
       port: 2101
       ssl: false
-
   coverage:
     bounding_box:
       # Japan archipelago boundaries
@@ -15,7 +15,6 @@ service:
       lat_max: 46.0
       lon_min: 123.0
       lon_max: 146.0
-
     hierarchical:
       # National coverage
       continental: 3      # Regional Asia-Pacific coverage
@@ -23,28 +22,25 @@ service:
       national: 5         # Excellent national coverage (entire archipelago)
       state: 5            # Excellent prefecture coverage
       local: 5            # Excellent local coverage (20km spacing)
-
   authentication:
-    method: "basic"
+    method: basic
     required: true
     registration_required: true
-    registration_url: "https://terras.gsi.go.jp/"
-
+    registration_url: https://terras.gsi.go.jp/
   quality:
     reliability_rating: 5  # Government (National mapping authority)
     accuracy_rating: 5     # World-class GNSS infrastructure
-    network_type: "government"
-
+    network_type: government
   metadata:
-    description: "GPS Earth Observation Network - Japan's national GNSS reference network"
+    description: GPS Earth Observation Network - Japan's national GNSS reference network
     stations: 1300
-    coverage_area: "Entire Japanese archipelago"
-    last_verified: "2024-12-01"
-    ntrip_version: "2.0"
-    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
-    constellations: ["GPS", "GLONASS", "Galileo", "QZSS"]
-    primary_crs: "JGD2011"
-    coordinate_systems: ["ITRF2014", "JGD2000", "Tokyo97"]
+    coverage_area: Entire Japanese archipelago
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2, RTCM 3.3]
+    constellations: [GPS, GLONASS, Galileo, QZSS]
+    primary_crs: JGD2011
+    coordinate_systems: [ITRF2014, JGD2000, Tokyo97]
     notes: |
       - World's densest national GNSS network (1,300+ stations)
       - Average station spacing: 20km

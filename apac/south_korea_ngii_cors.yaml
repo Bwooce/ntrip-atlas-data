@@ -1,13 +1,13 @@
 service:
-  id: "south_korea_ngii_cors"
-  provider: "National Geographic Information Institute (NGII)"
-  country: "KR"
-
+  id: south_korea_ngii_cors
+  # name: NGII CORS Network
+  provider: National Geographic Information Institute (NGII)
+  country: KR
+  # organization_type: government
   endpoints:
-    - hostname: "ntrip.ngii.go.kr"
+    - hostname: ntrip.ngii.go.kr
       port: 2101
       ssl: false
-
   coverage:
     bounding_box:
       # South Korea boundaries
@@ -15,35 +15,31 @@ service:
       lat_max: 38.6
       lon_min: 124.6
       lon_max: 131.9
-
     hierarchical:
       # National coverage
       regional: 3         # Regional Northeast Asia coverage
       national: 5         # Excellent national coverage
       state: 5            # Excellent regional coverage
       local: 5            # Excellent local coverage
-
   authentication:
-    method: "basic"
+    method: basic
     required: true
     registration_required: true
-    registration_url: "http://www.ngii.go.kr"
-
+    registration_url: http://www.ngii.go.kr
   quality:
     reliability_rating: 5  # Government (National institute)
     accuracy_rating: 5     # High precision government network
-    network_type: "government"
-
+    network_type: government
   metadata:
-    description: "National Geographic Information Institute CORS Network"
+    description: National Geographic Information Institute CORS Network
     stations: 52
-    coverage_area: "Nationwide South Korea coverage"
-    last_verified: "2024-12-01"
-    ntrip_version: "2.0"
-    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
-    constellations: ["GPS", "GLONASS", "Galileo", "BeiDou"]
-    primary_crs: "ITRF2014"
-    coordinate_systems: ["GRS80", "Korean Geodetic Datum 2002"]
+    coverage_area: Nationwide South Korea coverage
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2, RTCM 3.3]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: ITRF2014
+    coordinate_systems: [GRS80, Korean Geodetic Datum 2002]
     notes: |
       - 52 GNSS reference stations nationwide
       - Network RTK with Virtual Reference Station (VRS) capability

@@ -1,0 +1,45 @@
+service:
+  id: euref_ip
+  provider: EUREF Permanent Network
+  country: EU
+  endpoints:
+  - hostname: euref-ip.net
+    port: 2101
+    ssl: false
+  - hostname: euref-ip.net
+    port: 443
+    ssl: true
+  - hostname: www.euref-ip.be
+    port: 2101
+    ssl: false
+  - hostname: www.euref-ip.be
+    port: 2102
+    ssl: true
+  - hostname: euref-ip.asi.it
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 35.0
+      lat_max: 71.0
+      lon_min: -10.0
+      lon_max: 40.0
+    hierarchical:
+      regional: 5
+      national: 5
+      state: 4
+      local: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://register.rtcm-ntrip.org/cgi-bin/registration.cgi
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    network_type: government
+  metadata:
+    description: European GNSS Permanent Network real-time data streams
+    coverage_area: 'European network operated by ROB, BKG, and ASI with 54+ external broadcasters'
+    last_verified: '2024-12-01'
+    notes: 'Free registration required for access. Multiple broadcasters for redundancy (ROB Belgium, BKG Germany, ASI Italy)'

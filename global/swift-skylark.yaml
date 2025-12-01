@@ -1,0 +1,49 @@
+service:
+  id: swift_skylark
+  provider: Swift Navigation, Inc.
+  country: GLOBAL
+  endpoints:
+  - hostname: na.all-freq.skylark.swiftnav.com
+    port: 2101
+    ssl: false
+  - hostname: na.all-freq.skylark.swiftnav.com
+    port: 2102
+    ssl: true
+  - hostname: eu.all-freq.skylark.swiftnav.com
+    port: 2101
+    ssl: false
+  - hostname: eu.all-freq.skylark.swiftnav.com
+    port: 2102
+    ssl: true
+  - hostname: ap.all-freq.skylark.swiftnav.com
+    port: 2101
+    ssl: false
+  - hostname: ap.all-freq.skylark.swiftnav.com
+    port: 2102
+    ssl: true
+  coverage:
+    bounding_box:
+      lat_min: -50.0
+      lat_max: 70.0
+      lon_min: -180.0
+      lon_max: 180.0
+    hierarchical:
+      continental: 5
+      regional: 5
+      national: 4
+      state: 4
+      local: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://account.swiftnav.com/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 5
+    network_type: commercial
+  metadata:
+    description: 'Swift Navigation Skylark precise positioning service: 1-2cm RTK accuracy'
+    coverage_area: 'US, Canada, UK, EU, India, Australia, Taiwan, Korea, Japan, China'
+    last_verified: '2024-12-01'
+    notes: 'Subscription required - RTK from $69/month, Sub-decimeter from $29/month. ISO 26262 certified (ASIL B). 99.9% availability SLA'

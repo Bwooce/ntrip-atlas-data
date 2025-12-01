@@ -1,0 +1,38 @@
+service:
+  id: hxgn_smartnet
+  provider: Hexagon AB (Leica Geosystems)
+  country: GLOBAL
+  endpoints:
+  - hostname: www.smartnetna.com
+    port: 2101
+    ssl: false
+  - hostname: www.smartnetna.com
+    port: 443
+    ssl: true
+  coverage:
+    bounding_box:
+      lat_min: -50.0
+      lat_max: 75.0
+      lon_min: -180.0
+      lon_max: 180.0
+    hierarchical:
+      continental: 5
+      regional: 5
+      national: 5
+      state: 5
+      local: 4
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://hxgnsmartnet.com/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 5
+    network_type: commercial
+  metadata:
+    description: World's largest GNSS correction service with 5,300+ reference stations
+    stations: 5300
+    coverage_area: 'Global coverage - 1,500+ stations in North America, extensive European coverage'
+    last_verified: '2024-12-01'
+    notes: 'Commercial subscription required. Multiple service tiers: SmartNet Pro, SmartNet+, SmartNet PPP. 0.8cm horizontal, 1.5cm vertical accuracy'

@@ -190,3 +190,26 @@ service:
           type: string
           format: "date"
           description: "Last verification date (YYYY-MM-DD)"
+        ntrip_version:
+          type: string
+          enum: ["1.0", "2.0", "mixed"]
+          description: "NTRIP protocol version supported"
+        rtcm_formats:
+          type: array
+          items:
+            type: string
+          description: "Supported RTCM message formats (e.g., RTCM 3.3, RTCM 3.2)"
+        constellations:
+          type: array
+          items:
+            type: string
+            enum: ["GPS", "GLONASS", "Galileo", "BeiDou", "QZSS", "NavIC", "SBAS"]
+          description: "Supported GNSS constellations"
+        primary_crs:
+          type: string
+          description: "Primary coordinate reference system (e.g., EPSG:4326, NAD83(2011))"
+        coordinate_systems:
+          type: array
+          items:
+            type: string
+          description: "Additional supported coordinate systems for professional use"

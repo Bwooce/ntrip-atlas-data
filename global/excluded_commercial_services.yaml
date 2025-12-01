@@ -1,0 +1,170 @@
+# Excluded Commercial NTRIP Services
+# Last updated: 2024-12-01
+#
+# This file documents commercial NTRIP and GNSS correction services that
+# are excluded from the NTRIP Atlas database, along with reasons for exclusion.
+# These services may be reconsidered for inclusion in the future if circumstances change.
+
+excluded_services:
+  - provider: Trimble Navigation Limited
+    service: CenterPoint RTX
+    reason: "Satellite-delivered PPP service, not primarily NTRIP-based"
+    details: "While NTRIP delivery is available as backup to L-band satellite, the primary delivery method is proprietary satellite broadcast. RTX uses proprietary encrypted protocols (AES) that are Trimble-specific and not standard NTRIP RTCM format"
+    delivery_methods:
+      - "L-band satellite broadcast (primary)"
+      - "NTRIP internet (backup only)"
+    target_users: "Surveying, construction, agriculture, marine"
+    coverage: "Global within 100 nautical miles of coastlines"
+    accuracy: "2cm horizontal, 5cm vertical"
+    pricing: "Included with select receivers purchased after April 1, 2024 (12 months)"
+    last_verified: "2024-12-01"
+    notes: "May reconsider if NTRIP becomes primary delivery method. Currently proprietary format limits utility for generic NTRIP clients"
+
+  - provider: Fugro N.V.
+    service: "Fugro Seastar, Marinestar, Starfix"
+    reason: "Primarily satellite-delivered with NTRIP as backup only"
+    details: "Fugro services use L-band satellite as primary delivery. NTRIP is offered as backup method over data delivery. Services are targeted at marine/offshore markets with specialized requirements"
+    delivery_methods:
+      - "L-band satellite (primary)"
+      - "NTRIP (backup only)"
+    target_users: "Marine, offshore, specialized applications"
+    coverage: "Global marine coverage"
+    pricing: "Enterprise/marine market pricing - not publicly available"
+    last_verified: "2024-12-01"
+    notes: "OmniSTAR service was acquired by Trimble in 2018. Current Fugro services are marine-focused"
+
+  - provider: NovAtel/Hexagon
+    service: TerraStar (Veripos)
+    reason: "Primarily L-band satellite delivery, NTRIP as alternative"
+    details: "TerraStar corrections are delivered worldwide through overlapping geostationary satellites directly to receivers. NTRIP is available as an alternative delivery method but not the primary focus"
+    delivery_methods:
+      - "L-band satellite (primary)"
+      - "NTRIP cellular IP (alternative)"
+    target_users: "Land, air, and nearshore (TerraStar); Offshore (Veripos)"
+    coverage: "Global coverage via 100+ reference stations"
+    accuracy: "2-50cm depending on service tier"
+    services:
+      - "TerraStar-C PRO (multi-constellation)"
+      - "Veripos Ultra (offshore)"
+      - "Veripos Apex (offshore)"
+    pricing: "Contact NovAtel for pricing"
+    last_verified: "2024-12-01"
+    notes: "Part of Hexagon Positioning Intelligence division. May reconsider if NTRIP delivery becomes more prominent"
+
+  - provider: John Deere
+    service: StarFire
+    reason: "Proprietary agricultural system, closed network"
+    details: "StarFire is a proprietary GNSS correction service specifically designed for John Deere agricultural equipment. Not openly accessible via standard NTRIP protocols. Requires John Deere hardware and subscriptions"
+    delivery_methods:
+      - "Proprietary satellite delivery"
+      - "Closed network system"
+    target_users: "John Deere agricultural equipment only"
+    coverage: "Agricultural markets where John Deere operates"
+    pricing: "Bundled with John Deere equipment subscriptions"
+    last_verified: "2024-12-01"
+    notes: "Not a general-purpose NTRIP service. Equipment-specific and proprietary"
+
+  - provider: u-blox/Sapcorda
+    service: "SAPA (PPP-RTK)"
+    reason: "Uses SPARTN proprietary format, not standard NTRIP RTCM"
+    details: "SAPA service uses optimized SPARTN format for correction delivery rather than standard RTCM. While delivered via cellular/internet, it requires specialized receivers and format support. Not compatible with generic NTRIP clients"
+    delivery_methods:
+      - "SPARTN format via cellular"
+      - "L-band satellite (planned)"
+    target_users: "Automotive, industrial markets with compatible receivers"
+    coverage: "Continental US and Europe (32 countries)"
+    accuracy: "Fast convergence PPP-RTK, continental coverage"
+    pricing: "u-blox acquired Sapcorda - pricing through u-blox channels"
+    last_verified: "2024-12-01"
+    notes: "SPARTN is an open format but not RTCM-compatible. May reconsider if RTCM/NTRIP delivery becomes available"
+
+  - provider: Septentrio
+    service: "Septentrio PolaRx/AsteRx integrated services"
+    reason: "Receiver capability, not a correction service provider"
+    details: "Septentrio receivers support NTRIP connections and can act as NTRIP casters/clients, but Septentrio itself is not a correction service provider. They partner with other correction services through their Agnostic Corrections Partner Program"
+    target_users: "Industrial, automotive, UAV applications"
+    notes: "Septentrio receivers work with correction services listed in the database (Skylark, SmartNet, TopNET, etc.)"
+    last_verified: "2024-12-01"
+
+  - provider: Natural Resources Canada (NRCan)
+    service: "CSRS-PPP"
+    reason: "Post-processing service, not real-time NTRIP"
+    details: "CSRS-PPP is a precise point positioning service that processes submitted RINEX files for post-processing. It is not a real-time NTRIP correction stream. Users submit data and receive processed results after computation (17-18 hours for Rapid, 12-15 days for Final products)"
+    delivery_methods:
+      - "Post-processing web service"
+      - "RINEX file submission"
+    target_users: "Surveying, geodetic control, research"
+    coverage: "Global processing capability, Canadian reference frame"
+    accuracy: "Centimeter-level post-processed"
+    pricing: "Free government service"
+    last_verified: "2024-12-01"
+    notes: "Excellent free service but not real-time. Canadian RTK networks are commercial (Can-Net VRS, etc.)"
+
+  - provider: Various Regional/State Networks
+    service: "State-specific VRS networks without public NTRIP access"
+    reason: "Subscription requires government/institutional affiliation or local residency"
+    details: "Many state and regional networks exist but restrict access to government employees, licensed surveyors within jurisdiction, or require proof of local business/residency"
+    examples:
+      - "Some state DOT networks (USA)"
+      - "Licensed surveyor-only networks"
+      - "Institutional networks (universities, research)"
+    target_users: "Government employees, licensed professionals within jurisdiction"
+    last_verified: "2024-12-01"
+    notes: "May document specific networks with clear public access policies in regional data files"
+
+  - provider: Various Providers
+    service: "Satellite-only correction services"
+    reason: "No NTRIP delivery option available"
+    details: "Services that exclusively use satellite delivery (L-band, Iridium, etc.) without any internet/NTRIP option. NTRIP Atlas focuses on internet-accessible NTRIP services"
+    examples:
+      - "Certain marine-specific L-band services"
+      - "Satellite-only PPP services"
+    last_verified: "2024-12-01"
+    notes: "Services must have NTRIP delivery option to be included in database"
+
+exclusion_criteria:
+  reasons_for_exclusion:
+    - criteria: "Non-NTRIP delivery method"
+      description: "Service primarily uses proprietary protocols, satellite delivery, or other non-NTRIP methods"
+      reconsideration: "If NTRIP becomes primary or equal delivery method"
+
+    - criteria: "Proprietary format requirements"
+      description: "Requires proprietary data formats incompatible with standard NTRIP clients (e.g., SPARTN without RTCM option)"
+      reconsideration: "If standard RTCM/NTRIP support added"
+
+    - criteria: "Closed/restricted access"
+      description: "Service requires specific hardware, institutional affiliation, or is not publicly accessible"
+      reconsideration: "If access policy changes to allow general public registration"
+
+    - criteria: "Post-processing only"
+      description: "Service provides post-processing but not real-time corrections"
+      reconsideration: "Not applicable - different use case than NTRIP Atlas targets"
+
+    - criteria: "Pricing not available"
+      description: "Enterprise-only services without publicly documented pricing or access methods"
+      reconsideration: "If public access tier or transparent pricing becomes available"
+
+    - criteria: "Insufficient geographic coverage"
+      description: "Service covers only very limited area without clear expansion plans"
+      reconsideration: "As coverage expands to useful geographic scope"
+
+review_schedule:
+  - "Quarterly review of excluded services for inclusion reconsideration"
+  - "Annual review of exclusion criteria and policies"
+  - "Community feedback on services to reconsider"
+  - "Monitor service announcements for NTRIP delivery additions"
+
+notes: |
+  This exclusion list is maintained to document commercial services that were
+  researched but not included in the active database. The goal is transparency
+  about what was considered and why certain services don't fit the current
+  NTRIP Atlas mission.
+
+  Services on this list may be reconsidered for inclusion if:
+  - They add standard NTRIP delivery options
+  - They adopt standard RTCM formats alongside proprietary formats
+  - Access policies change to allow general public registration
+  - Geographic coverage expands significantly
+
+  The NTRIP Atlas project welcomes community input on services that should be
+  reconsidered or additional services to evaluate for inclusion.

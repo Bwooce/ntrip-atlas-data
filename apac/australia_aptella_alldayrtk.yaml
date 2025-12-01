@@ -1,0 +1,56 @@
+service:
+  id: australia_aptella_alldayrtk
+  # name: AllDayRTK CORS Network
+  provider: Aptella (Position Partners)
+  country: AU
+  # organization_type: commercial
+  endpoints:
+    - hostname: alldayrtk.com.au
+      port: 2101
+      ssl: false
+  coverage:
+    bounding_box:
+      # Australia + New Zealand coverage
+      lat_min: -47.0
+      lat_max: -9.0
+      lon_min: 110.0
+      lon_max: 179.0
+    hierarchical:
+      # Trans-Tasman coverage
+      continental: 3      # Regional Oceania coverage
+      regional: 5         # Excellent regional coverage (Australia + NZ)
+      national: 5         # Excellent national coverage Australia
+      state: 5            # Excellent state coverage
+      local: 5            # Excellent local coverage (highest density CORS)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.aptella.com/alldayrtk/sign-up/
+  quality:
+    reliability_rating: 5  # Commercial (99.98% uptime guaranteed)
+    accuracy_rating: 5     # cm-level accuracy, highest density network
+    network_type: commercial
+  metadata:
+    description: Highest-density CORS network in Australia with New Zealand coverage
+    stations: 150
+    coverage_area: Australia nationwide + New Zealand metro areas
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2, RTCM 3.3, MSM, CMR+]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: GDA2020
+    coordinate_systems: [GDA94, WGS84]
+    notes: |
+      - Highest-density CORS network in Australia (99.98% uptime)
+      - Commercial service with transparent pricing ($400+GST/vehicle/year as of 2024)
+      - Covers Australia + New Zealand (acquired Synergy SKYNET RTK service)
+      - Purpose-built for demanding industries: mining, construction, agriculture
+      - Multi-format support: RTCM, MSM, DGPS, CMR+
+      - Seamless integration with state networks (CORSnet, VICpos)
+      - 30-day free trial available for new customers
+      - Real-time map with rover and CORS status monitoring
+      - Direct RINEX data integration via Topcon Tools
+      - Service tiers: Standard, PLUS (multi-GNSS), SITE (project-based), FOCUS (managed)
+      - No price increases since 2014, discount after first 12-month subscription
+      - Replaces/integrates former Synergy Positioning SKYNET RTK (New Zealand)

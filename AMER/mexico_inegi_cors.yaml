@@ -1,18 +1,13 @@
-schema_version: "1.0.0"
-last_updated: "2024-12-01"
-
 service:
-  id: "mexico_inegi_cors"
-  name: "Red Geodésica Nacional Activa"
-  provider: "Instituto Nacional de Estadística y Geografía (INEGI)"
-  country: "MX"
-  organization_type: "government"
-
+  id: mexico_inegi_cors
+  # name: Red Geodésica Nacional Activa
+  provider: Instituto Nacional de Estadística y Geografía (INEGI)
+  country: MX
+  # organization_type: government
   endpoints:
-    - hostname: "rgna.inegi.org.mx"
+    - hostname: rgna.inegi.org.mx
       port: 2101
       ssl: false
-
   coverage:
     bounding_box:
       # Mexico boundaries
@@ -20,35 +15,31 @@ service:
       lat_max: 32.7
       lon_min: -118.4
       lon_max: -86.7
-
     hierarchical:
       # National coverage
       regional: 3         # Regional North America coverage
       national: 5         # Excellent national coverage
       state: 4            # Good state coverage
       local: 4            # Good local coverage
-
   authentication:
-    method: "basic"
+    method: basic
     required: true
     registration_required: true
-    registration_url: "https://www.inegi.org.mx/temas/red_geodesica/"
-
+    registration_url: https://www.inegi.org.mx/temas/red_geodesica/
   quality:
     reliability_rating: 5  # Government (National statistics institute)
     accuracy_rating: 4     # Good government quality
-    network_type: "government"
-
+    network_type: government
   metadata:
-    description: "Red Geodésica Nacional Activa (RGNA) - National Active Geodetic Network"
+    description: Red Geodésica Nacional Activa (RGNA) - National Active Geodetic Network
     stations: 30
-    coverage_area: "Mexico nationwide coverage"
-    last_verified: "2024-12-01"
-    ntrip_version: "2.0"
-    rtcm_formats: ["RTCM 3.2"]
-    constellations: ["GPS", "GLONASS"]
-    primary_crs: "ITRF2008"
-    coordinate_systems: ["NAD83", "WGS84"]
+    coverage_area: Mexico nationwide coverage
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2]
+    constellations: [GPS, GLONASS]
+    primary_crs: ITRF2008
+    coordinate_systems: [NAD83, WGS84]
     notes: |
       - National Active Geodetic Network (Red Geodésica Nacional Activa)
       - Permanent GNSS stations nationwide

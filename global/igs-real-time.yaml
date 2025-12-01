@@ -1,0 +1,37 @@
+service:
+  id: igs_real_time
+  provider: International GNSS Service
+  country: GLOBAL
+  endpoints:
+  - hostname: products.igs-ip.net
+    port: 2101
+    ssl: false
+  - hostname: products.igs-ip.net
+    port: 443
+    ssl: true
+  coverage:
+    bounding_box:
+      lat_min: -90.0
+      lat_max: 90.0
+      lon_min: -180.0
+      lon_max: 180.0
+    hierarchical:
+      continental: 5
+      regional: 5
+      national: 4
+      state: 3
+      local: 2
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://register.rtcm-ntrip.org/cgi-bin/registration.cgi
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    network_type: government
+  metadata:
+    description: IGS Real-Time Service for scientific GNSS applications
+    coverage_area: Global scientific network operated by BKG for IGS
+    last_verified: '2024-12-01'
+    notes: Free registration required for access to broadcast corrections (RTCM-SSR format)

@@ -1,13 +1,13 @@
 service:
-  id: "uk_osnet_government"
-  provider: "Ordnance Survey"
-  country: "GB"
-
+  id: uk_osnet_government
+  # name: OS Net Active GNSS Network
+  provider: Ordnance Survey
+  country: GB
+  # organization_type: government
   endpoints:
-    - hostname: "os-net.ordnancesurvey.co.uk"
+    - hostname: os-net.ordnancesurvey.co.uk
       port: 2101
       ssl: false
-
   coverage:
     bounding_box:
       # Great Britain boundaries (England, Scotland, Wales)
@@ -15,7 +15,6 @@ service:
       lat_max: 60.9
       lon_min: -8.7
       lon_max: 2.0
-
     hierarchical:
       # National coverage
       continental: 2      # Limited continental coverage (GB only)
@@ -23,28 +22,25 @@ service:
       national: 5         # Excellent national coverage
       state: 5            # Excellent regional coverage
       local: 5            # Excellent local coverage (60km spacing)
-
   authentication:
-    method: "basic"
+    method: basic
     required: true
     registration_required: true
-    registration_url: "https://www.ordnancesurvey.co.uk/business-government/tools-support/geodetic-services"
-
+    registration_url: https://www.ordnancesurvey.co.uk/business-government/tools-support/geodetic-services
   quality:
     reliability_rating: 5  # Government (National mapping authority)
     accuracy_rating: 5     # High precision government network
-    network_type: "government"
-
+    network_type: government
   metadata:
-    description: "OS Net - Ordnance Survey Active GNSS Network via commercial partners"
+    description: OS Net - Ordnance Survey Active GNSS Network via commercial partners
     stations: 115
-    coverage_area: "Great Britain (England, Scotland, Wales)"
-    last_verified: "2024-12-01"
-    ntrip_version: "2.0"
-    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
-    constellations: ["GPS", "GLONASS", "Galileo"]
-    primary_crs: "ETRS89"
-    coordinate_systems: ["OSGB36", "WGS84", "ITRF2014"]
+    coverage_area: Great Britain (England, Scotland, Wales)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2, RTCM 3.3]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89
+    coordinate_systems: [OSGB36, WGS84, ITRF2014]
     notes: |
       - 115+ GNSS base stations across Great Britain
       - Operational since 2006

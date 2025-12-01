@@ -1,0 +1,34 @@
+service:
+  id: topcon_topnet_live
+  provider: Topcon Positioning Systems, Inc.
+  country: GLOBAL
+  endpoints:
+  - hostname: rtk.topnetlive.com
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: -45.0
+      lat_max: 70.0
+      lon_min: -180.0
+      lon_max: 180.0
+    hierarchical:
+      continental: 4
+      regional: 4
+      national: 4
+      state: 4
+      local: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://rtk.topnetlive.com
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: commercial
+  metadata:
+    description: Topcon global NTRIP correction service with RTK and PPP capabilities
+    coverage_area: 'Global coverage in Asia Pacific, Americas, and Europe with expanded USA coverage'
+    last_verified: '2024-12-01'
+    notes: 'Commercial subscription required. Supports full GNSS constellations (GPS, GLONASS, Galileo, BeiDou). 30% growth in US coverage in 2024'

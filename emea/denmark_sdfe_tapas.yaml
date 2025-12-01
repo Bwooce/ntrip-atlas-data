@@ -1,13 +1,13 @@
 service:
-  id: "denmark_sdfe_tapas"
-  provider: "Danish Agency for Data Supply and Efficiency (SDFE)"
-  country: "DK"
-
+  id: denmark_sdfe_tapas
+  # name: TAPAS Testbed Network
+  provider: Danish Agency for Data Supply and Efficiency (SDFE)
+  country: DK
+  # organization_type: government
   endpoints:
-    - hostname: "tapas.sdfe.dk"
+    - hostname: tapas.sdfe.dk
       port: 2101
       ssl: false
-
   coverage:
     bounding_box:
       # Denmark boundaries
@@ -15,35 +15,31 @@ service:
       lat_max: 57.8
       lon_min: 8.0
       lon_max: 15.2
-
     hierarchical:
       # National coverage
       regional: 3         # Regional Nordic coverage
       national: 4         # Good national coverage (expanding)
       state: 4            # Good regional coverage
       local: 5            # Excellent local coverage (Aarhus region)
-
   authentication:
-    method: "basic"
+    method: basic
     required: true
     registration_required: true
-    registration_url: "https://sdfe.dk/om-os/kontakt/"
-
+    registration_url: https://sdfe.dk/om-os/kontakt/
   quality:
     reliability_rating: 4  # Government research network
     accuracy_rating: 5     # High precision research quality
-    network_type: "government"
-
+    network_type: government
   metadata:
-    description: "TAPAS Testbed - High-precision GNSS RTK research network"
+    description: TAPAS Testbed - High-precision GNSS RTK research network
     stations: 12
-    coverage_area: "Aarhus region and expanding nationwide"
-    last_verified: "2024-12-01"
-    ntrip_version: "2.0"
-    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
-    constellations: ["GPS", "GLONASS", "Galileo", "BeiDou"]
-    primary_crs: "ETRS89"
-    coordinate_systems: ["ITRF2014", "DVR90"]
+    coverage_area: Aarhus region and expanding nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2, RTCM 3.3]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: ETRS89
+    coordinate_systems: [ITRF2014, DVR90]
     notes: |
       - TAPAS (Testbed for Autonomous Positioning and Applications in Smart cities)
       - Developed by DTU Space in collaboration with SDFE

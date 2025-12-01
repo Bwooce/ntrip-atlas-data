@@ -1,13 +1,13 @@
 service:
-  id: "israel_soi_apn"
-  provider: "Survey of Israel (SOI)"
-  country: "IL"
-
+  id: israel_soi_apn
+  # name: Active Permanent Network
+  provider: Survey of Israel (SOI)
+  country: IL
+  # organization_type: government
   endpoints:
-    - hostname: "apn.mapi.gov.il"
+    - hostname: apn.mapi.gov.il
       port: 2101
       ssl: false
-
   coverage:
     bounding_box:
       # Israel boundaries
@@ -15,35 +15,31 @@ service:
       lat_max: 33.3
       lon_min: 34.2
       lon_max: 35.9
-
     hierarchical:
       # National coverage
       regional: 2         # Limited regional coverage (Israel only)
       national: 5         # Excellent national coverage
       state: 5            # Excellent regional coverage
       local: 5            # Excellent local coverage
-
   authentication:
-    method: "basic"
+    method: basic
     required: true
     registration_required: true
-    registration_url: "https://www.mapi.gov.il/"
-
+    registration_url: https://www.mapi.gov.il/
   quality:
     reliability_rating: 5  # Government (National survey authority)
     accuracy_rating: 5     # High precision government network
-    network_type: "government"
-
+    network_type: government
   metadata:
-    description: "Survey of Israel Active Permanent Network (APN)"
+    description: Survey of Israel Active Permanent Network (APN)
     stations: 20
-    coverage_area: "Entire Israeli territory"
-    last_verified: "2024-12-01"
-    ntrip_version: "2.0"
-    rtcm_formats: ["RTCM 3.2"]
-    constellations: ["GPS", "GLONASS", "Galileo"]
-    primary_crs: "ITRF2014"
-    coordinate_systems: ["IGD05", "Palestine 1923"]
+    coverage_area: Entire Israeli territory
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ITRF2014
+    coordinate_systems: [IGD05, Palestine 1923]
     notes: |
       - 20+ permanent GNSS stations
       - Forms official basis for horizontal control in Israel

@@ -1,0 +1,50 @@
+service:
+  id: australia_vrsnow
+  provider: VRSnow Australia (Trimble VRS Network)
+  country: AU
+  endpoints:
+  - hostname: vrsnow.com.au
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Australia nationwide coverage
+      lat_min: -43.6
+      lat_max: -10.7
+      lon_min: 113.3
+      lon_max: 153.6
+    hierarchical:
+      # Commercial VRS network coverage
+      continental: 4      # Strong Asia-Pacific coverage
+      regional: 5         # Excellent Australian coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent state coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://vrsnow.com.au/
+  quality:
+    reliability_rating: 4  # Commercial VRS service
+    accuracy_rating: 5     # Professional survey-grade
+    network_type: commercial
+  metadata:
+    description: Commercial Trimble VRS Network providing RTK corrections across Australia
+    stations: "Network of reference stations"
+    coverage_area: Australia nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: GDA2020
+    coordinate_systems: [GDA2020, GDA94, WGS84]
+    notes: |
+      - Commercial Trimble VRS (Virtual Reference Station) network
+      - Professional-grade RTK correction service for Australia
+      - Subscription-based service with enterprise support
+      - Part of global VRSnow network of commercial VRS services
+      - High-precision positioning for surveying and construction
+      - Contact vrsnow.com.au for subscription and pricing details
+      - Complements government AUSCORS with commercial alternative
+      - Professional service level agreements available

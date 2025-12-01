@@ -1,0 +1,59 @@
+service:
+  id: geodnet_rtk
+  provider: GEODNET Community Network
+  country: GLOBAL
+  endpoints:
+  - hostname: rtk.geodnet.com
+    port: 2101
+    ssl: false
+  - hostname: eu.geodnet.com
+    port: 2101
+    ssl: false
+  - hostname: aus.geodnet.com
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Global coverage
+      lat_min: -90.0
+      lat_max: 90.0
+      lon_min: -180.0
+      lon_max: 180.0
+    hierarchical:
+      # Global blockchain-based network
+      continental: 5      # Excellent global coverage
+      regional: 4         # Strong regional coverage in NA/EU/India
+      national: 4         # Good national coverage in key countries
+      state: 3           # Regional state-level coverage
+      local: 3           # Growing local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://geodnet.com/
+  quality:
+    reliability_rating: 4  # Community network with quality incentives
+    accuracy_rating: 4     # Professional-grade accuracy
+    network_type: community
+  metadata:
+    description: Blockchain-incentivized global GNSS RTK correction network with 5400+ stations
+    stations: "5400+"
+    coverage_area: 140+ countries worldwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: WGS84
+    coordinate_systems: [WGS84, Local Datums]
+    notes: |
+      - World's largest decentralized RTK correction network
+      - 5,400+ reference stations across 140+ countries
+      - Blockchain-based incentive system for station operators
+      - Three regional endpoints: rtk.geodnet.com (global), eu.geodnet.com (Europe), aus.geodnet.com (Australia)
+      - Community-driven with quality control through economic incentives
+      - Focus coverage in North America, Europe, and India
+      - Growing alternative to traditional commercial RTK services
+      - Registration required at geodnet.com for NTRIP access
+      - Real-time corrections with sub-meter to centimeter accuracy
+      - Expanding coverage through token-incentivized participation
+      - Professional alternative to free community networks

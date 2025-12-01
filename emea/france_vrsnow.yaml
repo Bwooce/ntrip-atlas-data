@@ -1,0 +1,50 @@
+service:
+  id: france_vrsnow
+  provider: VRSnow France (Trimble VRS Network)
+  country: FR
+  endpoints:
+  - hostname: vrsnow.fr
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # France mainland coverage
+      lat_min: 41.3
+      lat_max: 51.1
+      lon_min: -5.2
+      lon_max: 9.6
+    hierarchical:
+      # Commercial VRS network coverage
+      continental: 4      # Strong European coverage
+      regional: 5         # Excellent French coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent regional coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://vrsnow.fr/
+  quality:
+    reliability_rating: 4  # Commercial VRS service
+    accuracy_rating: 5     # Professional survey-grade
+    network_type: commercial
+  metadata:
+    description: Commercial Trimble VRS Network providing RTK corrections across France
+    stations: "Network of reference stations"
+    coverage_area: France nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: RGF93
+    coordinate_systems: [RGF93, WGS84]
+    notes: |
+      - Commercial Trimble VRS (Virtual Reference Station) network for France
+      - Professional-grade RTK correction service
+      - Subscription-based service with enterprise support
+      - Part of global VRSnow network of commercial VRS services
+      - High-precision positioning for surveying and construction
+      - Contact vrsnow.fr for subscription and pricing details
+      - Complements government IGN RGP with commercial alternative
+      - Professional service level agreements available

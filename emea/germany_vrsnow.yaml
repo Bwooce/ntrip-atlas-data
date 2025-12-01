@@ -1,0 +1,50 @@
+service:
+  id: germany_vrsnow
+  provider: VRSnow Germany (Trimble VRS Network)
+  country: DE
+  endpoints:
+  - hostname: vrsnow.de
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Germany nationwide coverage
+      lat_min: 47.3
+      lat_max: 55.1
+      lon_min: 5.9
+      lon_max: 15.0
+    hierarchical:
+      # Commercial VRS network coverage
+      continental: 4      # Strong European coverage
+      regional: 5         # Excellent German coverage
+      national: 5         # Excellent national coverage
+      state: 5           # Excellent state coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://vrsnow.de/
+  quality:
+    reliability_rating: 4  # Commercial VRS service
+    accuracy_rating: 5     # Professional survey-grade
+    network_type: commercial
+  metadata:
+    description: Commercial Trimble VRS Network providing RTK corrections across Germany
+    stations: "Network of reference stations"
+    coverage_area: Germany nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRS89
+    coordinate_systems: [ETRS89, WGS84]
+    notes: |
+      - Commercial Trimble VRS (Virtual Reference Station) network for Germany
+      - Professional-grade RTK correction service
+      - Subscription-based service with enterprise support
+      - Part of global VRSnow network of commercial VRS services
+      - High-precision positioning for surveying and construction
+      - Contact vrsnow.de for subscription and pricing details
+      - Complements government SAPOS with commercial alternative
+      - Professional service level agreements available

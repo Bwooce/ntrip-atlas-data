@@ -1,0 +1,53 @@
+service:
+  id: onocoy
+  provider: Onocoy Community Network
+  country: GLOBAL
+  endpoints:
+  - hostname: onocoy.com
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Global coverage
+      lat_min: -90.0
+      lat_max: 90.0
+      lon_min: -180.0
+      lon_max: 180.0
+    hierarchical:
+      # Growing global community network
+      continental: 4      # Strong global presence
+      regional: 4         # Good regional coverage
+      national: 3         # Growing national coverage
+      state: 3           # Developing state-level coverage
+      local: 3           # Expanding local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://onocoy.com/
+  quality:
+    reliability_rating: 4  # Community network with automatic calibration
+    accuracy_rating: 4     # Professional-grade with quality control
+    network_type: community
+  metadata:
+    description: Cryptocurrency-incentivized global GNSS correction network with automatic calibration
+    stations: "Growing network"
+    coverage_area: Global with expanding coverage
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo, BeiDou]
+    primary_crs: WGS84
+    coordinate_systems: [WGS84, Local Datums]
+    notes: |
+      - Emerging community GNSS correction network with quality incentives
+      - Cryptocurrency rewards for base station operators
+      - Automatic base station position calibration system
+      - Growing global network coverage
+      - Quality control through economic incentives
+      - Increasingly recommended as RTK2GO alternative
+      - Automatic calibration improves accuracy and reliability
+      - Registration required at onocoy.com for NTRIP access
+      - Community-driven with professional quality standards
+      - Alternative to traditional free community networks
+      - Focus on quality through automated validation systems

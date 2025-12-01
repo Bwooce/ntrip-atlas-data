@@ -1,0 +1,50 @@
+service:
+  id: usa_vrsnow
+  provider: VRSnow USA (Trimble VRS Network)
+  country: US
+  endpoints:
+  - hostname: www.vrsnow.us
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # United States coverage
+      lat_min: 24.9
+      lat_max: 71.4
+      lon_min: -179.1
+      lon_max: -68.0
+    hierarchical:
+      # Commercial VRS network coverage
+      continental: 4      # Strong North American coverage
+      regional: 5         # Excellent US coverage
+      national: 5         # Excellent national coverage
+      state: 4           # Good state coverage
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.vrsnow.us/
+  quality:
+    reliability_rating: 4  # Commercial VRS service
+    accuracy_rating: 5     # Professional survey-grade
+    network_type: commercial
+  metadata:
+    description: Commercial Trimble VRS Network providing RTK corrections across United States
+    stations: "Network of reference stations"
+    coverage_area: United States nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: NAD83(2011)
+    coordinate_systems: [NAD83, WGS84]
+    notes: |
+      - Commercial Trimble VRS (Virtual Reference Station) network for USA
+      - Professional-grade RTK correction service
+      - Subscription-based service with enterprise support
+      - Part of global VRSnow network of commercial VRS services
+      - High-precision positioning for surveying and construction
+      - Contact www.vrsnow.us for subscription and pricing details
+      - Complements state DOT CORS networks with commercial alternative
+      - Professional service level agreements available

@@ -1,0 +1,62 @@
+service:
+  id: kenya_survey_kenref
+  provider: Survey of Kenya (SoK)
+  country: KE
+  endpoints:
+  - hostname: register.example.com  # Contact Survey of Kenya for KENREF access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Kenya coverage
+      lat_min: -4.7
+      lat_max: 5.0
+      lon_min: 33.9
+      lon_max: 41.9
+    hierarchical:
+      # Government geodetic network coverage
+      continental: 2      # Limited African coverage
+      regional: 3         # Regional East African coverage
+      national: 4         # Good national coverage (20 Tier 3 stations)
+      state: 4           # Good coverage
+      local: 3           # Developing local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://survey-kenya.vercel.app/
+  quality:
+    reliability_rating: 4  # Government geodetic service
+    accuracy_rating: 5     # Professional geodetic-grade accuracy
+    network_type: government
+  metadata:
+    description: Survey of Kenya's official geodetic network providing national reference framework
+    stations: "20"
+    coverage_area: Kenya nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: Kenya_Datum
+    coordinate_systems: [Kenya_Datum, ITRF2014, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_research: true
+      commercial_rates: true
+    notes: |
+      - Survey of Kenya: Official national surveying and mapping authority
+      - KENREF: Kenya Reference Network development project
+      - 20 Roof Top - Tier 3 CORS installations nationwide
+      - Kenyan Geodetic Network foundation infrastructure
+      - Government complement to private sector CORS services
+      - National geodetic control and reference frame maintenance
+      - Integration with Regional Centre for Mapping (RCMRD) training programs
+      - University of Nairobi Geospatial and Space Technology collaboration
+      - Kenya national grid positioning standards
+      - Professional geodetic-grade GNSS receivers and infrastructure
+      - Land parcel positioning and cadastral survey support
+      - Infrastructure development: roads, railways, bridges, pipelines
+      - National geodetic control network densification
+      - Contact Survey of Kenya for official government CORS access
+      - Supports precision surveying, mapping, and construction applications

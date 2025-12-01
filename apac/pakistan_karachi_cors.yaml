@@ -1,0 +1,61 @@
+service:
+  id: pakistan_karachi_cors
+  provider: Survey of Pakistan
+  country: PK
+  endpoints:
+  - hostname: register.example.com  # Contact Survey of Pakistan for CORS access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Pakistan coverage (primarily Karachi region)
+      lat_min: 23.0
+      lat_max: 28.0
+      lon_min: 66.0
+      lon_max: 71.0
+    hierarchical:
+      # Regional CORS network coverage
+      continental: 1      # Limited continental coverage
+      regional: 2         # Limited regional coverage
+      national: 2         # Limited national coverage (Karachi region)
+      state: 3           # Developing provincial coverage
+      local: 4           # Good local Karachi coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.surveyofpakistan.gov.pk/
+  quality:
+    reliability_rating: 3  # Government service in development
+    accuracy_rating: 4     # Professional RTK capability
+    network_type: government
+  metadata:
+    description: Pakistan's CORS network providing geodetic positioning services in Karachi region
+    stations: "5"
+    coverage_area: Karachi metropolitan region
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: Pakistan_Datum
+    coordinate_systems: [Pakistan_Datum, WGS84]
+  metadata:
+    pricing:
+      government_research: true
+      academic_research: true
+      commercial_contact: true
+    notes: |
+      - Pakistan CORS Network: 5 stations in Karachi region
+      - Operated by Survey of Pakistan (National Surveying and Mapping Organization)
+      - Mandated to establish and maintain geodetic network nationwide
+      - Modern GNSS surveying and mapping techniques implementation
+      - Matchless accuracy in geodetic data preparation and maintenance
+      - SUPARCO collaboration on Pakistan Space Based Augmentation System (Pak-SBAS)
+      - GNSS signal receiving antenna operational at Multan
+      - Survey of Pakistan: topographical land surveys authority
+      - Gradual modernization with advanced surveying equipment and methods
+      - Research studies on sustainable CORS network development ongoing
+      - Ministry of Defence oversight and coordination
+      - Contact Survey of Pakistan for access to developing CORS services
+      - Part of Pakistan's national geodetic infrastructure development
+      - Future expansion plans under SUPARCO navigation systems program

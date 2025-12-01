@@ -1,0 +1,61 @@
+service:
+  id: morocco_crts_gnss
+  provider: Royal Centre for Remote Sensing (CRTS)
+  country: MA
+  endpoints:
+  - hostname: register.example.com  # Contact CRTS for GNSS services access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Morocco coverage
+      lat_min: 21.0
+      lat_max: 36.0
+      lon_min: -17.1
+      lon_max: -1.0
+    hierarchical:
+      # Limited GNSS infrastructure coverage
+      continental: 1      # Limited African coverage
+      regional: 2         # Regional Maghreb coverage
+      national: 2         # Limited national coverage (developing)
+      state: 2           # Limited provincial coverage
+      local: 2           # Limited local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: http://www.crts.gov.ma/
+  quality:
+    reliability_rating: 3  # Government remote sensing center
+    accuracy_rating: 3     # Developing GNSS capabilities
+    network_type: government
+  metadata:
+    description: Royal Centre for Remote Sensing coordinating Morocco's space-based positioning services
+    stations: "Limited"
+    coverage_area: Morocco (developing infrastructure)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: Morocco_Datum
+    coordinate_systems: [Morocco_Datum, WGS84]
+  metadata:
+    pricing:
+      government_research: true
+      academic_collaboration: true
+      commercial_contact: true
+    notes: |
+      - CRTS: Royal Centre for Remote Sensing (Centre Royal de Télédétection Spatiale)
+      - Primary institution for space remote sensing and Earth observation in Morocco
+      - Coordinates national remote sensing program development
+      - Collaborates with ministerial departments, private operators, universities
+      - Satellite imagery acquisition, processing, and distribution services
+      - Agriculture, urban planning, environmental monitoring applications
+      - Limited public/private sector GNSS implementation historically
+      - GNSS applications: Transport (Aviation, Road, Railway, Maritime), Fishing, Mapping
+      - Commercial CORS infrastructure available through international providers
+      - CHCNAV global network includes Morocco coverage
+      - CRTS responsible for promoting remote sensing technology development
+      - Contact CRTS for coordination of GNSS positioning services
+      - Part of Morocco's developing geospatial infrastructure
+      - Future potential for national CORS network development

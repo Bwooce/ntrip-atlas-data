@@ -1,0 +1,62 @@
+service:
+  id: jamaica_vrs_licj
+  provider: Land Information Council of Jamaica (LICJ)
+  country: JM
+  endpoints:
+  - hostname: register.example.com  # Contact LICJ/NSDMD for VRS access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Jamaica coverage
+      lat_min: 17.7
+      lat_max: 18.6
+      lon_min: -78.4
+      lon_max: -76.2
+    hierarchical:
+      # National VRS network coverage
+      continental: 1      # Limited continental coverage (island nation)
+      regional: 2         # Regional Caribbean coverage
+      national: 5         # Excellent national coverage (13 VRS stations)
+      state: 5           # Excellent coverage (small island nation)
+      local: 5           # Excellent local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.nsdmd.gov.jm/
+  quality:
+    reliability_rating: 4  # Government VRS service
+    accuracy_rating: 5     # VRS centimeter-level positioning
+    network_type: government
+  metadata:
+    description: Jamaica VRS Network providing high-precision positioning for surveying and construction sectors
+    stations: "13"
+    coverage_area: Jamaica nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: JAD2001
+    coordinate_systems: [JAD2001, JAD69, WGS84]
+  metadata:
+    pricing:
+      government_rates: true
+      academic_rates: true
+      commercial_subscription: true
+    notes: |
+      - Jamaica VRS Network: 13 Virtual Reference Stations nationwide
+      - Administered by Land Information Council of Jamaica (LICJ)
+      - Managed by National Spatial Data Management Division (NSDMD)
+      - Revolutionary impact on surveying and construction sectors
+      - Enhanced accuracy, performance, and reliability over traditional methods
+      - Lower positioning costs and improved productivity
+      - Jamaica Datum 2001 (JAD2001) coordinate system
+      - Transition from Jamaica Datum 1969 (JAD69) to modern geocentric system
+      - LICJ established 1991, comprises 50+ institutions
+      - Regional leader in Caribbean geospatial data sharing
+      - Ministry of Economic Growth and Job Creation oversight
+      - VRS technology provides virtual base stations eliminating distance limitations
+      - Contact NSDMD/LICJ for registration and access procedures
+      - Part of Jamaica's national geospatial infrastructure development
+      - Supports precision surveying, cadastral mapping, and infrastructure projects

@@ -1,0 +1,62 @@
+service:
+  id: peru_regpmoc_ign
+  provider: Instituto Geográfico Nacional (IGN Peru)
+  country: PE
+  endpoints:
+  - hostname: register.example.com  # Contact IGN Peru for REGPMOC access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Peru coverage
+      lat_min: -18.4
+      lat_max: 0.0
+      lon_min: -81.3
+      lon_max: -68.7
+    hierarchical:
+      # National geodetic network coverage
+      continental: 2      # Limited continental coverage
+      regional: 3         # Regional SIRGAS coverage
+      national: 4         # Good national coverage (SIRGAS member)
+      state: 3           # Developing regional coverage
+      local: 3           # Limited local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.gob.pe/ign
+  quality:
+    reliability_rating: 4  # Government geodetic service
+    accuracy_rating: 5     # SIRGAS-based high precision
+    network_type: government
+  metadata:
+    description: Peru's National Active Geodetic Network providing SIRGAS-based positioning reference
+    stations: "20+"
+    coverage_area: Peru nationwide (developing)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: SIRGAS2000_Peru
+    coordinate_systems: [SIRGAS2000_Peru, SIRGAS2000, WGS84]
+  metadata:
+    pricing:
+      government_research: true
+      academic_research: true
+      commercial_contact: true
+    notes: |
+      - REGPMOC: Red Geodésica Peruana de Monitoreo Continuo
+      - Operated by Instituto Geográfico Nacional (IGN Peru)
+      - SIRGAS reference frame materialization for Peru
+      - International Terrestrial Reference Frame 2000 (ITRF2000) support
+      - Active densification of permanent tracking stations
+      - Recent installations at Navy Directorate of Hydrography and Navigation
+      - GNSS antenna pillars with cabinet-housed receivers
+      - Connectivity and communication testing protocols
+      - SIRGAS network processing and analysis contribution
+      - Official Horizontal Geodetic System implementation
+      - Geocentric Reference System for the Americas (SIRGAS) based
+      - Ministry of Defense Instituto Geográfico Nacional oversight
+      - Supports national mapping, surveying, and geodetic applications
+      - Contact IGN Peru for access to developing NTRIP services
+      - Part of South American SIRGAS continental reference framework

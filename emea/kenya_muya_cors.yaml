@@ -1,0 +1,61 @@
+service:
+  id: kenya_muya_cors
+  provider: Measurement Systems Ltd (Muya CORS Network)
+  country: KE
+  endpoints:
+  - hostname: register.example.com  # Register at muya-cors.com for RTK access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Kenya coverage
+      lat_min: -4.7
+      lat_max: 5.0
+      lon_min: 33.9
+      lon_max: 41.9
+    hierarchical:
+      # Private commercial network coverage
+      continental: 2      # Limited African coverage
+      regional: 3         # Regional East African coverage
+      national: 4         # Good national coverage (25+ stations)
+      state: 4           # Good coverage
+      local: 4           # Good local coverage (centimeter-level)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://muya-cors.com/
+  quality:
+    reliability_rating: 4  # Private commercial service
+    accuracy_rating: 5     # Sub-centimeter RTK positioning
+    network_type: commercial
+  metadata:
+    description: Private CORS network providing RTK and post-processing GNSS positioning services across Kenya
+    stations: "25+"
+    coverage_area: Kenya nationwide
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, BeiDou, Galileo]
+    primary_crs: Kenya_Datum
+    coordinate_systems: [Kenya_Datum, ITRF2014, WGS84]
+  metadata:
+    pricing:
+      commercial_subscription: true
+      government_rates: true
+      academic_rates: true
+    notes: |
+      - Muya CORS: Kenya's leading private CORS network by Measurement Systems Ltd
+      - 25+ continuously operating reference stations nationwide
+      - Sub-centimeter RTK positioning accuracy
+      - ITRF2014 realization fixed to Kenya datum
+      - Multi-GNSS support: GPS, GLONASS, BeiDou, Galileo
+      - Real-time RTK corrections via NTRIP protocol
+      - Post-processing services available
+      - Government Survey of Kenya complement: 20 Tier 3 CORS for KENREF network
+      - Regional Centre for Mapping (RCMRD) training support
+      - Successful integration with Kenya national grid
+      - Survey applications: land parcels, infrastructure, geodetic networks
+      - Commercial rates with academic and government pricing options
+      - Contact: muya-cors.com for subscription and technical support
+      - Part of Kenya's growing geospatial infrastructure development

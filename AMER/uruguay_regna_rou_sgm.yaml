@@ -1,0 +1,63 @@
+service:
+  id: uruguay_regna_rou_sgm
+  provider: Servicio Geográfico Militar (SGM)
+  country: UY
+  endpoints:
+  - hostname: 200.40.69.58  # Free NTRIP Caster for REGNA-ROU network
+    port: 8081
+    ssl: false
+  coverage:
+    bounding_box:
+      # Uruguay coverage
+      lat_min: -35.0
+      lat_max: -30.1
+      lon_min: -58.4
+      lon_max: -53.1
+    hierarchical:
+      # National government network coverage
+      continental: 2      # Limited continental coverage (small country)
+      regional: 3         # Regional SIRGAS coverage
+      national: 5         # Excellent national coverage (7 expanding to 23 stations)
+      state: 4           # Good coverage (70km buffer planned)
+      local: 4           # Good local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: http://www.sgm.gub.uy/
+  quality:
+    reliability_rating: 5  # Government military service, operational since 2011
+    accuracy_rating: 5     # Professional SIRGAS-based RTK accuracy
+    network_type: government
+  metadata:
+    description: Uruguay's National Active Geodetic Network providing free RTK and DGNSS corrections
+    stations: "7"
+    coverage_area: Uruguay nationwide (expanding to 23 stations)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS]
+    primary_crs: SIRGAS2000_ROU98
+    coordinate_systems: [SIRGAS2000_ROU98, SIRGAS2000, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_free: true
+    notes: |
+      - REGNA-ROU: Red Geodésica Nacional Activa de Uruguay
+      - Operated by Servicio Geográfico Militar (Military Geographical Service)
+      - FREE public NTRIP/CORS system operational since 2011
+      - 7 CORS stations with homogeneous territorial distribution
+      - Expansion planned to 23 permanent stations under IDE-Uruguay project
+      - 70km coverage buffer planned for complete national coverage
+      - Leica SpiderNet software for NTRIP Caster management
+      - SIRGAS reference frame integration (leading SIRGAS member)
+      - 200+ registered users, 80 active DGNSS/PP correction users
+      - SIRGAS2000/ROU98 coordinate system implementation
+      - High-precision geometric leveling capabilities
+      - Remarkable example of free Latin American real-time GNSS services
+      - Direct IP access: 200.40.69.58:8081
+      - Registration at Servicio Geográfico Militar required
+      - Leading example of SIRGAS national densification
+      - Supports surveying, mapping, and precision positioning applications

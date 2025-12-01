@@ -1,0 +1,59 @@
+service:
+  id: "israel_soi_apn"
+  provider: "Survey of Israel (SOI)"
+  country: "IL"
+
+  endpoints:
+    - hostname: "apn.mapi.gov.il"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Israel boundaries
+      lat_min: 29.5
+      lat_max: 33.3
+      lon_min: 34.2
+      lon_max: 35.9
+
+    hierarchical:
+      # National coverage
+      regional: 2         # Limited regional coverage (Israel only)
+      national: 5         # Excellent national coverage
+      state: 5            # Excellent regional coverage
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.mapi.gov.il/"
+
+  quality:
+    reliability_rating: 5  # Government (National survey authority)
+    accuracy_rating: 5     # High precision government network
+    network_type: "government"
+
+  metadata:
+    description: "Survey of Israel Active Permanent Network (APN)"
+    stations: 20
+    coverage_area: "Entire Israeli territory"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.2"]
+    constellations: ["GPS", "GLONASS", "Galileo"]
+    primary_crs: "ITRF2014"
+    coordinate_systems: ["IGD05", "Palestine 1923"]
+    notes: |
+      - 20+ permanent GNSS stations
+      - Forms official basis for horizontal control in Israel
+      - Multi-purpose: geodetic, cadastral, engineering, mapping
+      - RINEX format data recording
+      - NTRIP credentials available via registration
+      - Registration required with Survey of Israel
+      - Hebrew/English language support
+      - Used for precision agriculture and construction
+      - Official geodetic infrastructure for surveying
+      - Supports legal cadastral surveying requirements
+      - Integration with Israeli national spatial data infrastructure
+      - High reliability for commercial and government use

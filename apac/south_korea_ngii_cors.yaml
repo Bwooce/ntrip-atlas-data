@@ -1,0 +1,60 @@
+service:
+  id: "south_korea_ngii_cors"
+  provider: "National Geographic Information Institute (NGII)"
+  country: "KR"
+
+  endpoints:
+    - hostname: "ntrip.ngii.go.kr"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # South Korea boundaries
+      lat_min: 33.0
+      lat_max: 38.6
+      lon_min: 124.6
+      lon_max: 131.9
+
+    hierarchical:
+      # National coverage
+      regional: 3         # Regional Northeast Asia coverage
+      national: 5         # Excellent national coverage
+      state: 5            # Excellent regional coverage
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "http://www.ngii.go.kr"
+
+  quality:
+    reliability_rating: 5  # Government (National institute)
+    accuracy_rating: 5     # High precision government network
+    network_type: "government"
+
+  metadata:
+    description: "National Geographic Information Institute CORS Network"
+    stations: 52
+    coverage_area: "Nationwide South Korea coverage"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
+    constellations: ["GPS", "GLONASS", "Galileo", "BeiDou"]
+    primary_crs: "ITRF2014"
+    coordinate_systems: ["GRS80", "Korean Geodetic Datum 2002"]
+    notes: |
+      - 52 GNSS reference stations nationwide
+      - Network RTK with Virtual Reference Station (VRS) capability
+      - 1-second correction data duration
+      - cm-level positioning accuracy (tested in Busan)
+      - 4,282 integrated control points
+      - Registration required via NGII website
+      - Korean language documentation primary
+      - Supports national surveying and cadastral mapping
+      - High-precision geodetic framework
+      - Real-time NTRIP streaming available
+      - Multi-GNSS constellation support
+      - Used for construction, surveying, and GIS applications
+      - Integrated with Korean national spatial data infrastructure

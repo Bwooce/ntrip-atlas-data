@@ -1,0 +1,58 @@
+service:
+  id: "mexico_inegi_cors"
+  provider: "Instituto Nacional de Estadística y Geografía (INEGI)"
+  country: "MX"
+
+  endpoints:
+    - hostname: "rgna.inegi.org.mx"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Mexico boundaries
+      lat_min: 14.5
+      lat_max: 32.7
+      lon_min: -118.4
+      lon_max: -86.7
+
+    hierarchical:
+      # National coverage
+      regional: 3         # Regional North America coverage
+      national: 5         # Excellent national coverage
+      state: 4            # Good state coverage
+      local: 4            # Good local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.inegi.org.mx/temas/red_geodesica/"
+
+  quality:
+    reliability_rating: 5  # Government (National statistics institute)
+    accuracy_rating: 4     # Good government quality
+    network_type: "government"
+
+  metadata:
+    description: "Red Geodésica Nacional Activa (RGNA) - National Active Geodetic Network"
+    stations: 30
+    coverage_area: "Mexico nationwide coverage"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.2"]
+    constellations: ["GPS", "GLONASS"]
+    primary_crs: "ITRF2008"
+    coordinate_systems: ["NAD83", "WGS84"]
+    notes: |
+      - National Active Geodetic Network (Red Geodésica Nacional Activa)
+      - Permanent GNSS stations nationwide
+      - Linked to INEGI geodetic regulations (legal compliance)
+      - Registration required for real-time access
+      - Used for national mapping and surveying
+      - Supports legal surveying requirements
+      - Spanish language documentation
+      - Part of Mexican National Spatial Data Infrastructure
+      - Integration with North American Datum (NAD83)
+      - Government-operated for official mapping activities
+      - Supplemented by commercial Red CORS México network

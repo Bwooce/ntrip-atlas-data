@@ -1,0 +1,54 @@
+service:
+  id: "canada_quebec_rtqc"
+  provider: "Ministère des Transports du Québec"
+  country: "CA"
+
+  endpoints:
+    - hostname: "rtqc.mern.gouv.qc.ca"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Quebec province boundaries
+      lat_min: 45.0
+      lat_max: 62.6
+      lon_min: -79.8
+      lon_max: -57.1
+
+    hierarchical:
+      # Provincial coverage
+      regional: 3         # Regional coverage (Quebec + adjacent provinces)
+      national: 2         # Limited national coverage (Quebec only)
+      state: 5            # Excellent provincial coverage
+      local: 5            # Excellent local coverage (18 stations)
+
+  authentication:
+    method: "none"
+    required: false
+    registration_required: false
+
+  quality:
+    reliability_rating: 5  # Government (Provincial Ministry)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Quebec Real-Time GNSS Correction Network - Free provincial government service"
+    stations: 18
+    coverage_area: "Quebec province coverage"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.1", "RTCM 3.2"]
+    constellations: ["GPS", "GLONASS", "Galileo"]
+    primary_crs: "NAD83(CSRS)"
+    notes: |
+      - FREE public access - no registration required
+      - 18 GNSS reference stations across Quebec
+      - Real-time Network RTK corrections
+      - Operated by Quebec Ministry of Transport
+      - cm-level positioning accuracy
+      - Compatible with standard NTRIP clients
+      - Part of Canadian Spatial Reference System (CSRS) framework
+      - 24/7 operational availability
+      - Supports surveying, mapping, and precision agriculture applications

@@ -1,0 +1,63 @@
+service:
+  id: "uk_osnet_government"
+  provider: "Ordnance Survey"
+  country: "GB"
+
+  endpoints:
+    - hostname: "os-net.ordnancesurvey.co.uk"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Great Britain boundaries (England, Scotland, Wales)
+      lat_min: 49.8
+      lat_max: 60.9
+      lon_min: -8.7
+      lon_max: 2.0
+
+    hierarchical:
+      # National coverage
+      continental: 2      # Limited continental coverage (GB only)
+      regional: 4         # Strong regional coverage (British Isles)
+      national: 5         # Excellent national coverage
+      state: 5            # Excellent regional coverage
+      local: 5            # Excellent local coverage (60km spacing)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.ordnancesurvey.co.uk/business-government/tools-support/geodetic-services"
+
+  quality:
+    reliability_rating: 5  # Government (National mapping authority)
+    accuracy_rating: 5     # High precision government network
+    network_type: "government"
+
+  metadata:
+    description: "OS Net - Ordnance Survey Active GNSS Network via commercial partners"
+    stations: 115
+    coverage_area: "Great Britain (England, Scotland, Wales)"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
+    constellations: ["GPS", "GLONASS", "Galileo"]
+    primary_crs: "ETRS89"
+    coordinate_systems: ["OSGB36", "WGS84", "ITRF2014"]
+    notes: |
+      - 115+ GNSS base stations across Great Britain
+      - Operational since 2006
+      - Average station density: 60km spacing
+      - 1-2cm positioning accuracy achievable
+      - Network RTK with Virtual Reference Station (VRS) capability
+      - Government infrastructure accessed via commercial partners:
+        * Leica SmartNet UK (HxGN SmartNet - already in global database)
+        * Trimble VRS Now
+        * Other licensed resellers
+      - FREE RINEX data available via OS OpenData Plan
+      - Real-time NTRIP corrections require commercial subscription
+      - Supports surveying, construction, and precision agriculture
+      - Integrated with UK national spatial framework
+      - High reliability government-maintained infrastructure
+      - NOTE: Direct government NTRIP access limited - use commercial partners

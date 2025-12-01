@@ -1,0 +1,58 @@
+service:
+  id: "albania_asig_gnss"
+  provider: "State Authority for Geospatial Information (ASIG)"
+  country: "AL"
+
+  endpoints:
+    - hostname: "asig.gov.al"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Albania boundaries
+      lat_min: 39.6
+      lat_max: 42.7
+      lon_min: 19.3
+      lon_max: 21.1
+
+    hierarchical:
+      # National coverage
+      regional: 2         # Limited regional coverage (Albania only)
+      national: 5         # Excellent national coverage
+      state: 4            # Good regional coverage
+      local: 4            # Good local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "http://asig.gov.al/"
+
+  quality:
+    reliability_rating: 4  # Government (State authority)
+    accuracy_rating: 4     # Good government quality
+    network_type: "government"
+
+  metadata:
+    description: "ASIG GNSS Network - Albanian national geodetic reference network"
+    stations: 8
+    coverage_area: "Albania national coverage"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.2"]
+    constellations: ["GPS", "GLONASS", "Galileo"]
+    primary_crs: "ETRS89"
+    coordinate_systems: ["ITRS", "Albanian Geodetic System"]
+    notes: |
+      - State Authority for Geospatial Information operates GNSS network
+      - Real-time corrections distribution capability
+      - Implements ITRS/ETRS geodetic reference for Albania
+      - Registration required for NTRIP access
+      - Albanian language documentation primary
+      - Supports national surveying and mapping activities
+      - Integration with European ETRS89 reference frame
+      - Used for cadastral and construction surveying
+      - Commercial alternative: SATNET LIVE ALBANIA (Land&Co)
+      - Part of Albanian national spatial data infrastructure
+      - Limited public English documentation

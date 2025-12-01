@@ -1,0 +1,61 @@
+service:
+  id: "japan_gsi_geonet"
+  provider: "Geospatial Information Authority of Japan (GSI)"
+  country: "JP"
+
+  endpoints:
+    - hostname: "mgr.jcn.or.jp"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Japan archipelago boundaries
+      lat_min: 24.0
+      lat_max: 46.0
+      lon_min: 123.0
+      lon_max: 146.0
+
+    hierarchical:
+      # National coverage
+      continental: 3      # Regional Asia-Pacific coverage
+      regional: 4         # Strong regional coverage
+      national: 5         # Excellent national coverage (entire archipelago)
+      state: 5            # Excellent prefecture coverage
+      local: 5            # Excellent local coverage (20km spacing)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://terras.gsi.go.jp/"
+
+  quality:
+    reliability_rating: 5  # Government (National mapping authority)
+    accuracy_rating: 5     # World-class GNSS infrastructure
+    network_type: "government"
+
+  metadata:
+    description: "GPS Earth Observation Network - Japan's national GNSS reference network"
+    stations: 1300
+    coverage_area: "Entire Japanese archipelago"
+    last_verified: "2024-12-01"
+    ntrip_version: "2.0"
+    rtcm_formats: ["RTCM 3.2", "RTCM 3.3"]
+    constellations: ["GPS", "GLONASS", "Galileo", "QZSS"]
+    primary_crs: "JGD2011"
+    coordinate_systems: ["ITRF2014", "JGD2000", "Tokyo97"]
+    notes: |
+      - World's densest national GNSS network (1,300+ stations)
+      - Average station spacing: 20km
+      - ITRF2014 compliance with F5 analysis strategy
+      - Virtual Reference Station (VRS) method supported
+      - Network RTK corrections available
+      - Registration required via GSI TERRAS system
+      - Japanese language documentation primary
+      - Supports earthquake monitoring and crustal deformation research
+      - Real-time and post-processing data available
+      - Multi-GNSS support including domestic QZSS
+      - Used for national surveying and mapping
+      - Critical infrastructure for disaster management
+      - cm-level positioning accuracy achievable

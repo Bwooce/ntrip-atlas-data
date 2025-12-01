@@ -1,0 +1,53 @@
+service:
+  id: "usa_earthscope_unavco"
+  provider: "EarthScope Consortium (UNAVCO GAGE Facility)"
+  country: "US"
+
+  endpoints:
+    - hostname: "ntrip.earthscope.org"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Continental USA + Alaska + Hawaii + territories
+      lat_min: 18.0
+      lat_max: 72.0
+      lon_min: -180.0
+      lon_max: -65.0
+
+    hierarchical:
+      # Federal network with selective station coverage
+      continental: 3      # Moderate continental coverage across North America
+      regional: 4         # Good regional coverage in western states and Alaska
+      national: 3         # Moderate national coverage (subset of NOTA stations)
+      state: 2            # Limited state coverage (not all states covered)
+      local: 2            # Limited local coverage (concentrated in seismic/volcanic areas)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.unavco.org/data/gps-gnss/real-time/real-time.html"
+
+  quality:
+    reliability_rating: 5  # Government (NSF-funded)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "EarthScope GAGE facility real-time GNSS streams from Network of the Americas (NOTA) stations"
+    stations: 200
+    coverage_area: "Western USA, Alaska, Hawaii, Caribbean (selective coverage)"
+    last_verified: "2024-12-01"
+    notes: |
+      - New NTRIP caster launched May 2024 (ntrip.earthscope.org)
+      - Supports RTCM 3.3 and BINEX formats
+      - Mount point format: {FCID}_RTCM3P3
+      - Ports: 2101 (RTCM), 2105 (BINEX), 2110 (RTX)
+      - Data latency: 0.2-2.0 seconds
+      - Requires re-registration for new caster
+      - Legacy caster rtgpsout.earthscope.org deprecated
+      - Funded by NSF with support from NASA and USGS
+      - Coverage concentrated in seismically/volcanically active areas
+      - Not all US states have stations - focused on scientific research

@@ -1,0 +1,53 @@
+service:
+  id: "usa_iowa_iartn"
+  provider: "Iowa Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "165.206.203.10"
+      port: 10000
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Iowa state boundaries with border enhancements
+      lat_min: 40.4
+      lat_max: 43.5
+      lon_min: -96.6
+      lon_max: -90.1
+
+    hierarchical:
+      # Statewide coverage with cross-border cooperation
+      regional: 2         # Limited regional (shares with neighbors)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage (83 stations ~70km apart)
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://iowadot.gov/rtn/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Iowa Real-Time Network - statewide GNSS reference station network"
+    stations: 104
+    coverage_area: "Iowa statewide plus shared border stations with MN, WI, MO"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - 83 Iowa DOT CORS stations (~70km spacing)
+      - 10 Minnesota DOT stations (northern border enhancement)
+      - 4 Wisconsin DOT stations (eastern border enhancement)
+      - 7 Missouri DOT stations (southern border enhancement)
+      - Complete Iowa coverage guaranteed
+      - NTRIP and TCP/IP protocols
+      - MSM_IMAX mount point: RTCM3 full constellation (GPS+GLONASS+Galileo+BeiDou)
+      - Data processed in Ames, Iowa DOT servers
+      - 24/7/365 availability
+      - Located at Iowa DOT maintenance facilities

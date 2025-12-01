@@ -1,0 +1,43 @@
+service:
+  id: "euref_rob"
+  provider: "Royal Observatory of Belgium (ROB)"
+  country: "BE"
+
+  endpoints:
+    - hostname: "euref-ip.be"
+      port: 2101
+      ssl: false
+    - hostname: "euref-ip.be"
+      port: 2102
+      ssl: true
+
+  coverage:
+    bounding_box:
+      lat_min: 49.5
+      lat_max: 51.5
+      lon_min: 2.5
+      lon_max: 6.5
+
+    hierarchical:
+      regional: 4       # European EUREF-IP network coverage
+      national: 5       # Excellent coverage for Belgium
+      state: 5          # Full state/province coverage
+      local: 4          # Strong local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.euref-ip.be/"
+
+  quality:
+    reliability_rating: 5  # Government/research network
+    accuracy_rating: 4     # High quality EUREF network
+    network_type: "government"
+
+  metadata:
+    description: "EUREF-IP NTRIP broadcaster operated by Royal Observatory of Belgium, providing EPN stations and relayed streams"
+    stations: 54
+    coverage_area: "Belgium and European EUREF network"
+    last_verified: "2024-12-01"
+    notes: "One of three main EUREF-IP broadcasters (BKG, ROB, ASI). Provides NTRIP v2.0. No RTK streams available, research/geodetic use only."

@@ -1,0 +1,56 @@
+service:
+  id: "usa_vermont_vector"
+  provider: "Vermont Agency of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "vector.vtrans.vermont.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Vermont state boundaries
+      lat_min: 42.7
+      lat_max: 45.0
+      lon_min: -73.4
+      lon_max: -71.5
+
+    hierarchical:
+      # Statewide coverage
+      regional: 1         # No regional coverage beyond Vermont
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage (18 stations)
+      local: 4            # Good local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://vtrans.vermont.gov/highway/geodetic/cors/real-time"
+
+  quality:
+    reliability_rating: 5  # Government (State agency)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Vermont Enhanced CORS and Transmission of Real-time corrections (VECTOR)"
+    stations: 18
+    coverage_area: "Vermont statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public service
+      - Trimble Pivot Platform
+      - 18 GNSS reference stations across Vermont
+      - 16 stations have NOAA CORS Network (NCN) accreditation
+      - VJSC and VTWR excluded from NCN status
+      - Supports GPS, GLONASS, Galileo, BeiDou satellites
+      - Single base data streams: RTCM 3.1
+      - VRS data streams: RTCM 3.1, CMR Plus
+      - Data available in Trimble DAT, TGD, T01, T02, T04 formats
+      - RINEX versions: 2.10, 2.11, 3.02, 3.03, 3.04
+      - 24/7 operation intended
+      - Online registration required
+      - Operated by VTrans Geodetic Survey Section
+      - Free for state/federal agencies, surveyors, GIS users, engineers, scientists, public

@@ -1,0 +1,40 @@
+service:
+  id: "poland_asg_eupos"
+  provider: "Head Office of Geodesy and Cartography (GUGiK)"
+  country: "PL"
+
+  endpoints:
+    - hostname: "asgeupos.pl"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 49.0
+      lat_max: 55.0
+      lon_min: 14.0
+      lon_max: 24.5
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Central/Eastern Europe)
+      national: 5       # Excellent national coverage Poland
+      state: 5          # Excellent coverage all voivodeships
+      local: 5          # Excellent local coverage (130+ stations)
+
+  authentication:
+    method: "none"
+    required: false
+    registration_required: true
+    registration_url: "https://www.asgeupos.pl/language/en/"
+
+  quality:
+    reliability_rating: 5  # Government network, free since Oct 2022
+    accuracy_rating: 5     # Cm-level RTK accuracy
+    network_type: "government"
+
+  metadata:
+    description: "Polish Active Geodetic Network (ASG-EUPOS) with VRS/FKP services"
+    stations: 130
+    coverage_area: "Poland nationwide"
+    last_verified: "2024-12-01"
+    notes: "Free access since October 2, 2022. 38,588+ registered users (Dec 2024). Trimble Alloy 4-system receivers. Compatible with EUPOS standard (FKP, VRS, NTRIP). GPRS transmission. Upgraded 2024 for GNSS monitoring. Used for surveying, construction, precision agriculture, autonomous transport."

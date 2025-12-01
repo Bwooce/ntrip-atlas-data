@@ -1,0 +1,40 @@
+service:
+  id: "greece_hepos"
+  provider: "Hellenic Cadastre (KTIMATOLOGIO S.A.)"
+  country: "GR"
+
+  endpoints:
+    - hostname: "hepos.gr"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 34.5
+      lat_max: 41.8
+      lon_min: 19.3
+      lon_max: 29.7
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Eastern Mediterranean)
+      national: 5       # Excellent national coverage Greece
+      state: 5          # Excellent coverage mainland and islands
+      local: 5          # Excellent local coverage (98 stations)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.hepos.gr/"
+
+  quality:
+    reliability_rating: 5  # Government network, EU co-funded
+    accuracy_rating: 5     # Cm-level accuracy, multi-constellation
+    network_type: "government"
+
+  metadata:
+    description: "Hellenic Positioning System (HEPOS) permanent GNSS network"
+    stations: 98
+    coverage_area: "Greece mainland and islands (132,000 sq km)"
+    last_verified: "2024-12-01"
+    notes: "98 Trimble NetRS receivers with Zephyr Geodetic antennas. Multi-constellation (GPS/GLONASS/Galileo/BeiDou). EU-funded modernization. RTCM 3.1 (GPS+GLONASS) and RTCM 3.2 MSM (full GNSS). Uses HTRS07 reference system. Operational data 2011-2022+ analyzed. Supports land registry, surveying, construction."

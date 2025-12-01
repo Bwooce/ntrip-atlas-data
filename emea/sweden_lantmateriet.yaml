@@ -1,0 +1,43 @@
+service:
+  id: "sweden_swepos"
+  provider: "Lantmäteriet (Swedish Mapping Authority)"
+  country: "SE"
+
+  endpoints:
+    - hostname: "nrtk-swepos.lm.se"
+      port: 80
+      ssl: false
+    - hostname: "nrtk-swepos.lm.se"
+      port: 8500
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 55.0
+      lat_max: 69.5
+      lon_min: 10.5
+      lon_max: 24.5
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Scandinavia)
+      national: 5       # Excellent national coverage within Sweden
+      state: 5          # Excellent coverage across all regions
+      local: 5          # Excellent local coverage (500+ stations)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.lantmateriet.se/en/geodata/gps-geodesy-and-swepos/swepos/"
+
+  quality:
+    reliability_rating: 5  # Government network, established 1990s
+    accuracy_rating: 5     # Highest government quality, cm-level accuracy
+    network_type: "government"
+
+  metadata:
+    description: "Swedish national GNSS reference network (SWEPOS) with Network RTK service"
+    stations: 500
+    coverage_area: "Sweden nationwide coverage"
+    last_verified: "2024-12-01"
+    notes: "SWEPOS established in 1990s. Nearly 500 stations at 10-70km spacing. Multi-constellation support (GPS/GLONASS/Galileo/BeiDou). Uses SWEREF99/ETRS89."

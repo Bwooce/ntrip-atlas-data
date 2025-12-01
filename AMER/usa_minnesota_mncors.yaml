@@ -1,0 +1,54 @@
+service:
+  id: "usa_minnesota_mncors"
+  provider: "Minnesota Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "mncors.dot.state.mn.us"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Minnesota state boundaries
+      lat_min: 43.5
+      lat_max: 49.4
+      lon_min: -97.2
+      lon_max: -89.5
+
+    hierarchical:
+      # Statewide coverage with excellent density
+      regional: 2         # Limited regional (Minnesota only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage (140+ stations)
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://mncors.dot.state.mn.us/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality (survey grade)
+    network_type: "government"
+
+  metadata:
+    description: "Minnesota Continuously Operating Reference Station Network"
+    stations: 140
+    coverage_area: "Minnesota statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - Pivot network technology
+      - 140+ GNSS base stations statewide
+      - Cooperative effort with state agencies, counties, cities, private enterprises
+      - Formats: RTCM 2.3 (older), RTCM 3.1 (newer), RTCM 3.4 (newest), CMR+, CMRx
+      - Survey grade positioning corrections
+      - All GNSS satellite constellations supported
+      - Account remains active with annual use (minimum few seconds/year)
+      - Accounts inactive for 1 year may be deactivated
+      - Email confirmation includes login credentials
+      - Contact: CORSVRS.DOT@state.mn.us
+      - Address, port, mount point remain consistent

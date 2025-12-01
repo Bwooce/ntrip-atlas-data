@@ -1,0 +1,138 @@
+# Excluded APAC NTRIP Services
+# Services identified during research but not included in the public database
+# Reasons include: restricted access, incomplete information, language barriers, or commercial-only access
+
+excluded_services:
+  - provider: Geospatial Information Authority of Japan (GSI)
+    country: Japan
+    network_name: GEONET
+    reason: Restricted NTRIP access requiring formal application
+    details: >
+      GSI operates 1300+ CORS stations across Japan. Real-time NTRIP access via terras.gsi.go.jp
+      requires formal registration and application. Japanese residents can register at
+      https://terras.gsi.go.jp/ftp_user_regist.php while overseas users must submit application
+      forms. RINEX data (30-second interval) available via FTP with delays. Real-time NTRIP uses
+      ports 2101 (unencrypted) or 443 (TLS). Supports NTRIP 1.0 and 2.0. Service quality: 5/5.
+    contact: https://www.gsi.go.jp/ENGLISH/geonet_english.html
+    last_verified: '2024-12-01'
+
+  - provider: National Geographic Information Institute (NGII)
+    country: South Korea
+    network_name: NGII CORS Network
+    reason: Incomplete technical information
+    details: >
+      NGII provides integrated GNSS CORS service covering South Korea with 4,282 control points.
+      Network RTK positioning provides 1-second correction data with ±2cm horizontal and ±4cm
+      vertical accuracy in testing. Standard NTRIP port 2101 likely used but specific hostname
+      and mountpoint details not publicly documented. Registration likely required but process
+      unclear. Service quality: 5/5.
+    contact: https://www.ngii.go.kr/eng/
+    last_verified: '2024-12-01'
+
+  - provider: Academia Sinica Institute of Earth Sciences
+    country: Taiwan
+    network_name: Academia Sinica GNSS Network
+    reason: Research network - not public NTRIP service
+    details: >
+      Academia Sinica operates GNSS stations and processes data from 115+ continuous GNSS
+      network stations in Taiwan for research purposes. Data managed through Taiwan GPS
+      Monitoring (TGM) datacenter federation. This is primarily a research data collection
+      network, not a public real-time NTRIP correction service. Taiwan's public e-GNSS
+      service operated by NLSC already included.
+    contact: https://www.earth.sinica.edu.tw/
+    last_verified: '2024-12-01'
+
+  - provider: Department of Survey and Mapping of Vietnam
+    country: Vietnam
+    network_name: Vietnam CORS Network
+    reason: Incomplete technical information and language barriers
+    details: >
+      Vietnam has established National RTK Network for high-precision GNSS applications.
+      Registration required but website navigation reported as difficult. Specific NTRIP
+      caster hostname, port, and mountpoint information not publicly available in English.
+      Service supports surveying and mapping applications including real-time landslide
+      monitoring. Further investigation needed with Vietnamese language expertise.
+    contact: Contact through Vietnam Department of Survey and Mapping
+    last_verified: '2024-12-01'
+
+  - provider: Committee of Geodesy and Cartography
+    country: Kazakhstan
+    network_name: Kazakhstan National GNSS Network
+    reason: Limited NTRIP availability for public use
+    details: >
+      Kazakhstan operates approximately 10 operational CORS stations covering densely
+      populated and economically active regions, with ~50 stations under development.
+      Uses ITRF, WGS 84, Pulkovo 42, and SK-95 reference systems. As of 2024, comprehensive
+      public NTRIP service availability not confirmed. Users may need to rely on free
+      global correction services with nearby base stations (RTK limited to 35-50 km range).
+    contact: National Centre of Geodesy and Spatial Information - https://qazgeodesy.kz/en/
+    last_verified: '2024-12-01'
+
+  - provider: Survey of Pakistan
+    country: Pakistan
+    network_name: Pakistan CORS Network and Pak-SBAS
+    reason: Limited public information and emerging infrastructure
+    details: >
+      Pakistan operates Karachi CORS network with 5 stations providing heightened positional
+      accuracy. Pakistan Satellite-Based Augmentation System (Pak-SBAS) planned for launch
+      by 2024, providing sub-meter accuracy for public service and decimeter accuracy for
+      authorized PPP services. First SBAS using BeiDou PPP-B2b signal. NSDI feasibility
+      study ongoing. Specific NTRIP public access details not yet documented.
+    contact: Survey of Pakistan - https://www.surveyofpakistan.gov.pk/
+    last_verified: '2024-12-01'
+
+  - provider: Survey of Bangladesh
+    country: Bangladesh
+    network_name: Bangladesh CORS Network
+    reason: No public NTRIP service information found
+    details: >
+      Research identified Survey of Bangladesh as potential geodetic service provider.
+      No public information found regarding operational CORS network or NTRIP services
+      during 2024 investigation. May have limited geodetic infrastructure or restricted
+      access. Further investigation needed with local expertise.
+    contact: Survey of Bangladesh
+    last_verified: '2024-12-01'
+
+  - provider: Survey Department of Sri Lanka
+    country: Sri Lanka
+    network_name: Sri Lanka CORS Network
+    reason: No public NTRIP service information found
+    details: >
+      Research identified Survey Department of Sri Lanka as potential geodetic service
+      provider. No public information found regarding operational CORS network or NTRIP
+      services during 2024 investigation. Further investigation needed with local expertise.
+    contact: Survey Department of Sri Lanka
+    last_verified: '2024-12-01'
+
+  - provider: Committee of Land Resources
+    country: Uzbekistan
+    network_name: Uzbekistan CORS Network
+    reason: No public NTRIP service information found
+    details: >
+      Research identified Committee of Land Resources as potential geodetic authority.
+      No public information found regarding operational CORS network or NTRIP services
+      during 2024 investigation. Further investigation needed with local expertise.
+    contact: State Committee on Land Resources, Uzbekistan
+    last_verified: '2024-12-01'
+
+  - provider: Papua New Guinea Geodetic Survey
+    country: Papua New Guinea
+    network_name: PNG CORS Network
+    reason: No public NTRIP service information found
+    details: >
+      Pacific Island nation with potential geodetic infrastructure needs. No public
+      information found regarding operational CORS network or NTRIP services during
+      2024 investigation. May benefit from regional Pacific geodetic initiatives similar
+      to Fiji's CORS network supported by Pacific Community.
+    contact: National Mapping Bureau, Papua New Guinea
+    last_verified: '2024-12-01'
+
+notes: >
+  Many Asia-Pacific countries operate government geodetic infrastructure but do not provide
+  publicly accessible NTRIP services or have unclear registration/access procedures. Language
+  barriers (particularly for services in Japan, South Korea, Vietnam, and Central Asian countries)
+  make it difficult to verify access requirements and connection details. Several countries
+  identified as having emerging CORS infrastructure that may become publicly accessible in future.
+
+  Community contributions welcome for any services listed here if access information becomes
+  available or if local expertise can clarify registration procedures.

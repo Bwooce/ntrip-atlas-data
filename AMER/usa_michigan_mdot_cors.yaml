@@ -1,0 +1,52 @@
+service:
+  id: "usa_michigan_mdot_cors"
+  provider: "Michigan Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "mdotcors.michigan.gov"
+      port: 10000
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Michigan state boundaries including Upper Peninsula
+      lat_min: 41.7
+      lat_max: 48.3
+      lon_min: -90.4
+      lon_max: -82.4
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (Michigan only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://mdotcors.michigan.gov/sbc/Account/Register"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Michigan Department of Transportation CORS Network"
+    stations: 60
+    coverage_area: "Michigan statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - SpiderNet network technology
+      - Supports GPS/GLONASS and full GNSS (GPS/GLO/GAL/BDS)
+      - RTCM formats with MSM4 and MSM5 messages
+      - MSM5 includes Doppler messages for advanced error resolution
+      - Ports 10012-10013 for advanced GNSS datastreams
+      - Ports 10000-10006 for all RTK/RINEX datastreams
+      - NTRIP only, requires GGA message every 30 seconds minimum
+      - Separate account required per rover
+      - Contact: mdotcors.org for support

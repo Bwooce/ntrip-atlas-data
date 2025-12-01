@@ -1,0 +1,42 @@
+service:
+  id: taiwan_e_gnss
+  provider: National Land Surveying and Mapping Center (NLSC)
+  country: TWN
+  endpoints:
+  - hostname: egnss.nlsc.gov.tw
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 21.9
+      lat_max: 25.3
+      lon_min: 119.5
+      lon_max: 122.0
+    hierarchical:
+      local: 4
+      regional: 5
+      national: 5
+      state: 4
+      continental: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.nlsc.gov.tw
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    network_type: government
+  metadata:
+    description: e-GNSS real-time kinematic positioning system provides VBS-RTK services across Taiwan
+    stations: 78
+    coverage_area: Complete Taiwan coverage including main island and offshore territories
+    constellations:
+    - GPS
+    - GLONASS
+    - BeiDou
+    - Galileo
+    formats:
+    - VBS-RTK
+    notes: Upgraded from e-GPS to e-GNSS in 2014, supports multi-constellation GNSS, system completed in 2006 with major upgrade in 2014
+    last_verified: '2024-12-01'

@@ -1,0 +1,41 @@
+service:
+  id: philippines_pagenet
+  provider: National Mapping and Resource Information Authority (NAMRIA)
+  country: PHL
+  endpoints:
+  - hostname: pagenet.namria.gov.ph
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 4.6
+      lat_max: 21.1
+      lon_min: 116.9
+      lon_max: 126.6
+    hierarchical:
+      local: 3
+      regional: 4
+      national: 5
+      state: 4
+      continental: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://pagenet.namria.gov.ph
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Philippine Active Geodetic Network provides real-time correction services nationwide
+    stations: 38
+    coverage_area: Nationwide coverage across Philippine archipelago
+    constellations:
+    - GPS
+    - GLONASS
+    formats:
+    - RTK
+    - RINEX
+    notes: Established 2008, strategic partnership with DPWH for CORS data sharing, contact pagenet@namria.gov.ph for access
+    last_verified: '2024-12-01'

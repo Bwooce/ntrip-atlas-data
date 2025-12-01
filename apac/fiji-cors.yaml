@@ -1,0 +1,41 @@
+service:
+  id: fiji_cors
+  provider: Department of Lands and Survey, Fiji
+  country: FJI
+  endpoints:
+  - hostname: fiji.cors.ga.gov.au
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: -20.7
+      lat_max: -12.5
+      lon_min: 177.0
+      lon_max: -178.1
+    hierarchical:
+      local: 4
+      regional: 5
+      national: 5
+      state: 3
+      continental: 2
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://gnss.ga.gov.au
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: Fiji CORS network established with support from Pacific Community and Geoscience Australia
+    stations: 10
+    coverage_area: Main islands including Vanua Levu, Taveuni, Kadavu, Koro, Lau Islands, and Rotuma
+    constellations:
+    - GPS
+    - GLONASS
+    - Galileo
+    formats:
+    - RTCM 3
+    notes: Part of APREF (Asia-Pacific Reference Frame) project, data available via AUSCORS NTRIP Broadcaster, established 2019-2020 with Pacific Community support
+    last_verified: '2024-12-01'

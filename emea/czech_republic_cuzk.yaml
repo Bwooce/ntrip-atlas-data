@@ -1,0 +1,40 @@
+service:
+  id: "czech_czepos"
+  provider: "Czech Office for Surveying, Mapping and Cadastre (CUZK)"
+  country: "CZ"
+
+  endpoints:
+    - hostname: "czepos.cuzk.cz"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 48.5
+      lat_max: 51.1
+      lon_min: 12.0
+      lon_max: 18.9
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Central Europe)
+      national: 5       # Excellent national coverage Czech Republic
+      state: 5          # Excellent coverage all regions
+      local: 4          # Strong local coverage (27 stations)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://geoportal.cuzk.cz/"
+
+  quality:
+    reliability_rating: 5  # Government network
+    accuracy_rating: 5     # 1cm position error in RTK mode
+    network_type: "government"
+
+  metadata:
+    description: "Czech permanent GNSS network (CZEPOS) for precise positioning"
+    stations: 27
+    coverage_area: "Czech Republic nationwide"
+    last_verified: "2024-12-01"
+    notes: "27 GPS stations evenly distributed. Real-time RTK and post-processing modes. Connected with Germany, Austria, Poland, Slovakia networks. Uses ETRS89 reference system. Sub-cm accuracy in post-processing. Network solution covers whole country with uniform quality."

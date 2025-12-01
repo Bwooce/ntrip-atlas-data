@@ -1,0 +1,400 @@
+# AMER Excluded Services
+# Services that cannot be included in the main database
+# Last updated: 2024-12-01
+
+excluded_services:
+  # Federal networks without real-time NTRIP service
+  - provider: "NOAA CORS Network (NCN)"
+    country: "US"
+    reason: "Post-processing only, no real-time NTRIP service provided directly by NOAA"
+    last_verified: "2024-12-01"
+    notes: |
+      NOAA's Continuously Operating Reference Station (CORS) Network provides GNSS data for
+      post-processing only. The NCN prototype real-time service was discontinued due to low usage
+      and staff limitations. However, many state DOTs and research organizations use CORS data to
+      provide their own RTK/RTN streaming services. See UNAVCO/EarthScope for federal real-time access.
+
+  # US States with paid-only or no public CORS networks
+  - provider: "California Caltrans RTN"
+    country: "US"
+    region: "California"
+    reason: "Restricted access - Caltrans internal use and vetted data sharing partners only"
+    last_verified: "2024-12-01"
+    notes: |
+      All Caltrans RTN networks operated by District 6 Surveys office. Created through data sharing
+      partnerships with local, state, and federal agencies. Only accessible by Caltrans departments
+      and public partners vetted through data sharing agreements. Not available for general public use.
+
+  - provider: "Texas TxDOT GPS Network"
+    country: "US"
+    region: "Texas"
+    reason: "Post-processing focus, no public real-time RTK service"
+    last_verified: "2024-12-01"
+    notes: |
+      194 high-accuracy base stations (Regional Reference Points). Participating in NOAA CORS network.
+      Base station data available for post-processing differential corrections. System focuses on
+      post-processing rather than real-time RTK services for general public.
+
+  - provider: "Pennsylvania State CORS"
+    country: "US"
+    region: "Pennsylvania"
+    reason: "No state-operated public RTK network"
+    last_verified: "2024-12-01"
+    notes: |
+      Pennsylvania has no public RTK correction service operated by state government. PennDOT maintains
+      CORS infrastructure (including University of Pittsburgh partnership) but no statewide public NTRIP
+      service. Users must rely on commercial providers (KeyNetGPS, AlphaRTK) or NOAA CORS for post-processing.
+
+  - provider: "Illinois State CORS"
+    country: "US"
+    region: "Illinois"
+    reason: "No state-operated public network - commercial only"
+    last_verified: "2024-12-01"
+    notes: |
+      Illinois IDOT does not operate a public CORS/RTK network. ReIL-NET (operated by Kara Company, Inc.)
+      is a private commercial service with 55+ base stations. Offers free and paid subscription services
+      but is not a government-operated network.
+
+  - provider: "Georgia GDOT GPS Network"
+    country: "US"
+    region: "Georgia"
+    reason: "No state-operated public CORS NTRIP network identified"
+    last_verified: "2024-12-01"
+    notes: |
+      GDOT allows GPS RTK/VRS for photogrammetric activities but explicitly prohibits GPS Reference
+      Network/RTK for establishing project control on Department projects. No dedicated GACORS network
+      found. Commercial services (eGPS Solutions Georgia RTK Network) available but not government-operated.
+
+  - provider: "Colorado CDOT CORS"
+    country: "US"
+    region: "Colorado"
+    reason: "No comprehensive state CORS network - limited public access"
+    last_verified: "2024-12-01"
+    notes: |
+      Colorado has limited public RTK networks (Mesa County RTVRN - Trimble network, and PBO single
+      baseline stations). No comprehensive state DOT CORS NTRIP network like other states. Mesa County
+      provides RTVRN service but only for county area, not statewide.
+
+  - provider: "Nevada NVCORS/NNCRN"
+    country: "US"
+    region: "Nevada"
+    reason: "Network transferred to Utah TURN GPS - paid service"
+    last_verified: "2024-12-01"
+    notes: |
+      Northern Nevada Cooperative Real Time Network (NNCRN/NVCORS) transferred to Utah's Automated
+      Geographic Reference Center management. Now part of Utah TURN GPS network (paid subscription).
+      Southern Nevada coverage through TURN GPS at http://nevadagps.utah.gov
+
+  - provider: "Utah TURN GPS Network"
+    country: "US"
+    region: "Utah"
+    reason: "Paid subscription service, not free public access"
+    last_verified: "2024-12-01"
+    notes: |
+      Utah Reference Network (TURN) operated by Utah Geospatial Resource Center. Trimble Pivot VRS Platform.
+      Covers Utah plus portions of Idaho, Wyoming, southern Nevada. High-precision centimeter positioning
+      but requires yearly subscription fee. Not a free public service.
+
+  - provider: "Washington State Reference Network (WSRN)"
+    country: "US"
+    region: "Washington"
+    reason: "Operated by Seattle Public Utilities, usage fee required"
+    last_verified: "2024-12-01"
+    notes: |
+      WSRN operated by Seattle Public Utilities (not WSDOT). Trimble network system requiring usage fee.
+      Available as Pivot network but not a free public service. While WSDOT has GPS infrastructure,
+      primary public CORS/NTRIP is the paid WSRN service.
+
+  # Canadian provinces - mostly commercial networks
+  - provider: "Ontario Commercial RTK Networks"
+    country: "CA"
+    region: "Ontario"
+    reason: "Commercial subscription-based services only"
+    last_verified: "2024-12-01"
+    notes: |
+      Ontario has multiple commercial RTK providers (SmartNet/HxGN, Can-Net, BrandtNet) requiring paid
+      subscriptions. Network RTK services in Canada primarily provided by private industry with compliance
+      agreements with NRCan for NAD83(CSRS) integration. No free public provincial network.
+
+  - provider: "British Columbia Commercial RTK Networks"
+    country: "CA"
+    region: "British Columbia"
+    reason: "Commercial subscription-based services only"
+    last_verified: "2024-12-01"
+    notes: |
+      BC has SmartNet, Can-Net, BrandtNet, TopNet commercial providers. Province has RTK survey guidelines
+      and High Precision Networks (HPN) as part of BC ACSm initiatives. Southern BC networks successful but
+      all require subscriptions. No free public provincial network.
+
+  - provider: "Alberta Provincial GNSS Network"
+    country: "CA"
+    region: "Alberta"
+    reason: "Commercial service providers only, no public provincial RTK network"
+    last_verified: "2024-12-01"
+    notes: |
+      Alberta relies on commercial network RTK services. Government of Alberta coordinates spatial
+      referencing system. Alberta Survey Control (ASC) network: ~27,500 survey control points but not
+      real-time RTK. Commercial providers deliver RTK services. Can-Net operates 300+ stations across
+      Canada including Alberta coverage.
+
+  - provider: "Quebec MERN GNSS Network"
+    country: "CA"
+    region: "Quebec"
+    reason: "Free access but NOT using NTRIP protocol"
+    last_verified: "2024-12-01"
+    notes: |
+      18 active GNSS stations maintained by Ministère de l'Énergie et des Resources naturelles (MERN).
+      Free real-time access via wireless internet for single-base RTK. However, data is NOT broadcast
+      using NTRIP protocol. Uses CMR+ or RTCM V3.2 via cellular telephony from IP addresses. Different
+      connection method incompatible with standard NTRIP Atlas discovery.
+
+  - provider: "Saskatchewan Commercial Networks"
+    country: "CA"
+    region: "Saskatchewan"
+    reason: "Commercial service providers only"
+    last_verified: "2024-12-01"
+    notes: |
+      Prairie provinces (Alberta, Saskatchewan, Manitoba) rely mainly on commercial network RTK services.
+      No public provincial RTK network identified.
+
+  - provider: "Manitoba Commercial Networks"
+    country: "CA"
+    region: "Manitoba"
+    reason: "Commercial service providers only"
+    last_verified: "2024-12-01"
+    notes: |
+      Prairie provinces rely on commercial network RTK services. No public provincial RTK network identified.
+
+  # Mexico - commercial networks
+  - provider: "Red CORS México (Commercial)"
+    country: "MX"
+    reason: "Commercial paid subscription service"
+    last_verified: "2024-12-01"
+    notes: |
+      Largest commercial CORS network in Mexico with 85+ cities coverage. Monthly or annual membership
+      required. INEGI-compliant coordinates. ±1cm accuracy up to 40km from stations. Compatible with most
+      GNSS RTK receivers and drones. Not a free public service, though coordinates are georeferenced to
+      INEGI standards.
+
+  - provider: "Mexico INEGI Government Network"
+    country: "MX"
+    reason: "Research incomplete - public NTRIP service details unknown"
+    last_verified: "2024-12-01"
+    notes: |
+      Instituto Nacional de Estadística y Geografía (INEGI) is Mexico's national geodetic authority.
+      Commercial networks claim INEGI compliance but direct public NTRIP service from INEGI itself
+      not confirmed in research. Further investigation needed for government-operated services.
+
+  # Additional US states needing investigation or with confirmed no service
+  - provider: "Alaska State CORS"
+    country: "US"
+    region: "Alaska"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: |
+      Alaska has UNAVCO/EarthScope NOTA stations but dedicated state-operated public CORS NTRIP network
+      status unclear. NOAA CORS stations present but no confirmed state DOT RTK network.
+
+  - provider: "Hawaii State CORS"
+    country: "US"
+    region: "Hawaii"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: |
+      Hawaii has UNAVCO/EarthScope NOTA stations and NOAA CORS but dedicated state-operated public NTRIP
+      network status unclear.
+
+  - provider: "New Mexico State CORS"
+    country: "US"
+    region: "New Mexico"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "New Mexico state DOT CORS network status requires further investigation."
+
+  - provider: "Montana State CORS"
+    country: "US"
+    region: "Montana"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Montana has UNAVCO coverage but state DOT network status unclear."
+
+  - provider: "Idaho State CORS"
+    country: "US"
+    region: "Idaho"
+    reason: "Likely covered by Utah TURN GPS (paid service)"
+    last_verified: "2024-12-01"
+    notes: "Idaho portions covered by Utah TURN GPS network (paid subscription)."
+
+  - provider: "Wyoming State CORS"
+    country: "US"
+    region: "Wyoming"
+    reason: "Likely covered by Utah TURN GPS (paid service)"
+    last_verified: "2024-12-01"
+    notes: "Wyoming portions covered by Utah TURN GPS network (paid subscription)."
+
+  - provider: "South Dakota State CORS"
+    country: "US"
+    region: "South Dakota"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "South Dakota has UNAVCO coverage but state network status unclear."
+
+  - provider: "North Dakota State CORS"
+    country: "US"
+    region: "North Dakota"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "North Dakota has UNAVCO coverage but state network status unclear."
+
+  - provider: "Nebraska State CORS"
+    country: "US"
+    region: "Nebraska"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Nebraska state CORS network status requires further investigation."
+
+  - provider: "Kansas State CORS"
+    country: "US"
+    region: "Kansas"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Kansas has UNAVCO coverage but state network status unclear."
+
+  - provider: "Oklahoma State CORS"
+    country: "US"
+    region: "Oklahoma"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Oklahoma state CORS network status requires further investigation."
+
+  - provider: "Arkansas State CORS"
+    country: "US"
+    region: "Arkansas"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Arkansas has UNAVCO coverage but state network status unclear."
+
+  - provider: "Louisiana State CORS"
+    country: "US"
+    region: "Louisiana"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Louisiana state CORS network status requires further investigation."
+
+  - provider: "Mississippi State CORS"
+    country: "US"
+    region: "Mississippi"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Mississippi state CORS network status requires further investigation."
+
+  - provider: "Alabama State CORS"
+    country: "US"
+    region: "Alabama"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Alabama state CORS network status requires further investigation."
+
+  - provider: "Tennessee State CORS"
+    country: "US"
+    region: "Tennessee"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Tennessee state CORS network status requires further investigation."
+
+  - provider: "South Carolina State CORS"
+    country: "US"
+    region: "South Carolina"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "South Carolina state CORS network status requires further investigation."
+
+  - provider: "Virginia State CORS"
+    country: "US"
+    region: "Virginia"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Virginia state CORS network status requires further investigation."
+
+  - provider: "West Virginia State CORS"
+    country: "US"
+    region: "West Virginia"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "West Virginia state CORS network status requires further investigation."
+
+  - provider: "Maryland State CORS"
+    country: "US"
+    region: "Maryland"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Maryland state CORS network status requires further investigation."
+
+  - provider: "Delaware State CORS"
+    country: "US"
+    region: "Delaware"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Delaware state CORS network status requires further investigation. May be covered by AlphaRTK commercial service."
+
+  - provider: "New Jersey State CORS"
+    country: "US"
+    region: "New Jersey"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "New Jersey state CORS network status requires further investigation. May be covered by AlphaRTK commercial service."
+
+  - provider: "Connecticut State CORS"
+    country: "US"
+    region: "Connecticut"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Connecticut state CORS network status requires further investigation."
+
+  - provider: "Rhode Island State CORS"
+    country: "US"
+    region: "Rhode Island"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Rhode Island state CORS network status requires further investigation."
+
+  - provider: "New Hampshire State CORS"
+    country: "US"
+    region: "New Hampshire"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "New Hampshire state CORS network status requires further investigation."
+
+  - provider: "Maine State CORS"
+    country: "US"
+    region: "Maine"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Maine state CORS network status requires further investigation."
+
+  # Commercial networks for reference
+  - provider: "Point One Polaris"
+    countries: ["US", "CA", "MX"]
+    reason: "Commercial paid subscription service (already in GLOBAL database)"
+    last_verified: "2024-12-01"
+    notes: "1,400+ stations North America. Commercial service requiring subscription. Documented in global services."
+
+  - provider: "Trimble VRS Networks (Various)"
+    countries: ["US", "CA"]
+    reason: "Multiple regional commercial VRS providers requiring subscriptions"
+    last_verified: "2024-12-01"
+    notes: "Numerous Trimble VRS providers across North America. All commercial/paid services."
+
+  - provider: "Leica SmartNet Networks (Various)"
+    countries: ["US", "CA"]
+    reason: "Multiple regional commercial providers requiring subscriptions"
+    last_verified: "2024-12-01"
+    notes: "HxGN SmartNet operates across North America. Commercial subscription service."
+
+  - provider: "Regional Agricultural RTK Services"
+    countries: ["US", "CA"]
+    reason: "Numerous small commercial providers for precision agriculture"
+    last_verified: "2024-12-01"
+    notes: |
+      Many regional precision agriculture RTK providers exist across North America. Too numerous to
+      track individually and all require paid subscriptions. Government networks provide better public access.

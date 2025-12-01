@@ -1,0 +1,39 @@
+service:
+  id: "netherlands_kadaster"
+  provider: "Kadaster (Netherlands Cadastre)"
+  country: "NL"
+
+  endpoints:
+    - hostname: "ntrip.kadaster.nl"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 50.7
+      lat_max: 53.7
+      lon_min: 3.3
+      lon_max: 7.3
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Benelux)
+      national: 5       # Excellent national coverage Netherlands
+      state: 5          # Excellent coverage all provinces
+      local: 5          # Excellent local coverage via DPGA
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://ntrip.kadaster.nl/"
+
+  quality:
+    reliability_rating: 5  # Government network
+    accuracy_rating: 5     # Cm-level Network RTK accuracy
+    network_type: "government"
+
+  metadata:
+    description: "Netherlands GNSS NTRIP Caster (GNCASTER) operated by Kadaster"
+    coverage_area: "Netherlands nationwide including North Sea coverage"
+    last_verified: "2024-12-01"
+    notes: "Dutch Permanent GNSS Array (DPGA) integration. RTCM3.3 MSM format. Supports Rijksdriehoekstelsel national coordinate system. Kadastrale Kaart Next (KKN) development for improved cadastral mapping. Multi-constellation support. Network RTK for cm-level positioning."

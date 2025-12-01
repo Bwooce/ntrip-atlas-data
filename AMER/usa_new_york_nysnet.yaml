@@ -1,0 +1,53 @@
+service:
+  id: "usa_new_york_nysnet"
+  provider: "New York State Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "cors.dot.ny.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # New York state boundaries
+      lat_min: 40.5
+      lat_max: 45.0
+      lon_min: -79.8
+      lon_max: -71.9
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (New York only)
+      national: 1         # No coverage outside New York
+      state: 5            # Excellent state coverage
+      local: 4            # Good local coverage throughout state
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://cors.dot.ny.gov/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "New York State continuously operating GPS reference station network"
+    stations: 85
+    coverage_area: "New York statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - SpiderNet network technology
+      - Supports GPS, GLONASS, Galileo satellite systems
+      - Network RTK using RTCM Master Auxiliary Concept (MAC)
+      - Virtual base station capability
+      - Requires NTRIP or NMEA compatible rover
+      - Username must be 16 characters or less
+      - Separate NTRIP login credentials can be created
+      - Works with GSM or CDMA cellular data service
+      - Operated by NYSDOT with NYC participation
+      - All reference stations logging GLONASS data

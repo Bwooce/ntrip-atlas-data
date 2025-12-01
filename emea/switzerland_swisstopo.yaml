@@ -1,0 +1,39 @@
+service:
+  id: "switzerland_swipos"
+  provider: "Federal Office of Topography (swisstopo)"
+  country: "CH"
+
+  endpoints:
+    - hostname: "swipos.swisstopo.ch"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 45.8
+      lat_max: 47.8
+      lon_min: 5.9
+      lon_max: 10.5
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Alpine region)
+      national: 5       # Excellent national coverage Switzerland
+      state: 5          # Excellent coverage all cantons
+      local: 5          # Excellent local coverage via AGNES network
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.swisstopo.admin.ch/en/swipos-the-swiss-positioning-service"
+
+  quality:
+    reliability_rating: 5  # Government network, 100% uptime in 2024
+    accuracy_rating: 5     # Cm-level accuracy with VRS
+    network_type: "government"
+
+  metadata:
+    description: "Swiss Positioning Service (swipos) based on AGNES permanent GNSS network"
+    coverage_area: "All of Switzerland"
+    last_verified: "2024-12-01"
+    notes: "Multi-constellation (GPS/GLONASS/Galileo/BeiDou). VRS method with cm-range accuracy. 24/7 availability, zero downtime in 2024. AGNES II upgraded network. Professional service for surveying/GIS."

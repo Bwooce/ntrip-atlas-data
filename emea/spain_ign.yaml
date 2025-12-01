@@ -1,0 +1,40 @@
+service:
+  id: "spain_ergnss"
+  provider: "National Geographic Institute of Spain (IGN)"
+  country: "ES"
+
+  endpoints:
+    - hostname: "ergnss.ign.es"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 27.5
+      lat_max: 43.8
+      lon_min: -18.5
+      lon_max: 5.0
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Iberian Peninsula + Islands)
+      national: 5       # Excellent national coverage Spain + autonomous communities
+      state: 5          # Excellent state coverage (all regions)
+      local: 5          # Excellent local coverage (121 stations)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "http://ergnss.ign.es/gnuserportal/"
+
+  quality:
+    reliability_rating: 5  # Government network
+    accuracy_rating: 5     # Cm-level accuracy, multi-constellation
+    network_type: "government"
+
+  metadata:
+    description: "Spanish permanent GNSS network (ERGNSS) with real-time positioning service (SPTR)"
+    stations: 121
+    coverage_area: "Spain nationwide including Canary Islands (REGCAN95 updated Feb 2024)"
+    last_verified: "2024-12-01"
+    notes: "SPTR service operational since 2016, multi-constellation (GPS+GLONASS+Galileo+BeiDou) since Jan 2022. Free registration required. Uses GNSMART software. ETRS89 reference system."

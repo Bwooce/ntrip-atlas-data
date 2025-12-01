@@ -1,0 +1,170 @@
+# EMEA Excluded Services
+# Services that cannot be included in the main database
+# Last updated: 2024-12-01
+
+excluded_services:
+  # Commercial networks requiring paid subscriptions
+  - provider: "Topcon NetGEO (Italy)"
+    country: "IT"
+    reason: "Commercial service requiring paid subscription"
+    last_verified: "2024-12-01"
+    notes: "200+ stations across Italy with RTCM 3 MSM, RTCM 3.0, RTCM 2.3, CMR formats. Operated by Topcon Positioning Italy. High quality but subscription-based."
+
+  - provider: "Trimble Pegaso VRS (Italy)"
+    country: "IT"
+    reason: "Commercial service requiring paid subscription"
+    last_verified: "2024-12-01"
+    notes: "190+ stations across Italy. Public-private partnership between Italian Military Geographic Institute (IGM), Difesa Servizi, and Trimble. IGM-certified but requires payment."
+
+  - provider: "06-GPS (Netherlands)"
+    country: "NL"
+    reason: "Commercial service requiring paid subscription"
+    last_verified: "2024-12-01"
+    notes: "130+ reference stations covering Benelux and North Sea. Operational since 2003. Independent commercial provider."
+
+  - provider: "HxGN SmartNet (Greece)"
+    country: "GR"
+    reason: "Commercial service requiring paid subscription"
+    last_verified: "2024-12-01"
+    notes: "Commercial Hexagon network in Greece. High quality but subscription-based."
+
+  - provider: "JGC Net (Greece)"
+    country: "GR"
+    reason: "Commercial service requiring paid subscription"
+    last_verified: "2024-12-01"
+    notes: "Private RTK reference station network in Greece."
+
+  # Special access or restricted services
+  - provider: "Italian Space Agency (ASI) GNSS Frame Network"
+    country: "IT"
+    reason: "Research/frame network, not for general RTK use"
+    last_verified: "2024-12-01"
+    notes: "46 stations for satellite navigation frame reference. Supports GPS, GLONASS, BeiDou, Galileo. Primary purpose is reference frame maintenance, not user positioning."
+
+  - provider: "Denmark TAPAS Testbed"
+    country: "DK"
+    reason: "Research testbed for autonomous systems, limited public access"
+    last_verified: "2024-12-01"
+    notes: "Test facility for Autonomous systems, Positioning And Safety. Operated by SDFE and DTU Space. Cm-level accuracy but designed for autonomous vehicle testing, not general public use."
+
+  # Services requiring special credentials or arrangements
+  - provider: "Germany SAPOS (State Services)"
+    country: "DE"
+    reason: "Fragmented state-level service requiring separate registrations"
+    last_verified: "2024-12-01"
+    notes: "SAPOS® operated by individual German federal states. Free in most states but requires separate registration per state. Some states charge fees. Consolidated access difficult. EUREF-IP BKG service recommended instead for research use."
+
+  - provider: "Belgium NGI/IGN AGN"
+    country: "BE"
+    reason: "Limited public RTK service, primarily reference frame maintenance"
+    last_verified: "2024-12-01"
+    notes: "Active Geodetic Network operated by National Geographic Institute. GPSBru upgraded station supports GPS/GLONASS but primary focus is geodetic reference frame, not public RTK services."
+
+  # Services with unclear current operational status
+  - provider: "Iceland GNSS Network"
+    country: "IS"
+    reason: "No publicly accessible NTRIP service identified"
+    last_verified: "2024-12-01"
+    notes: "Iceland has GNSS stations (including in Norway SATREF network) but no independent public NTRIP service confirmed."
+
+  - provider: "Denmark SDFE CORS (General)"
+    country: "DK"
+    reason: "No public NTRIP service identified for general users"
+    last_verified: "2024-12-01"
+    notes: "Danish Agency for Data Supply and Efficiency maintains geodetic infrastructure but no public RTK NTRIP service for general users confirmed. TAPAS is specialized testbed."
+
+  # Services requiring military or government clearance
+  - provider: "Various Military/Defense Networks"
+    countries: ["FR", "IT", "ES", "GR", "UK"]
+    reason: "Military/defense use only, requires security clearance"
+    last_verified: "2024-12-01"
+    notes: "Several European countries maintain military GNSS networks that are not accessible to civilian users."
+
+  # Regional/local commercial networks
+  - provider: "Various Commercial VRS Providers"
+    countries: ["DE", "FR", "IT", "ES", "UK", "PL"]
+    reason: "Numerous small commercial/regional providers requiring subscriptions"
+    last_verified: "2024-12-01"
+    notes: "Europe has many regional commercial RTK providers (surveying companies, equipment vendors, agricultural services). Too numerous to track and all require paid subscriptions. Government networks provide better public access."
+
+  # Services discontinued or merged
+  - provider: "Finland FinnRef (Independent Service)"
+    country: "FI"
+    reason: "Service may be integrated into National Land Survey operations"
+    last_verified: "2024-12-01"
+    notes: "Finland's National Land Survey distributes data from 20 calibrated stations to Europe-wide CORS network. Specific public NTRIP service details need verification."
+
+  # Cross-border cooperation networks (already covered by member services)
+  - provider: "EUPOS Multi-Country Initiative"
+    countries: ["PL", "CZ", "SK", "DE", "AT"]
+    reason: "Cooperative framework, not independent service - use individual country services"
+    last_verified: "2024-12-01"
+    notes: "EUPOS is a standardization framework for interoperability. Individual country services (ASG-EUPOS Poland, CZEPOS Czech, SKPOS Slovakia, etc.) provide the actual services."
+
+  # Estonia, Latvia, Lithuania
+  - provider: "Estonia ESTPOS"
+    country: "EE"
+    reason: "Public NTRIP service details need verification"
+    last_verified: "2024-12-01"
+    notes: "29 GNSS reference stations covering Estonia. Maintained by Estonian Land Board. Public NTRIP access details unclear. Undergoing vertical datum modernization to NAP."
+
+  - provider: "Latvia GNSS Network"
+    country: "LV"
+    reason: "Public NTRIP service details need verification"
+    last_verified: "2024-12-01"
+    notes: "Latvian Geospatial Information Agency maintains geodetic infrastructure. Cross-border harmonization project with Estonia ongoing. Public NTRIP service status unclear."
+
+  - provider: "Lithuania GNSS Network"
+    country: "LT"
+    reason: "Public NTRIP service details need verification"
+    last_verified: "2024-12-01"
+    notes: "Lithuanian geodetic authority maintains GNSS infrastructure. Uses NAP vertical datum. Public NTRIP service details need verification. GPS interference issues reported in 2024."
+
+  # Other countries needing investigation
+  - provider: "Hungary GNSS Network"
+    country: "HU"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Hungary likely has government geodetic GNSS network but public NTRIP service details not confirmed in research."
+
+  - provider: "Slovenia GNSS Network"
+    country: "SI"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Slovenia likely has government geodetic GNSS network but public NTRIP service details not confirmed in research."
+
+  - provider: "Croatia GNSS Network"
+    country: "HR"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Croatia likely has government geodetic GNSS network but public NTRIP service details not confirmed in research."
+
+  - provider: "Romania GNSS Network"
+    country: "RO"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Romania likely has government geodetic GNSS network but public NTRIP service details not confirmed in research."
+
+  - provider: "Bulgaria GNSS Network"
+    country: "BG"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Bulgaria mentioned in commercial network deployments but public government NTRIP service details not confirmed."
+
+  - provider: "Ireland/UK GNSS Networks"
+    countries: ["IE", "UK"]
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Both countries likely have geodetic GNSS networks (UK Ordnance Survey, Ireland OSI) but public NTRIP service details not confirmed in this research phase."
+
+  - provider: "Cyprus GNSS Network"
+    country: "CY"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Cyprus likely has government geodetic infrastructure but public NTRIP service details not confirmed."
+
+  - provider: "Malta GNSS Network"
+    country: "MT"
+    reason: "Research incomplete - public service details unknown"
+    last_verified: "2024-12-01"
+    notes: "Malta likely has government geodetic infrastructure but public NTRIP service details not confirmed."

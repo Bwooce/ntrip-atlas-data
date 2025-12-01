@@ -1,0 +1,53 @@
+service:
+  id: "usa_florida_fprn"
+  provider: "Florida Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "48.223.232.215"
+      port: 10000
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Florida state boundaries
+      lat_min: 24.5
+      lat_max: 31.0
+      lon_min: -87.6
+      lon_max: -80.0
+
+    hierarchical:
+      # Statewide coverage with excellent density
+      regional: 2         # Limited regional (Florida only)
+      national: 1         # No coverage outside Florida
+      state: 5            # Excellent state coverage (100 stations statewide)
+      local: 5            # Excellent local coverage throughout Florida
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.myfloridagps.com/sbc/Account/Register"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High accuracy (1-2cm horizontal, 2-3cm vertical)
+    network_type: "government"
+
+  metadata:
+    description: "Florida Permanent Reference Network - statewide GNSS reference station network"
+    stations: 100
+    coverage_area: "Florida statewide coverage including cooperative agencies"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access, no fees
+      - SpiderNet network technology
+      - NTRIP and TCP/IP protocols supported
+      - Formats: CMR, CMR+, RTCM 2.x, RTCM 3.x, RTCM 3.x MSM4
+      - Accuracy: 1-2cm horizontal, 2-3cm vertical
+      - Nearly 100 CORS stations across Florida
+      - Includes cooperative agency stations
+      - 24/7 availability
+      - Automatic account activation after email validation
+      - One account required per rover
+      - Legacy IP: 40.121.5.206 (check current documentation)

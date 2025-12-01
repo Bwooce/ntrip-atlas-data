@@ -1,0 +1,39 @@
+service:
+  id: "austria_apos"
+  provider: "Federal Office of Metrology and Surveying (BEV)"
+  country: "AT"
+
+  endpoints:
+    - hostname: "apos.bev.gv.at"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 46.4
+      lat_max: 49.0
+      lon_min: 9.5
+      lon_max: 17.2
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Central Europe/Alpine)
+      national: 5       # Excellent national coverage Austria
+      state: 5          # Excellent coverage all states
+      local: 5          # Excellent local coverage (50-70km spacing)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.bev.gv.at/en/Services/Products/Austrian-POsitioning-Service.html"
+
+  quality:
+    reliability_rating: 5  # Government network
+    accuracy_rating: 5     # Cm-level RTK accuracy
+    network_type: "government"
+
+  metadata:
+    description: "Austrian Positioning Service (APOS) multi-GNSS positioning network"
+    coverage_area: "All of Austria and border regions of neighboring countries"
+    last_verified: "2024-12-01"
+    notes: "Multi-constellation (GPS/GLONASS/Galileo). APOS-RTK (cm accuracy) and APOS-DGPS (sub-meter) services. Reference stations at 50-70km spacing. Cooperation with neighboring countries for cross-border coverage. Uses ETRS89. Requires fixed IP4 address registration."

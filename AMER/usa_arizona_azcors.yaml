@@ -1,0 +1,53 @@
+service:
+  id: "usa_arizona_azcors"
+  provider: "Arizona Department of Water Resources"
+  country: "US"
+
+  endpoints:
+    - hostname: "azcors.azwater.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Arizona state boundaries (with coverage gap in northern AZ)
+      lat_min: 31.3
+      lat_max: 37.0
+      lon_min: -114.8
+      lon_max: -109.0
+
+    hierarchical:
+      # Statewide coverage with northern gap
+      regional: 2         # Limited regional (Arizona only)
+      national: 1         # No national coverage
+      state: 4            # Good state coverage (gap in northern Arizona)
+      local: 4            # Good local coverage where available
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://azcors.azwater.gov/sbc/Account/Index"
+
+  quality:
+    reliability_rating: 5  # Government (State agency)
+    accuracy_rating: 5     # High government quality (centimeter-level)
+    network_type: "government"
+
+  metadata:
+    description: "Arizona Continuously Operating Reference Station Network"
+    stations: 52
+    coverage_area: "Arizona statewide (gap in northern Arizona)"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - SpiderNet network technology
+      - 37 state-managed CORS sites (ADWR)
+      - 15 EarthScope and National Park Service CORS sites
+      - Total: 52 CORS sites in Arizona
+      - NTRIP username and password required
+      - Real-time RTK datastream and RINEX data file access
+      - Centimeter-level accuracy for post-processing
+      - Coverage gap in northern Arizona noted by users
+      - Managed by Arizona Department of Water Resources
+      - Supports surveying, GIS, engineering applications

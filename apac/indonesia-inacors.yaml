@@ -1,0 +1,48 @@
+service:
+  id: indonesia_inacors
+  provider: Geospatial Information Agency (BIG)
+  country: IDN
+  endpoints:
+  - hostname: 103.22.171.6
+    port: 2001
+    ssl: false
+  - hostname: nrtk.big.go.id
+    port: 2001
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: -11.0
+      lat_max: 6.0
+      lon_min: 95.0
+      lon_max: 141.0
+    hierarchical:
+      local: 3
+      regional: 4
+      national: 5
+      state: 4
+      continental: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: http://nrtk.big.go.id/SBC/
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: InaCORS provides free Network RTK services across Indonesia's archipelago
+    stations: 160
+    coverage_area: All Indonesian provinces from equatorial to southern low-latitude regions
+    constellations:
+    - GPS
+    - GLONASS
+    - Galileo
+    - BeiDou
+    formats:
+    - VRS
+    - Nearest Base RTK
+    - MAX
+    - i-MAX
+    notes: Free service registration, supports SRGI 2013 coordinate system, 16,829+ registered users
+    last_verified: '2024-12-01'

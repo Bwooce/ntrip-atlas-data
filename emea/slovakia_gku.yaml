@@ -1,0 +1,39 @@
+service:
+  id: "slovakia_skpos"
+  provider: "Geodesy, Cartography and Cadastre Authority (GKU)"
+  country: "SK"
+
+  endpoints:
+    - hostname: "skpos.gku.sk"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 47.7
+      lat_max: 49.6
+      lon_min: 16.8
+      lon_max: 22.6
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Central Europe)
+      national: 5       # Excellent national coverage Slovakia
+      state: 5          # Excellent coverage all regions
+      local: 5          # Excellent local coverage with foreign station integration
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://skpos.gku.sk/en/index.php"
+
+  quality:
+    reliability_rating: 5  # Government network, modernized 2024
+    accuracy_rating: 5     # Cm-range accuracy with VRS
+    network_type: "government"
+
+  metadata:
+    description: "Slovak real-time positioning service (SKPOS) with VRS and nearest station methods"
+    coverage_area: "Slovakia nationwide with cross-border cooperation"
+    last_verified: "2024-12-01"
+    notes: "Major 2024 modernization: Trimble Alloy receiver replacement, BeiDou-3 support added May 2024, new nearest station service launched 2024. Multi-constellation (GPS/GLONASS/Galileo/BeiDou). Part of EUPOS. 24/7 availability. Uses ETRS89 and S-JTSK (JTSK03). A-class National Spatial Network. Data exchange with neighbors."

@@ -1,0 +1,53 @@
+service:
+  id: "usa_missouri_modot_rtn"
+  provider: "Missouri Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "gpsweb3.modot.mo.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Missouri state boundaries
+      lat_min: 36.0
+      lat_max: 40.6
+      lon_min: -95.8
+      lon_max: -89.1
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (Missouri only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://gpsweb3.modot.mo.gov/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High accuracy (±1cm)
+    network_type: "government"
+
+  metadata:
+    description: "Missouri Department of Transportation Real-Time GPS Network"
+    stations: 50
+    coverage_area: "Missouri statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - Pivot network (Trimble Pivot Platform)
+      - Accuracy: ±1cm real-time positioning
+      - Supports GPS, GLONASS, Galileo, BeiDou constellations
+      - Network upgraded for multi-constellation support
+      - VRS mount points: CMR+, CMRx, RTCM2.1, RTCM2.3, RTCM3.1, RTCM3Net
+      - Physical base stations operating 24/7
+      - Cellular communications for triangulation
+      - Better accuracies in harsh environments (tree canopy, urban areas)
+      - Notarized User Agreement required for access
+      - Email credentials provided after agreement submission

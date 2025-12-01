@@ -1,0 +1,43 @@
+service:
+  id: thailand_rtsd_cors
+  provider: Royal Thai Survey Department
+  country: THA
+  endpoints:
+  - hostname: cors.rtsd.mi.th
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 5.6
+      lat_max: 20.5
+      lon_min: 97.3
+      lon_max: 105.6
+    hierarchical:
+      local: 4
+      regional: 4
+      national: 5
+      state: 4
+      continental: 3
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.rtsd.mi.th
+  quality:
+    reliability_rating: 4
+    accuracy_rating: 4
+    network_type: government
+  metadata:
+    description: National CORS Data Center providing Network RTK positioning across Thailand
+    stations: 285
+    coverage_area: Nationwide coverage with VRS positioning
+    constellations:
+    - GPS
+    - GLONASS
+    - Galileo
+    - BeiDou
+    formats:
+    - VRS
+    - RINEX
+    notes: 4 cm accuracy, 4x faster than traditional surveying methods, managed by National CORS Data Center
+    last_verified: '2024-12-01'

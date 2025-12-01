@@ -1,0 +1,53 @@
+service:
+  id: "usa_massachusetts_macors"
+  provider: "Massachusetts Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "macors.massdot.state.ma.us"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Massachusetts state boundaries
+      lat_min: 41.2
+      lat_max: 42.9
+      lon_min: -73.5
+      lon_max: -69.9
+
+    hierarchical:
+      # Statewide coverage
+      regional: 1         # No regional coverage beyond Massachusetts
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage (18 stations ~50km apart)
+      local: 4            # Good local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://macors.massdot.state.ma.us/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High accuracy (1-3cm surveying, sub-meter GIS)
+    network_type: "government"
+
+  metadata:
+    description: "Massachusetts Continuously Operating Reference Station Network"
+    stations: 18
+    coverage_area: "Massachusetts statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - Pivot network technology
+      - 18 GNSS base stations approximately 50km apart
+      - Formats: RTCM 2.3, RTCM 3.1, CMR, CMR+, RTCM 3.2 MSM4
+      - RTCM3MSM_IMAX supports full constellation (GPS+GLONASS+Galileo+BeiDou)
+      - Accuracy: 1-3cm for surveying, sub-meter for GIS mapping
+      - Network mount points with virtual base station
+      - Account remains active with annual use
+      - Email confirmation with login credentials after registration
+      - Contact: macors@dot.state.ma.us
+      - Located at MassDOT maintenance facilities

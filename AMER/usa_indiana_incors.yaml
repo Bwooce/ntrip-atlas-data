@@ -1,0 +1,53 @@
+service:
+  id: "usa_indiana_incors"
+  provider: "Indiana Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "incors.in.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Indiana state boundaries
+      lat_min: 37.8
+      lat_max: 41.8
+      lon_min: -88.1
+      lon_max: -84.8
+
+    hierarchical:
+      # Statewide coverage with cross-border sharing
+      regional: 2         # Limited regional coverage (shares with neighbors)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage (60 total stations)
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://incors.in.gov/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality (centimeter-level)
+    network_type: "government"
+
+  metadata:
+    description: "Indiana Continuously Operating Reference Station Network"
+    stations: 60
+    coverage_area: "Indiana statewide plus shared stations with MI, OH, KY"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access (no access fees)
+      - Leica network technology
+      - 45 Indiana state-managed CORS sites
+      - 15 shared stations with Michigan, Ohio, Kentucky
+      - Total network: 60 CORS sites
+      - Formats: RTCM 2.x, RTCM 3.x (MAX, i-MAX, MSM4), CMR, CMR+
+      - GPS, GLONASS, Galileo, BeiDou support
+      - Signed User Agreement required
+      - Contact: incors@indot.in.gov, 317.522.9771
+      - Address: 120 South Shortridge Road, Indianapolis, IN 46219-6705
+      - Centimeter-level accuracy for surveying, GIS, engineering, scientific applications

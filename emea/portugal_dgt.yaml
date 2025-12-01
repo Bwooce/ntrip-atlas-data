@@ -1,0 +1,40 @@
+service:
+  id: "portugal_renep"
+  provider: "Directorate-General for Territory (DGT)"
+  country: "PT"
+
+  endpoints:
+    - hostname: "renep.dgterritorio.gov.pt"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 32.0
+      lat_max: 42.0
+      lon_min: -32.0
+      lon_max: -6.0
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Iberian Peninsula)
+      national: 5       # Excellent national coverage Portugal + autonomous regions
+      state: 5          # Excellent coverage mainland + Azores + Madeira
+      local: 4          # Strong local coverage (48 stations)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://renep.dgterritorio.gov.pt/"
+
+  quality:
+    reliability_rating: 5  # Government network
+    accuracy_rating: 5     # 2cm horizontal, 4cm vertical accuracy
+    network_type: "government"
+
+  metadata:
+    description: "Portuguese national GNSS permanent stations network (ReNEP)"
+    stations: 48
+    coverage_area: "Portugal mainland (42 stations) and autonomous regions (6 stations)"
+    last_verified: "2024-12-01"
+    notes: "GPS/GLONASS support. 10 stations connected to high-precision leveling network. Uses ETRS89/ETRF97 (mainland) and ITRF93 (autonomous regions). Data under CC BY 4.0 license."

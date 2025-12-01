@@ -1,0 +1,40 @@
+service:
+  id: "norway_satref"
+  provider: "Norwegian Mapping Authority (Kartverket)"
+  country: "NO"
+
+  endpoints:
+    - hostname: "159.162.103.14"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: 57.0
+      lat_max: 81.0
+      lon_min: 4.0
+      lon_max: 32.0
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Scandinavia)
+      national: 5       # Excellent national coverage within Norway
+      state: 4          # Strong coverage including Svalbard, Jan Mayen
+      local: 4          # Strong local coverage from 18+ stations
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "mailto:satref@kartverket.no"
+
+  quality:
+    reliability_rating: 5  # Government network, established 1989
+    accuracy_rating: 5     # Highest government quality
+    network_type: "government"
+
+  metadata:
+    description: "Norwegian government GNSS reference network (SATREF) with continuous GPS/GLONASS stations"
+    stations: 18
+    coverage_area: "Norway mainland, Svalbard, Jan Mayen, and Iceland station"
+    last_verified: "2024-12-01"
+    notes: "SATREF established 1989. Provides real-time RTCM and post-processing RINEX data. Uses EUREF89 coordinate system."

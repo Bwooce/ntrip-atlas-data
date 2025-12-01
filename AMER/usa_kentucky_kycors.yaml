@@ -1,0 +1,51 @@
+service:
+  id: "usa_kentucky_kycors"
+  provider: "Kentucky Transportation Cabinet"
+  country: "US"
+
+  endpoints:
+    - hostname: "kycors.ky.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Kentucky state boundaries
+      lat_min: 36.5
+      lat_max: 39.1
+      lon_min: -89.6
+      lon_max: -81.9
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (Kentucky only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage
+      local: 4            # Good local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://kycors.ky.gov/"
+
+  quality:
+    reliability_rating: 5  # Government (State cabinet)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Kentucky Real Time Reference Network"
+    stations: 40
+    coverage_area: "Kentucky statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - Pivot network (Trimble network technology)
+      - VRS mount points only (virtual base station)
+      - RTX_RTCM3_2 mount point: full constellation (GPS+GLONASS+Galileo+BeiDou)
+      - Operated by Kentucky Transportation Cabinet
+      - Reduces baseline effects through virtual base station
+      - Sensor map shows real-time station status
+      - Primarily for transportation and infrastructure projects
+      - Registration through official website required

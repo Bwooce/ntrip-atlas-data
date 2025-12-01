@@ -1,0 +1,52 @@
+service:
+  id: "usa_oregon_orgn"
+  provider: "Oregon Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "167.131.0.205"
+      port: 9881
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Oregon state boundaries
+      lat_min: 42.0
+      lat_max: 46.3
+      lon_min: -124.6
+      lon_max: -116.5
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (Oregon only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage (100 stations ~70km apart)
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.oregon.gov/odot/orgn/pages/index.aspx"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Oregon Real-time GNSS Network - permanently installed CORS network"
+    stations: 100
+    coverage_area: "Oregon statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Public access (check current registration requirements)
+      - ~100 continuously operating GNSS reference stations
+      - Station spacing: ~70km
+      - NTRIP Single Base RTK: Port 9879
+      - NTRIP Network RTK: Port 9881
+      - RTCM 3.x Extended data format
+      - Single-base and network RTK solutions available
+      - Operated by Oregon Department of Transportation
+      - Statewide coverage for real-time positioning
+      - Products and services for surveying and mapping applications

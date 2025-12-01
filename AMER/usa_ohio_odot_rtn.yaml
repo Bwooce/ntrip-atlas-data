@@ -1,0 +1,52 @@
+service:
+  id: "usa_ohio_odot_rtn"
+  provider: "Ohio Department of Transportation"
+  country: "US"
+
+  endpoints:
+    - hostname: "156.63.133.115"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Ohio state boundaries
+      lat_min: 38.4
+      lat_max: 42.3
+      lon_min: -84.8
+      lon_max: -80.5
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (Ohio only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://www.transportation.ohio.gov/"
+
+  quality:
+    reliability_rating: 5  # Government (State DOT)
+    accuracy_rating: 5     # High government quality
+    network_type: "government"
+
+  metadata:
+    description: "Ohio Real Time Network (RTN) - formerly ODOT VRS/ODOT CORS"
+    stations: 75
+    coverage_area: "Ohio statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Free public access
+      - Upgraded 2024 to support all GNSS constellations
+      - Supports GPS, GLONASS, Galileo, BeiDou, GPS L5
+      - Mount points: ODOT_G_R_E_C_RTX_CMRx (Trimble), ODOT_G_R_E_C_RTX_RTCM3 (non-Trimble)
+      - VRS mount points only (virtual base station)
+      - Request form required for login/password
+      - Contact: cors@dot.state.oh.us
+      - Network software and equipment upgraded for multi-constellation support
+      - Improved RTK corrections in difficult environments
+      - RTCM3 format supports full constellation

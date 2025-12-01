@@ -1,0 +1,41 @@
+service:
+  id: "france_rgp"
+  provider: "National Institute of Geographic and Forest Information (IGN)"
+  country: "FR"
+
+  endpoints:
+    - hostname: "rgp.ign.fr"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      lat_min: -21.5
+      lat_max: 51.5
+      lon_min: -63.0
+      lon_max: 10.0
+
+    hierarchical:
+      continental: 4    # Coverage includes overseas territories globally
+      regional: 5       # Excellent European coverage
+      national: 5       # Excellent national coverage France + overseas
+      state: 5          # Excellent state coverage (all departments)
+      local: 5          # Excellent local coverage (526+ stations)
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://rgp.ign.fr/"
+
+  quality:
+    reliability_rating: 5  # Government network
+    accuracy_rating: 5     # Highest government quality
+    network_type: "government"
+
+  metadata:
+    description: "French permanent GNSS network (RGP) covering mainland France and overseas territories"
+    stations: 526
+    coverage_area: "France (mainland + Guyana, Martinique, Guadeloupe, Saint-Barthélémy, Saint-Martin, Saint-Pierre-et-Miquelon, Réunion, Mayotte)"
+    last_verified: "2024-12-01"
+    notes: "Network managed by IGN with 50+ partners. Real-time NTRIP data (subject to CNES approval). Data under Etalab Open License. Hourly RINEX with 1-second sampling."

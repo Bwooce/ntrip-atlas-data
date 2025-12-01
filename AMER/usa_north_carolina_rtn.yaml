@@ -1,0 +1,52 @@
+service:
+  id: "usa_north_carolina_rtn"
+  provider: "North Carolina Department of Environment and Natural Resources"
+  country: "US"
+
+  endpoints:
+    - hostname: "rtn.nc.gov"
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # North Carolina state boundaries
+      lat_min: 33.8
+      lat_max: 36.6
+      lon_min: -84.3
+      lon_max: -75.5
+
+    hierarchical:
+      # Statewide coverage
+      regional: 2         # Limited regional (North Carolina only)
+      national: 1         # No national coverage
+      state: 5            # Excellent state coverage
+      local: 5            # Excellent local coverage
+
+  authentication:
+    method: "basic"
+    required: true
+    registration_required: true
+    registration_url: "https://rtn.nc.gov/Login.aspx"
+
+  quality:
+    reliability_rating: 5  # Government (State agency)
+    accuracy_rating: 5     # High government quality (centimeter-level)
+    network_type: "government"
+
+  metadata:
+    description: "North Carolina GNSS CORS and Real-Time Network"
+    stations: 75
+    coverage_area: "North Carolina statewide coverage"
+    last_verified: "2024-12-01"
+    notes: |
+      - Paid service ($500 one-time sign-up fee)
+      - Pivot network (Trimble network technology)
+      - VRS (Virtual Reference Station) system
+      - Eliminates need for base station setup
+      - Centimeter-level positioning in real-time
+      - Operated by NC Geodetic Survey (NCGC)
+      - Permanently fixed GNSS base stations linked for VRS
+      - Applications: precision agriculture, construction, mapping, GIS, cadastral, utilities, transportation
+      - Wireless internet technology for rover link
+      - Sensor map available at rtn.nc.gov

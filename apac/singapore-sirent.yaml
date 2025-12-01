@@ -1,0 +1,46 @@
+service:
+  id: singapore_sirent
+  provider: Singapore Land Authority
+  country: SGP
+  endpoints:
+  - hostname: 199.184.151.36
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      lat_min: 1.15
+      lat_max: 1.47
+      lon_min: 103.6
+      lon_max: 104.1
+    hierarchical:
+      local: 5
+      regional: 4
+      national: 3
+      state: 2
+      continental: 1
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://app.sla.gov.sg/sirent/
+  quality:
+    reliability_rating: 5
+    accuracy_rating: 5
+    network_type: government
+  metadata:
+    description: Singapore Satellite Positioning Reference Network (SiReNT) provides centimeter-level RTK positioning across Singapore
+    stations: 9
+    coverage_area: Singapore and offshore islands
+    constellations:
+    - GPS
+    - GLONASS
+    - Galileo
+    - BeiDou
+    - QZSS
+    formats:
+    - RTCM 2.3
+    - RTCM 3.1
+    - RTCM 3.2
+    - CMR
+    notes: Operated 24/7 with Trimble Alloy receivers, VRS and single-base RTK services available
+    last_verified: '2024-12-01'

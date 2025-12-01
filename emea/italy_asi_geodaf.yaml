@@ -1,0 +1,57 @@
+service:
+  id: italy_asi_geodaf
+  provider: Italian Space Agency (ASI) - Space Geodesy Center Giuseppe Colombo
+  country: IT
+
+  endpoints:
+    - hostname: euref-ip.asi.it
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Italy boundaries including Sicily and Sardinia
+      lat_min: 36.6
+      lat_max: 47.1
+      lon_min: 6.6
+      lon_max: 18.5
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Southern Europe)
+      national: 5       # Excellent national coverage Italy
+      state: 4          # Good regional coverage
+      local: 3          # Limited local station density
+
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: http://geodaf.mt.asi.it/gps_caster_access.php
+
+  quality:
+    reliability_rating: 5  # Government space agency network
+    accuracy_rating: 4     # Government quality, limited stations
+    network_type: government
+
+  metadata:
+    description: GeoDAF (Geodetic Data Archiving Facility) ASI NTRIP Caster
+    coverage_area: Italy national coverage via EUREF-IP network
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ETRF2000
+    coordinate_systems: [WGS84, ITRF2014]
+    notes: |
+      - Part of EUREF-IP network operated by Italian Space Agency (ASI)
+      - Space Geodesy Center "Giuseppe Colombo" (ASI/CGS) management
+      - Operating as EUREF NTRIP Broadcaster since 2009
+      - GNSS data collected at 30 sec rate
+      - Maximum 5 simultaneous connections
+      - Free registration required via web form
+      - Supporting EUREF-IP Project and Real-time IGS Pilot Project
+      - Data available for demonstration and evaluation purposes
+      - Service may have interruptions without prior notice
+      - Italian fiducial network integration
+      - Space geodetic observatory in international network
+      - Real-time streaming via NTRIP protocol

@@ -1,0 +1,59 @@
+service:
+  id: france_centipede_rtk
+  provider: Centipède RTK Community Network
+  country: FR
+
+  endpoints:
+    - hostname: caster.centipede.fr
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # France boundaries
+      lat_min: 41.3
+      lat_max: 51.1
+      lon_min: -5.3
+      lon_max: 9.6
+
+    hierarchical:
+      regional: 4       # Good regional coverage (Western Europe)
+      national: 4       # Good national coverage France
+      state: 4          # Good regional coverage
+      local: 5          # Excellent local coverage via community stations
+
+  authentication:
+    method: basic
+    required: false
+    registration_required: false
+    registration_url: https://centipede.fr/
+
+  quality:
+    reliability_rating: 4  # Community network, good reliability
+    accuracy_rating: 5     # Centimeter-level positioning accuracy
+    network_type: community
+
+  metadata:
+    description: Centipède-RTK collaborative open-source GNSS RTK network
+    coverage_area: France national coverage via community base stations
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.2, RTCM 3.3]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: RGF93
+    coordinate_systems: [WGS84, ETRF2000]
+    notes: |
+      - Global collaborative open-source and open-data RTK platform
+      - Community-driven network: "Everyone can contribute to Centipède!!!"
+      - Free and open RTK correction signals
+      - Centimeter-level positioning accuracy objective
+      - Continuous territory coverage model
+      - Open Database License for data
+      - Authorized Use Policy available
+      - Web map services (WMS/WMTS) available
+      - No registration required for basic access
+      - Community contributions welcomed
+      - Open-source platform development
+      - Real-time correction distribution
+      - Collaborative GNSS RTK base station network
+      - Supports precision agriculture, surveying, mapping applications

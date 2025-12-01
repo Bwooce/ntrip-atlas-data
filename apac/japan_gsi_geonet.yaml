@@ -6,8 +6,8 @@ service:
   # organization_type: government
   endpoints:
   - hostname: mgr.jcn.or.jp
-      port: 2101
-      ssl: false
+    port: 2101
+    ssl: false
   coverage:
     bounding_box:
       # Japan archipelago boundaries

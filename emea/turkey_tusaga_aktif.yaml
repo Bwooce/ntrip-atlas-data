@@ -1,0 +1,65 @@
+service:
+  id: turkey_tusaga_aktif
+  provider: General Directorate of Land Registration and Cadastre (TKGM)
+  country: TR
+
+  endpoints:
+    - hostname: 212.156.70.42
+      port: 2101
+      ssl: false
+
+  coverage:
+    bounding_box:
+      # Turkey boundaries including European and Asian parts
+      lat_min: 35.8
+      lat_max: 42.1
+      lon_min: 25.7
+      lon_max: 44.8
+
+    hierarchical:
+      regional: 5       # Excellent regional coverage (Anatolia/Middle East)
+      national: 5       # Excellent national coverage Turkey + N. Cyprus
+      state: 5          # Excellent provincial coverage
+      local: 5          # Excellent local coverage (168 stations)
+
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.tusaga-aktif.gov.tr/
+
+  quality:
+    reliability_rating: 5  # Government network, 24/7 operation
+    accuracy_rating: 5     # Centimeter-level accuracy
+    network_type: government
+
+  metadata:
+    description: TUSAGA-Aktif Turkish National Real-Time GNSS Network
+    stations: 168
+    coverage_area: Turkey and Northern Cyprus
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [VRS-RTCM3.1, RTCM3Net, FKP_RTCM31, VRS-CMRP, DGPSNet]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: ITRF96
+    coordinate_systems: [TUREF, WGS84, ED50]
+    pricing:
+      rtk_monthly: "795.00 TL"
+      rtk_yearly: "6,480.00 TL"
+      dgps_monthly: "320.00 TL"
+      dgps_yearly: "2,375.00 TL"
+    notes: |
+      - National Real-Time Kinematic GPS Network operated by TKGM
+      - 168 fixed GNSS base stations across Turkey and Northern Cyprus
+      - 2 control centers at TKGM and HGM
+      - 24/7 real-time positioning service (7/24 broadcasting)
+      - Centimeter-level accuracy within seconds
+      - Network-RTK techniques: VRS, FKP, MAC
+      - NetR5 reference stations technology
+      - RTCM Committee standards compliance
+      - Subscription-based service with web portal management
+      - Multiple data formats for different applications
+      - Real-time and post-processing capabilities
+      - Support: 444 46 77, bilgi@tusaga-aktif.gov.tr
+      - Commercial service for surveying, mapping, agriculture
+      - Government-operated for official cadastral work

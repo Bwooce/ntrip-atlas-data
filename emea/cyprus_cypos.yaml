@@ -1,0 +1,54 @@
+service:
+  id: cyprus_cypos
+  provider: Department of Land Surveys, Ministry of Interior, Republic of Cyprus
+  country: CY
+  endpoints:
+  - hostname: cypos.dls.moi.gov.cy
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Cyprus island boundaries
+      lat_min: 34.5
+      lat_max: 35.7
+      lon_min: 32.2
+      lon_max: 34.6
+    hierarchical:
+      # National coverage for Cyprus
+      continental: 3      # Regional Europe coverage
+      regional: 4         # Strong regional Eastern Mediterranean coverage
+      national: 5         # Excellent national coverage (entire island)
+      state: 5            # Excellent district coverage
+      local: 5            # Excellent local coverage (7 stations, dense network)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://portal.dls.moi.gov.cy/en/application_forms/engrafi-cypos/
+  quality:
+    reliability_rating: 5  # Government (National mapping authority)
+    accuracy_rating: 5     # Professional survey-grade infrastructure
+    network_type: government
+  metadata:
+    description: Cyprus Positioning System - National GNSS reference network providing real-time corrections
+    stations: 7
+    coverage_area: Free areas of Republic of Cyprus
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: Cyprus Local Grid
+    coordinate_systems: [ITRF, WGS84, Cyprus TM]
+    notes: |
+      - 7 permanent GNSS stations: Nicosia, Limassol, Larnaca, Paphos, Paralimni, Polis, Evrychou
+      - Continuous operation 24/7/365 since 2010
+      - Pan-Cyprus coverage in free areas of Cyprus
+      - Government-operated FREE service (registration required)
+      - Provides VRS, iMAX, FKP, and MAC correction methods
+      - Professional survey-grade accuracy for high-precision applications
+      - Registration through Cyprus government portal (portal.dls.moi.gov.cy)
+      - Economical solution requiring only one GPS receiver in field
+      - Not compatible with mobile phone GPS receivers
+      - Eliminates need for permanent trigonometric points
+      - Department of Land Surveys technical support available
+      - Real-time web-based precision satellite observations

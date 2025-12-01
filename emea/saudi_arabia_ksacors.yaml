@@ -3,7 +3,7 @@ service:
   provider: General Authority for Survey and Geospatial Information (GEOSA)
   country: SA
   endpoints:
-  - hostname: authorization-required.example.com  # Contact GEOSA for authorized access
+  - hostname: auth-required.example.com  # Contact GEOSA for authorized access
     port: 2101
     ssl: false
   coverage:

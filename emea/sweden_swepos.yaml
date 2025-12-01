@@ -31,7 +31,7 @@ service:
   quality:
     reliability_rating: 5  # Government service with professional support
     accuracy_rating: 5     # Professional centimeter-level accuracy
-    network_type: government_commercial
+    network_type: government
   metadata:
     description: SWEPOS Network RTK service with 480 reference stations across Sweden
     stations: "480"

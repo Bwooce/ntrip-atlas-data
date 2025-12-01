@@ -8,6 +8,18 @@ excluded_services:
     country: "US"
     reason: "Post-processing only, no real-time NTRIP service provided directly by NOAA"
     last_verified: "2024-12-01"
+
+  # Peru REGPMOC
+  - provider: "Instituto Geográfico Nacional del Perú"
+    country: "PE"
+    service_name: "REGPMOC - Red Geodésica Peruana de Monitoreo Continuo"
+    reason: "NTRIP hostname not publicly accessible, requires registration through IGN Peru"
+    last_verified: "2024-12-01"
+    notes: |
+      75 permanent tracking stations (ERP) in REGPMOC network.
+      Network provides geodetic infrastructure for Peru.
+      Real-time corrections likely available but access details not public.
+      Contact IGN Peru directly for NTRIP credentials.
     notes: |
       NOAA's Continuously Operating Reference Station (CORS) Network provides GNSS data for
       post-processing only. The NCN prototype real-time service was discontinued due to low usage

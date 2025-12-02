@@ -1,0 +1,63 @@
+service:
+  id: brazil_rbmc_ip_ibge
+  provider: Instituto Brasileiro de Geografia e Estatística (IBGE)
+  country: BR
+  endpoints:
+  - hostname: 170.84.40.52  # IBGE NTRIP Caster for RBMC-IP network
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Brazil coverage
+      lat_min: -33.8
+      lat_max: 5.3
+      lon_min: -73.9
+      lon_max: -28.8
+    hierarchical:
+      # National government network coverage
+      continental: 4      # Strong South American coverage
+      regional: 5         # Excellent regional SIRGAS coverage
+      national: 5         # Excellent national coverage (144 stations total)
+      state: 5           # Excellent state coverage
+      local: 5           # Excellent local coverage (104 real-time stations)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.ibge.gov.br/en/geosciences/geodetic-positioning/services-for-geodetic-positioning/19291-brazilian-network-for-continuous-monitoring-of-the-gnss-systems-in-real-time.html
+  quality:
+    reliability_rating: 5  # Government service with world-class infrastructure
+    accuracy_rating: 5     # ±5mm precision (world-class accuracy)
+    network_type: government
+  metadata:
+    description: Brazilian Network for Continuous Monitoring of GNSS Systems providing world-class RTK and DGPS corrections
+    stations: "144"
+    coverage_area: Brazil nationwide (104 real-time stations)
+    last_verified: 2024-12-01
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.x, RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: SIRGAS2000
+    coordinate_systems: [SIRGAS2000, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_free: true
+    notes: |
+      - RBMC: Rede Brasileira de Monitoramento Contínuo dos Sistemas GNSS
+      - RBMC-IP: 104 stations transmitting real-time data via NTRIP (1-second rate)
+      - Operated by IBGE (Instituto Brasileiro de Geografia e Estatística)
+      - World-class ±5mm precision coordinates (SIRGAS Reference Network)
+      - Complete SIRGAS (Geocentric Reference System for the Americas) integration
+      - Direct NTRIP access: 170.84.40.52:2101
+      - Multiple correction streams: SIRGAS00001 (GPS), SIRGAS0002 (GNSS), RTCM3EPH
+      - RTK and DGPS positioning services available
+      - PPP (Precise Point Positioning) in real-time support
+      - 4,000+ registered users annually, 300,000+ monthly file downloads
+      - RINEX 3 format support (1-second interval files since 2020)
+      - Free service for all users with internet access
+      - Eliminates need for base station pairs, supports longer baselines
+      - BNC (BKG NTRIP Client) and RTKLIB compatibility
+      - Part of Brazil's national geodetic infrastructure and SIRGAS continental network
+      - Contact: IBGE Coordination of Geodesy for registration and technical support

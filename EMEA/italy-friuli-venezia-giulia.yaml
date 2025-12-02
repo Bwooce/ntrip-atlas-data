@@ -1,7 +1,7 @@
 service:
   id: italy_friuli_venezia_giulia
   provider: Regione Autonoma Friuli Venezia Giulia
-  country: ITA
+  country: IT
   endpoints:
   - hostname: gnsscaster.regione.fvg.it
     port: 8080

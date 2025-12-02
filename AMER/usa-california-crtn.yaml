@@ -1,7 +1,7 @@
 service:
   id: usa_california_crtn
   provider: California Spatial Reference Center (CSRC) / UC San Diego
-  country: USA
+  country: US
   endpoints:
   - hostname: sopac-csrc.ucsd.edu
     port: 2101

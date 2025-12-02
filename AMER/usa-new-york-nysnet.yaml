@@ -1,7 +1,7 @@
 service:
   id: usa_new_york_nysnet
   provider: New York State Department of Transportation (NYSDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: cors.dot.ny.gov
     port: 2101

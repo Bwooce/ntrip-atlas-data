@@ -1,7 +1,7 @@
 service:
   id: spain_ergnss
   provider: "Instituto Geogr\xE1fico Nacional (IGN)"
-  country: ESP
+  country: ES
   endpoints:
   - hostname: qsm.ign.es
     port: 2101

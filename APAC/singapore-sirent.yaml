@@ -1,7 +1,7 @@
 service:
   id: singapore_sirent
   provider: Singapore Land Authority
-  country: SGP
+  country: SG
   endpoints:
   - hostname: 199.184.151.36
     port: 2101

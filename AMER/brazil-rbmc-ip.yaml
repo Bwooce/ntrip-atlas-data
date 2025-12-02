@@ -1,7 +1,7 @@
 service:
   id: brazil_rbmc_ip
   provider: IBGE (Brazilian Institute of Geography and Statistics)
-  country: BRA
+  country: BR
   endpoints:
   - hostname: rbmc.ibge.gov.br
     port: 2101

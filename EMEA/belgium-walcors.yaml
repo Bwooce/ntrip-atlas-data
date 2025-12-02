@@ -1,7 +1,7 @@
 service:
   id: belgium_walcors
   provider: Service Public de Wallonie
-  country: BEL
+  country: BE
   endpoints:
   - hostname: gnss.wallonie.be
     port: 2101

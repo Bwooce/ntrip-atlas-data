@@ -1,7 +1,7 @@
 service:
   id: indonesia_inacors
   provider: Geospatial Information Agency (BIG)
-  country: IDN
+  country: ID
   endpoints:
   - hostname: 103.22.171.6
     port: 2001

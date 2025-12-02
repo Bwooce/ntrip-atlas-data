@@ -1,7 +1,7 @@
 service:
   id: philippines_pagenet
   provider: National Mapping and Resource Information Authority (NAMRIA)
-  country: PHL
+  country: PH
   endpoints:
   - hostname: pagenet.namria.gov.ph
     port: 2101

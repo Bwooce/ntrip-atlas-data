@@ -1,7 +1,7 @@
 service:
   id: czech_czepos
   provider: "Czech Office for Surveying, Mapping and Cadastre (\u010C\xDAZK)"
-  country: CZE
+  country: CZ
   endpoints:
   - hostname: czepos.cuzk.cz
     port: 2101

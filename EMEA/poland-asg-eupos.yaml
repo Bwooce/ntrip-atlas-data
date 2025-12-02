@@ -1,7 +1,7 @@
 service:
   id: poland_asg_eupos
   provider: Central Office of Geodesy and Cartography (GUGiK)
-  country: POL
+  country: PL
   endpoints:
   - hostname: 91.199.118.218
     port: 2101

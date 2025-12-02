@@ -1,7 +1,7 @@
 service:
   id: belgium_flepos
   provider: Flemish Government
-  country: BEL
+  country: BE
   endpoints:
   - hostname: flepos.vlaanderen.be
     port: 2101

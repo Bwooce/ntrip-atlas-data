@@ -1,7 +1,7 @@
 service:
   id: malaysia_myrtknet
   provider: Department of Survey and Mapping Malaysia (JUPEM)
-  country: MYS
+  country: MY
   endpoints:
   - hostname: 202.75.44.154
     port: 8080

@@ -1,7 +1,7 @@
 service:
   id: argentina_ramsac
   provider: "Instituto Geogr\xE1fico Nacional (IGN)"
-  country: ARG
+  country: AR
   endpoints:
   - hostname: ramsac.ign.gob.ar
     port: 2101

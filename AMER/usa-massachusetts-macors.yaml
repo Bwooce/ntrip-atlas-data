@@ -1,7 +1,7 @@
 service:
   id: massachusetts_macors
   provider: Massachusetts Department of Transportation (MassDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: 64.28.83.185
     port: 10000

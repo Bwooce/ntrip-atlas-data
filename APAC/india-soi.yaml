@@ -1,7 +1,7 @@
 service:
   id: india_soi_cors
   provider: Survey of India
-  country: IND
+  country: IN
   endpoints:
   - hostname: cors.surveyofindia.gov.in
     port: 2101

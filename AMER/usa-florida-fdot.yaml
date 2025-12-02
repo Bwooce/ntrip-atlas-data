@@ -1,7 +1,7 @@
 service:
   id: usa_florida_fdot
   provider: Florida Department of Transportation (FDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: fdot.fl.gov
     port: 2101

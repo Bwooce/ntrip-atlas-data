@@ -1,7 +1,7 @@
 service:
   id: usa_mississippi_gcgc
   provider: Gulf Coast GNSS Cooperative / Mississippi DOT
-  country: USA
+  country: US
   endpoints:
   - hostname: gcgc.ms.gov
     port: 2101

@@ -1,7 +1,7 @@
 service:
   id: finland_finnref
   provider: National Land Survey of Finland (NLS)
-  country: FIN
+  country: FI
   endpoints:
   - hostname: finpos.nls.fi
     port: 2101

@@ -1,7 +1,7 @@
 service:
   id: geoscience_australia
   provider: Geoscience Australia
-  country: AUS
+  country: AU
   endpoints:
   - hostname: ntrip.data.gnss.ga.gov.au
     port: 443

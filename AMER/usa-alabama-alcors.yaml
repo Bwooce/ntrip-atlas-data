@@ -1,7 +1,7 @@
 service:
   id: usa_alabama_alcors
   provider: Alabama Department of Transportation (ALDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: alcors.dot.state.al.us
     port: 2101

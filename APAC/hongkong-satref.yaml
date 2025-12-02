@@ -1,7 +1,7 @@
 service:
   id: hongkong_satref
   provider: Lands Department, Hong Kong
-  country: HKG
+  country: HK
   endpoints:
   - hostname: ntrip.csrw.gov.hk
     port: 2101

@@ -1,7 +1,7 @@
 service:
   id: taiwan_e_gnss
   provider: National Land Surveying and Mapping Center (NLSC)
-  country: TWN
+  country: TW
   endpoints:
   - hostname: egnss.nlsc.gov.tw
     port: 2101

@@ -1,7 +1,7 @@
 service:
   id: norway_satref
   provider: Norwegian Mapping Authority (Kartverket)
-  country: NOR
+  country: NO
   endpoints:
   - hostname: 159.162.103.14
     port: 2101

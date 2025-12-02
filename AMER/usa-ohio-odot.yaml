@@ -1,7 +1,7 @@
 service:
   id: usa_ohio_odot
   provider: Ohio Department of Transportation (ODOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: odot.ohio.gov
     port: 2101

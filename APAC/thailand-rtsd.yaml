@@ -1,7 +1,7 @@
 service:
   id: thailand_rtsd_cors
   provider: Royal Thai Survey Department
-  country: THA
+  country: TH
   endpoints:
   - hostname: cors.rtsd.mi.th
     port: 2101

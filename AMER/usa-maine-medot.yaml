@@ -1,7 +1,7 @@
 service:
   id: usa_maine_medot
   provider: Maine Department of Transportation (MaineDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: medot.maine.gov
     port: 2101

@@ -1,7 +1,7 @@
 service:
   id: netherlands_netpos
   provider: Kadaster & Rijkswaterstaat
-  country: NLD
+  country: NL
   endpoints:
   - hostname: ntrip.kadaster.nl
     port: 2101

@@ -1,7 +1,7 @@
 service:
   id: usa_minnesota_mncors
   provider: Minnesota Department of Transportation (MnDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: mncors.dot.state.mn.us
     port: 2101

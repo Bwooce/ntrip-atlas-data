@@ -1,7 +1,7 @@
 service:
   id: usa_michigan_mdot
   provider: Michigan Department of Transportation (MDOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: mdot.mi.gov
     port: 2101

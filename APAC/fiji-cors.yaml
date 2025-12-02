@@ -1,7 +1,7 @@
 service:
   id: fiji_cors
   provider: Department of Lands and Survey, Fiji
-  country: FJI
+  country: FJ
   endpoints:
   - hostname: fiji.cors.ga.gov.au
     port: 2101

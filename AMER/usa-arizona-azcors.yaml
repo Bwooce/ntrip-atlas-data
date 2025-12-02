@@ -1,7 +1,7 @@
 service:
   id: usa_arizona_azcors
   provider: Arizona Department of Transportation (ADOT)
-  country: USA
+  country: US
   endpoints:
   - hostname: azcors.azdot.gov
     port: 2101

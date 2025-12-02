@@ -1,7 +1,7 @@
 service:
   id: usa_earthscope_nota
   provider: EarthScope Consortium (formerly UNAVCO)
-  country: USA
+  country: US
   endpoints:
   - hostname: ntrip.earthscope.org
     port: 2101

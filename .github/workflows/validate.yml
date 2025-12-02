@@ -43,10 +43,10 @@ jobs:
     - name: Auto-update VERSION file
       run: |
         # Count actual service files (excluding metadata files)
-        TOTAL_COUNT=$(find . -name "*.yaml" -not -name "excluded_services.yaml" -not -name "commercial_pricing_notes.yaml" -not -name "schema.yaml" | wc -l)
+        TOTAL_COUNT=$(find . -name "*.yaml" -not -name "excluded_services.yaml" -not -name "schema.yaml" | wc -l)
 
         # Count services by region
-        GLOBAL_COUNT=$(find ./global -name "*.yaml" -not -name "*excluded*" -not -name "*pricing*" 2>/dev/null | wc -l || echo 0)
+        GLOBAL_COUNT=$(find ./global -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
         EMEA_COUNT=$(find ./emea -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
         APAC_COUNT=$(find ./apac -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
         AMER_COUNT=$(find ./AMER -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
@@ -117,7 +117,7 @@ jobs:
     - name: Verify service count consistency
       run: |
         # Count actual YAML files (excluding metadata)
-        ACTUAL_COUNT=$(find . -name "*.yaml" -not -name "excluded_services.yaml" -not -name "commercial_pricing_notes.yaml" -not -name "schema.yaml" | wc -l)
+        ACTUAL_COUNT=$(find . -name "*.yaml" -not -name "excluded_services.yaml" -not -name "schema.yaml" | wc -l)
         DECLARED_COUNT=$(grep "TOTAL_SERVICES=" VERSION | cut -d'=' -f2)
 
         if [ "$ACTUAL_COUNT" -ne "$DECLARED_COUNT" ]; then
@@ -131,7 +131,7 @@ jobs:
         echo "Geographic service distribution:"
 
         # Use same counting logic as auto-update step
-        GLOBAL_COUNT=$(find ./global -name "*.yaml" -not -name "*excluded*" -not -name "*pricing*" 2>/dev/null | wc -l || echo 0)
+        GLOBAL_COUNT=$(find ./global -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
         EMEA_COUNT=$(find ./emea -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
         APAC_COUNT=$(find ./apac -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)
         AMER_COUNT=$(find ./AMER -name "*.yaml" -not -name "*excluded*" 2>/dev/null | wc -l || echo 0)

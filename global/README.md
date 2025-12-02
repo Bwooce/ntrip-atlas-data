@@ -88,12 +88,11 @@ This directory contains YAML definitions for global and multi-continental NTRIP 
 ## Additional Documentation
 
 ### Commercial Pricing Information
-See `commercial_pricing_notes.yaml` for detailed pricing information including:
-- Monthly subscription costs by service tier
-- Coverage area pricing differences
-- Academic/educational discounts
-- Free trial availability
-- Enterprise pricing models
+For detailed pricing information, contact service providers directly:
+- Monthly subscription costs vary by service tier and geographic coverage
+- Academic/educational discounts may be available
+- Free trial availability varies by provider
+- Enterprise pricing models available for high-volume users
 
 ### Excluded Services
 See `excluded_commercial_services.yaml` for documentation of commercial services that were researched but excluded from the database, including:

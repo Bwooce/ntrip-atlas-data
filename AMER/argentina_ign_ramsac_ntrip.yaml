@@ -1,0 +1,63 @@
+service:
+  id: argentina_ign_ramsac_ntrip
+  provider: Instituto Geográfico Nacional de Argentina (IGN)
+  country: AR
+  endpoints:
+  - hostname: ntrip.ign.gob.ar  # Official IGN RAMSAC-NTRIP caster
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Argentina coverage
+      lat_min: -55.0
+      lat_max: -21.8
+      lon_min: -73.6
+      lon_max: -53.6
+    hierarchical:
+      # Government geodetic network coverage
+      continental: 5      # Excellent South American SIRGAS coverage
+      regional: 5         # Excellent regional coverage
+      national: 5         # Excellent national coverage (69 stations)
+      state: 5           # Excellent provincial coverage
+      local: 4           # Good local coverage across provinces
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.ign.gob.ar/NuestrasActividades/Geodesia/RamsacNtrip/Registro
+  quality:
+    reliability_rating: 5  # Government service since 2010
+    accuracy_rating: 5     # Centimeter RTK + 1-5m DGPS precision
+    network_type: government
+  metadata:
+    description: Argentine National GNSS monitoring network providing free real-time positioning via RAMSAC-NTRIP
+    stations: "69"
+    coverage_area: Argentina nationwide (established 1998)
+    last_verified: 2024-12-02
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.3, RTCM 3.0]
+    constellations: [GPS, GLONASS]
+    primary_crs: POSGAR07
+    coordinate_systems: [POSGAR07, SIRGAS2000, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_free: true
+    notes: |
+      - RAMSAC: Red Argentina de Monitoreo Satelital Continuo (since 1998)
+      - IGN Argentina: Instituto Geográfico Nacional - national mapping agency
+      - RAMSAC-NTRIP: Real-time positioning service operational since 2010
+      - 69 permanent GNSS stations providing continuous corrections
+      - SIRGAS Local Processing Center (GNA) designated January 1, 2011
+      - FREE and unrestricted access via ntrip.ign.gob.ar:2101
+      - Maximum connection time: 8 hours per session (renewable)
+      - RTK applications: Centimeter accuracy (50km dual-freq, 20km single-freq)
+      - DGPS applications: 1-5 meter accuracy (500km range)
+      - POSGAR 07 reference frame requirement for optimal results
+      - RTCM 2.3 and 3.0 corrections depending on receiver type
+      - Multi-institutional network: government, universities, professional councils
+      - IGS and SIRGAS network integration for continental solutions
+      - Registration required at ign.gob.ar/geodesia/ramsac-ntrip/registro
+      - Technical support: cfrediani@ign.gob.ar (Cristian Frediani)
+      - Supports precision agriculture, navigation, surveying applications

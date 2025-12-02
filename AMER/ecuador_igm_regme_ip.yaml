@@ -1,0 +1,62 @@
+service:
+  id: ecuador_igm_regme_ip
+  provider: Instituto Geográfico Militar del Ecuador (IGM)
+  country: EC
+  endpoints:
+  - hostname: ntrip.igm.gob.ec  # Official IGM NTRIP domain
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Ecuador coverage
+      lat_min: -5.0
+      lat_max: 1.5
+      lon_min: -92.0
+      lon_max: -75.0
+    hierarchical:
+      # Government geodetic network coverage
+      continental: 4      # Strong South American SIRGAS coverage
+      regional: 5         # Excellent Andean regional coverage
+      national: 5         # Excellent national coverage (expanded network)
+      state: 4           # Good provincial coverage
+      local: 4           # Good local coverage (4+ integrated stations)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: http://www.geoportaligm.gob.ec/ntrip/public/register
+  quality:
+    reliability_rating: 5  # Government geodetic service
+    accuracy_rating: 5     # Professional SIRGAS geodetic precision
+    network_type: government
+  metadata:
+    description: Ecuador National GNSS continuous monitoring network providing free real-time REGME-IP positioning service
+    stations: "4+"
+    coverage_area: Ecuador nationwide (REGME network expansion)
+    last_verified: 2024-12-02
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 2.3, RTCM 3.0]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: SIRGAS2000
+    coordinate_systems: [SIRGAS2000, SIRGAS_Ecuador, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_free: true
+    notes: |
+      - IGM Ecuador: Official national cartographic and geodetic authority
+      - REGME-IP: Real-time Precise Positioning Service via NTRIP protocol
+      - SIRGAS Official Adoption: Official Registry No. 132 (January 30, 2020)
+      - CEPGE: Centro de Procesamiento de datos GNSS del Ecuador processing center
+      - 4+ GNSS stations integrated into REGME-IP real-time service (expanding)
+      - FREE service for national and international GNSS community (no cost)
+      - RTCM 2.3 and RTCM 3.0 correction stream formats supported
+      - SIRGAS-CON network integration (420 continental stations)
+      - Direct NTRIP access via ntrip.igm.gob.ec domain
+      - National Geodetic Reference Framework maintenance and updates
+      - Gravimetric network data and GNSS data downloads available
+      - Registration portal: geoportaligm.gob.ec/ntrip/public/register
+      - Technical support: regme.igm@geograficomilitar.gob.ec (02-3975100 ext. 4421)
+      - Tutorial videos and comprehensive geodetic services through institutional geoportal
+      - Part of broader Ecuadorian spatial data infrastructure initiative

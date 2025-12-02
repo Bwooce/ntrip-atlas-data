@@ -3,7 +3,7 @@ service:
   provider: Direção-Geral do Território (DGT) - ReNEP
   country: PT
   endpoints:
-  - hostname: register.example.com  # Contact renep@dgterritorio.pt for access
+  - hostname: renep.dgterritorio.gov.pt
     port: 2101
     ssl: false
   coverage:

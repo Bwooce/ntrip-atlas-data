@@ -1,0 +1,60 @@
+service:
+  id: chile_geocom_gnss
+  provider: GEOCOM S.A.
+  country: CL
+  endpoints:
+  - hostname: register.example.com  # Contact GEOCOM for GNSS network access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Chile coverage
+      lat_min: -56.0
+      lat_max: -17.5
+      lon_min: -109.5
+      lon_max: -66.0
+    hierarchical:
+      # Commercial network coverage
+      continental: 3      # Regional South American coverage
+      regional: 4         # Good Andean regional coverage
+      national: 4         # Good national coverage (27 stations total)
+      state: 4           # Good provincial coverage
+      local: 3           # Moderate local coverage
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://www.geocom.cl/pages/red-gnss
+  quality:
+    reliability_rating: 4  # Commercial service with 15+ years operation
+    accuracy_rating: 4     # Professional RTK accuracy
+    network_type: commercial
+  metadata:
+    description: GEOCOM commercial GNSS network providing RTK corrections and post-processing data throughout Chile
+    stations: "27"
+    coverage_area: Chile nationwide (15+ years continuous operation)
+    last_verified: 2024-12-02
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, Galileo]
+    primary_crs: SIRGAS2000
+    coordinate_systems: [SIRGAS2000, SIRGAS_Chile_2025, WGS84]
+  metadata:
+    pricing:
+      commercial_subscription: true
+      professional_rates: true
+      contact_required: true
+    notes: |
+      - GEOCOM S.A.: Commercial GNSS network operator in Chile (15+ years operation)
+      - 27 total stations: 15 SIRGAS-connected + 12 additional reference stations
+      - SIRGAS-Chile 2025.0 epoch compatibility with IGM national framework
+      - Real-time RTK corrections via NTRIP multistation service
+      - Post-processing data repository with Trimble T02 format files
+      - Professional surveying and engineering applications support
+      - Infrastructure improvements: new antennas, expanded station coverage
+      - IGb20 reference frame implementation for enhanced accuracy
+      - Integration with Chilean Military Geographic Institute (IGM) calculations
+      - Benefits for GEOCOM and Trimble users with real-time data access
+      - Support for mobile GNSS RTK positioning throughout Chilean territory
+      - Contact GEOCOM through www.geocom.cl for subscription and technical details
+      - Alternative to government IGM SIRGAS-Chile network for commercial users

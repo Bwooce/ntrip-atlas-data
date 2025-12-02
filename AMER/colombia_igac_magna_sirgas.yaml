@@ -1,0 +1,63 @@
+service:
+  id: colombia_igac_magna_sirgas
+  provider: Instituto Geográfico Agustín Codazzi (IGAC)
+  country: CO
+  endpoints:
+  - hostname: register.example.com  # Contact IGAC Centro de Control Geodésico for access
+    port: 2101
+    ssl: false
+  coverage:
+    bounding_box:
+      # Colombia coverage
+      lat_min: -4.2
+      lat_max: 13.4
+      lon_min: -82.0
+      lon_max: -66.9
+    hierarchical:
+      # Government geodetic network coverage
+      continental: 4      # Strong South American SIRGAS coverage
+      regional: 5         # Excellent Andean regional coverage
+      national: 5         # Excellent national coverage (targeting 150 stations)
+      state: 5           # Excellent departmental coverage
+      local: 4           # Good local coverage (developing)
+  authentication:
+    method: basic
+    required: true
+    registration_required: true
+    registration_url: https://redgeodesica.igac.gov.co/
+  quality:
+    reliability_rating: 5  # Government geodetic service
+    accuracy_rating: 5     # Professional geodetic-grade MAGNA-SIRGAS precision
+    network_type: government
+  metadata:
+    description: Colombian National Geodetic Network providing MAGNA-SIRGAS framework with real-time NTRIP and VRS services
+    stations: "150"
+    coverage_area: Colombia nationwide (RED MAGNA-ECO)
+    last_verified: 2024-12-02
+    ntrip_version: 2.0
+    rtcm_formats: [RTCM 3.x]
+    constellations: [GPS, GLONASS, QZSS, BeiDou, Galileo]
+    primary_crs: MAGNA_SIRGAS
+    coordinate_systems: [MAGNA_SIRGAS, SIRGAS2000, WGS84]
+  metadata:
+    pricing:
+      government_free: true
+      academic_free: true
+      commercial_free: true
+    notes: |
+      - IGAC: Instituto Geográfico Agustín Codazzi - Colombia's national mapping agency
+      - MAGNA-SIRGAS: Official geocentric national reference datum of Colombia
+      - RED MAGNA-ECO: National GNSS geodetic network targeting 150 stations
+      - Multi-constellation support: GPS, GLONASS, QZSS, BeiDou, Galileo real-time solutions
+      - VRS (Virtual Reference Stations) and NTRIP real-time services available
+      - PPP (Precise Point Positioning) service for high-precision coordinates
+      - SIRGAS Local Processing Centre for continental reference frame
+      - RINEX 2.11 and 3.0 format data (15-second sampling rate)
+      - Centro de Control Geodésico Nacional: Real-time services management portal
+      - Integration with GeoRED stations (Colombian Geological Service)
+      - GNSS Colombia stations and third-party linked stations included
+      - Daily RINEX data for post-processing applications
+      - SIRGAS Real-Time project (SIRGAS-RT) active participation
+      - Platform under development - contact IGAC for current service status
+      - Register at redgeodesica.igac.gov.co for access to real-time services
+      - Contact IGAC geodesia division for technical support and connection details
